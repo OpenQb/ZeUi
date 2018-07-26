@@ -1,0 +1,22 @@
+{
+    "name"			: "ZeUi",
+	"version"		: "1.0.0",
+    "build"         : 1,
+    "namespace"		: "com.cliodin.qb.zeui",
+	
+	"supportedOs"   : ["android","ios","osx","windows","linux"],
+    "tags"          : "User Interface",
+
+	"category"      : "Applications",
+    "subCategory"   : "Libraries & Demo",
+    "genre"   		: "Libraries & Demo",
+	
+    "minQbVersion"  : "1.0.0",
+    "appVariant"    : "APP",
+    "packageVariant": "QXP",
+
+    "description"   : "ZeUi is useful for rapid application prototyping",
+
+    "author"		: [{"name":"Kawser","link":"https://github.com/mkawserm"}],
+    "projectLink"	: []
+}
