@@ -9,23 +9,41 @@ QbApp {
     minimumWidth: 500
     property string gridState: "xs"
     property bool isAddingPage: false;
-
+    property int scrollMode: 0
+    /*
+      0 - infinite height. fixed width
+      1 - infinite width. fixed height
+    */
     onWidthChanged: {
-        appResized();
+        if(objBaseAppUi.scrollMode === 0){
+            appResized();
+        }
+    }
+    onHeightChanged: {
+        if(objBaseAppUi.scrollMode === 1){
+            appResized();
+        }
     }
 
     function appResized(){
-        var w = objBaseAppUi.width;
-        if(w<576){
+        var s;
+        if(objBaseAppUi.scrollMode === 0){
+            s = objBaseAppUi.width;
+        }
+        else{
+            s = objBaseAppUi.height;
+        }
+
+        if(s<576){
             objBaseAppUi.gridState = "xs";
         }
-        else if(w>=576 && w<768){
+        else if(s>=576 && s<768){
             objBaseAppUi.gridState = "sm";
         }
-        else if(w>=768 && w<960){
+        else if(s>=768 && s<960){
             objBaseAppUi.gridState = "md";
         }
-        else if(w>=960 && w<1200){
+        else if(s>=960 && s<1200){
             objBaseAppUi.gridState = "lg";
         }
         else{
