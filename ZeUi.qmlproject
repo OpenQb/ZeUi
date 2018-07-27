@@ -24,4 +24,7 @@ Project {
     Files{
         paths:"./base/qmldir"
     }
+    Files{
+        paths:"./ui/qmldir"
+    }
 }
