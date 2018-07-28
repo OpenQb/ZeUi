@@ -6,7 +6,7 @@ Item {
 
     property bool isClosable: true
     property bool isSingleInstance: false
-    property string appId: objBaseAppUi.appId
+    property string appId: ""
 
     signal pageOpened();
     signal pageHidden();

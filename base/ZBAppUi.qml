@@ -7,6 +7,9 @@ QbApp {
     id: objBaseAppUi
     minimumHeight: 550
     minimumWidth: 500
+
+    signal pageRemoved(int index);
+
     property string gridState: "xs"
     property bool isAddingPage: false;
     property int scrollMode: 0

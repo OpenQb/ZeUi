@@ -1,1 +1,2 @@
 singleton ZBTheme 1.0 ZBTheme.qml
+singleton ZBLib 1.0 ZBLib.qml
