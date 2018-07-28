@@ -13,7 +13,9 @@ Item {
 
     property int dockItemHeight: 50
     property int dockItemWidth: 50
+    property alias dockItemModel: objGridView.model
     property alias dockItemDelegate: objGridView.delegate
+
 
     function emitSelection(index,x,y){
         var obj = objGridView.model.get(index);
@@ -21,6 +23,18 @@ Item {
     }
 
     Keys.forwardTo: [objGridView]
+    Keys.onPressed: {
+        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+            event.accepted = true;
+            if(objGridView.currentIndex !==-1){
+                emitSelection(objGridView.currentIndex,objGridView.selectedX,objGridView.selectedY);
+            }
+        }
+//        else if(event.key === Qt.Key_Space){
+//        }
+//        else if(event.key === Qt.Key_Escape||event.key === Qt.Key_Back){
+//        }
+    }
 
     Rectangle{
         anchors.fill: parent
@@ -30,6 +44,9 @@ Item {
             anchors.fill: parent
             cellHeight: objBaseSideDockRoot.dockItemHeight
             cellWidth: objBaseSideDockRoot.dockItemWidth
+
+            property int selectedX: 0
+            property int selectedY: 0
 
             delegate: Item{
                 id: objDockItemDelegate
@@ -63,18 +80,50 @@ Item {
                     source: visible?icon:""
                 }
 
+                Rectangle{
+                    anchors.bottom: parent.bottom
+                    width: parent.width
+                    height: 3
+                    color: ZBTheme.ribbonColor
+                    visible: true
+                    opacity: objGridView.currentIndex===index?1:0
+                    Behavior on opacity{
+                        enabled: ZBTheme.useAnimation
+                        NumberAnimation{
+                            duration: 500
+                        }
+                    }
+                }
+
                 MouseArea{
                     anchors.fill: parent
                     preventStealing: true
                     onClicked: {
+                        objGridView.currentIndex = index;
                         var gco = objDockItemDelegate.mapToItem(objBaseSideDockRoot, 0, 0);
                         objBaseSideDockRoot.emitSelection(index,gco.x,gco.y);
                     }
                     onPressAndHold: {
+                        objGridView.currentIndex = index;
+                    }
+                    onPressed: {
+                        objGridView.currentIndex = index;
                     }
                     onReleased: {
+                        objGridView.currentIndex = index;
                     }
                 }
+
+                Connections {
+                      target: objGridView
+                      onCurrentIndexChanged: {
+                          if(objGridView.currentIndex === index){
+                              var gco = objDockItemDelegate.mapToItem(objBaseSideDockRoot, 0, 0);
+                              objGridView.selectedX = gco.x;
+                              objGridView.selectedY = gco.y;
+                          }
+                      }
+                  }
             }
         }
     }

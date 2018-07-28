@@ -23,6 +23,7 @@ Item {
     property color dockItemSelectedBackgroundColor: "blue"
 
     property color ribbonColor: "red"
+    property bool useAnimation: true
 
     property alias metaTheme: objMetaTheme
     QbMetaTheme{

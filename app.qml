@@ -6,15 +6,29 @@ import "ui/"
 ZAppUi{
     id: objMainAppUi
 
-    ZNativeFileDialog{
-        id: objFileDialog
-    }
+    Keys.forwardTo: [objDockView]
 
-    Button{
-        id: objButton
-        text: "OPEN DIALOG"
-        onClicked: {
-            objFileDialog.open();
+    ZSideDockView{
+        id: objDockView
+        x: 0
+        y: 0
+        width: 50
+        height: parent.height
+        dockItemModel: ListModel{
+            ListElement{
+                title: "Exit"
+                icon: "mf-power_settings_new"
+            }
+            ListElement{
+                title: "Exit2"
+                icon: "mf-power_settings_new"
+            }
+        }
+
+        onSelectedItem: {
+            console.log(title);
+            console.log(x);
+            console.log(y);
         }
     }
 }
