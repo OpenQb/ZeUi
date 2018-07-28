@@ -264,12 +264,13 @@ QbApp {
 
         Item{
             id: objMainView
+
             property int count: 0
             property int oldIndex: -1
             property int currentIndex: -1
             property var itemList: []
-
             property Item currentItem: null
+
             anchors.top: objTopToolBar.bottom
             anchors.bottom: objBottomToolBar.top
             anchors.left: parent.left

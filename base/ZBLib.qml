@@ -18,5 +18,6 @@ QtObject {
     }
 
     function removePage(appUi,pageView,index){
+        if(pageView.removePage(index)) appUi.pageRemovedIndex(index);
     }
 }
