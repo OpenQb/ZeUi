@@ -8,7 +8,8 @@ QbApp {
     minimumHeight: 550
     minimumWidth: 500
 
-    signal pageRemoved(int index);
+    signal pageRemovedIndex(int index);
+    signal pageRemovedTitle(string title);
 
     property string gridState: "xs"
     property bool isAddingPage: false;
