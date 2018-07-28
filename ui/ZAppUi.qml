@@ -4,5 +4,5 @@ import "./../base"
 
 
 ZBAppUi{
-    id: objAppUi
+    id: objAppUiRoot
 }

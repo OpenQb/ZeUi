@@ -4,7 +4,7 @@ import Qb.Core 1.0
 import QtQuick 2.10
 
 QbApp {
-    id: objBaseAppUi
+    id: objBaseAppUiRoot
     minimumHeight: 550
     minimumWidth: 500
 
@@ -19,39 +19,39 @@ QbApp {
       1 - infinite width. fixed height
     */
     onWidthChanged: {
-        if(objBaseAppUi.scrollMode === 0){
+        if(objBaseAppUiRoot.scrollMode === 0){
             appResized();
         }
     }
     onHeightChanged: {
-        if(objBaseAppUi.scrollMode === 1){
+        if(objBaseAppUiRoot.scrollMode === 1){
             appResized();
         }
     }
 
     function appResized(){
         var s;
-        if(objBaseAppUi.scrollMode === 0){
-            s = objBaseAppUi.width;
+        if(objBaseAppUiRoot.scrollMode === 0){
+            s = objBaseAppUiRoot.width;
         }
         else{
-            s = objBaseAppUi.height;
+            s = objBaseAppUiRoot.height;
         }
 
         if(s<576){
-            objBaseAppUi.gridState = "xs";
+            objBaseAppUiRoot.gridState = "xs";
         }
         else if(s>=576 && s<768){
-            objBaseAppUi.gridState = "sm";
+            objBaseAppUiRoot.gridState = "sm";
         }
         else if(s>=768 && s<960){
-            objBaseAppUi.gridState = "md";
+            objBaseAppUiRoot.gridState = "md";
         }
         else if(s>=960 && s<1200){
-            objBaseAppUi.gridState = "lg";
+            objBaseAppUiRoot.gridState = "lg";
         }
         else{
-            objBaseAppUi.gridState = "xl";
+            objBaseAppUiRoot.gridState = "xl";
         }
     }
 }
