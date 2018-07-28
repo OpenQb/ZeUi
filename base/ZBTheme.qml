@@ -14,6 +14,16 @@ Item {
     property alias theme: objMetaTheme.theme
     property alias imageBrightness: objMetaTheme.imageBrightness
 
+    property color dockBackgroundColor: "black"
+
+    property color dockItemColor: "black"
+    property color dockItemBackgroundColor: "white"
+
+    property color dockItemSelectedColor: "white"
+    property color dockItemSelectedBackgroundColor: "blue"
+
+    property color ribbonColor: "red"
+
     property alias metaTheme: objMetaTheme
     QbMetaTheme{
         id: objMetaTheme
