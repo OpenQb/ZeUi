@@ -15,8 +15,15 @@ Item {
     property int dockItemWidth: ZBTheme.dockItemWidth
     property int dockItemExpandedWidth: ZBTheme.dockItemExpandedWidth
     property int dockViewMode: ZBTheme.dockViewMode
+
     property alias dockItemModel: objGridView.model
     property alias dockItemDelegate: objGridView.delegate
+
+    property alias dockItemCurrentIndex: objGridView.currentIndex
+    property alias dockItemCurrentItem: objGridView.currentItem
+
+    property alias dockItemSelectedX: objGridView.selectedX
+    property alias dockItemSelectedY: objGridView.selectedY
 
     width:objBaseSideDockRoot.dockViewMode === ZBTheme.zMultiColumn?objBaseSideDockRoot.dockItemWidth+objBaseSideDockRoot.dockItemExpandedWidth:objBaseSideDockRoot.dockItemWidth
 
@@ -26,40 +33,143 @@ Item {
         objBaseSideDockRoot.selectedItem(obj.title,index,x,y);
     }
 
-    Keys.forwardTo: [objGridView]
-    Keys.onPressed: {
+
+    function canAcceptUpKey(){
+        if(objGridView.currentIndex === 0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    function canAcceptDownKey(){
+        var len;
+        try{
+            len = objGridView.model.count;
+        }
+        catch(e){
+            len = objGridView.model.length;
+        }
+        if(objGridView.currentIndex === len-1){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    function keysOnPressed(event){
         if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
             event.accepted = true;
             if(objGridView.currentIndex !==-1){
                 emitSelection(objGridView.currentIndex,objGridView.selectedX,objGridView.selectedY);
             }
         }
-        //        else if(event.key === Qt.Key_Space){
-        //        }
         else if(event.key === Qt.Key_Escape||event.key === Qt.Key_Back){
             event.accepted = true;
             objGridView.currentIndex = -1;
         }
+        else if(event.key === Qt.Key_Up){
+            var len;
+            try{
+                len = objGridView.model.count;
+            }
+            catch(e){
+                len = objGridView.model.length;
+            }
+            if(len>0){
+                if(objGridView.currentIndex === -1 || objGridView.currentIndex === len){
+                    event.accepted = true;
+                    objGridView.currentIndex = len-1;
+                }
+                else if(objGridView.currentIndex>-1){
+                    event.accepted = true;
+                    objGridView.currentIndex = objGridView.currentIndex - 1;
+                }
+                else if(objGridView.currentIndex === 0){
+                    event.accepted = true;
+                    objGridView.currentIndex = -1;
+                }
+            }
+
+        }
+        else if(event.key === Qt.Key_Down){
+            var len;
+            var cIndex = objGridView.currentIndex;
+            try{
+                len = objGridView.model.count;
+            }
+            catch(e){
+                len = objGridView.model.length;
+            }
+
+            if(len>0){
+                if(cIndex === len){
+                    cIndex = 0;
+                }
+                else if(cIndex === -1){
+                    cIndex = 0;
+                }
+                else if(cIndex <len){
+                    cIndex = cIndex + 1;
+                }
+                if(cIndex === -1 || cIndex === len){
+                    event.accepted = true;
+                    objGridView.currentIndex = cIndex;
+                }
+                else{
+                    event.accepted = true;
+                    objGridView.currentIndex = cIndex;
+                }
+            }
+        }
     }
 
-    Keys.onReleased: {
+    function keysOnReleased(event){
         if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
             event.accepted = true;
         }
         else if(event.key === Qt.Key_Escape||event.key === Qt.Key_Back){
             event.accepted = true;
         }
+        else if(event.key === Qt.Key_Up){
+            event.accepted = true;
+        }
+        else if(event.key === Qt.Key_Down){
+            event.accepted = true;
+        }
     }
+    Keys.onPressed: keysOnPressed(event);
+    Keys.onReleased: keysOnReleased(event);
 
     Rectangle{
         anchors.fill: parent
         color: ZBTheme.dockBackgroundColor
-        GridView{
+        ListView{
             id: objGridView
             anchors.fill: parent
-            cellHeight: objBaseSideDockRoot.dockItemHeight
-            cellWidth: parent.width
+            //cellHeight: objBaseSideDockRoot.dockItemHeight
+            //cellWidth: parent.width
             currentIndex: -1
+            //            highlight: Rectangle {
+            //                z: 10000
+            //                width: objBaseSideDockRoot.dockViewMode === ZBTheme.zSingleColumnExpand?objGridView.currentIndex===index?objBaseSideDockRoot.dockItemWidth+objBaseSideDockRoot.dockItemExpandedWidth:objGridView.width:objGridView.width
+            //                height: 3
+            //                color: ZBTheme.ribbonColor
+            //                y: objGridView.currentIndex!=-1?objGridView.currentItem.y + objBaseSideDockRoot.dockItemHeight - height:0
+            //                visible: objGridView.currentIndex!=-1?true:false
+            //                Behavior on y {
+            //                    enabled: ZBTheme.useAnimation
+            //                    SpringAnimation {
+            //                        spring: 3
+            //                        damping: 0.2
+            //                        duration: 500
+            //                    }
+            //                }
+            //            }
+
+            //            highlightFollowsCurrentItem: false
 
             property int selectedX: 0
             property int selectedY: 0
@@ -119,6 +229,7 @@ Item {
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         width: objBaseSideDockRoot.dockItemExpandedWidth
+                        clip: true
                         Text{
                             anchors.fill: parent
                             color: objGridView.currentIndex===index?ZBTheme.dockItemSelectedColor:ZBTheme.dockItemColor
@@ -129,23 +240,6 @@ Item {
                             verticalAlignment: Text.AlignVCenter
                             visible: objBaseSideDockRoot.dockViewMode === ZBTheme.zMultiColumn||objBaseSideDockRoot.dockViewMode === ZBTheme.zSingleColumnExpand
                             elide: Text.ElideRight
-                        }
-                    }
-
-
-
-                    Rectangle{
-                        anchors.bottom: parent.bottom
-                        width: parent.width
-                        height: 3
-                        color: ZBTheme.ribbonColor
-                        visible: true
-                        opacity: objGridView.currentIndex===index?1:0
-                        Behavior on opacity{
-                            enabled: ZBTheme.useAnimation
-                            NumberAnimation{
-                                duration: 500
-                            }
                         }
                     }
 
@@ -178,8 +272,34 @@ Item {
                             }
                         }
                     }
-                }
-            }
-        }
-    }
-}
+
+                    Rectangle{
+                        height: 3
+                        color: ZBTheme.ribbonColor
+                        opacity: objGridView.currentIndex===index?1:0
+                        width: objGridView.currentIndex===index?parent.width:0
+                        anchors.bottom: parent.bottom
+                        Behavior on opacity{
+                            enabled: ZBTheme.useAnimation
+                            NumberAnimation{
+                                duration: 500
+                            }
+                        }
+                        Behavior on width {
+                            enabled: ZBTheme.useAnimation
+                            SpringAnimation {
+                                spring: 3
+                                damping: 0.3
+                                duration: 500
+                            }
+                        }
+
+                    }//highlighter
+
+                }//Rectangle for delegate background
+            }//Item delegate
+
+
+        }//GridView
+    }//Rectangle for background
+}//Item main

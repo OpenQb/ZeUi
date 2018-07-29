@@ -10,13 +10,13 @@ ZAppUi{
 
     ZSideDockView{
         id: objDockView
-        x: 0
-        y: 0
+        anchors.top: parent.top
+        anchors.left: parent.left
         //dockItemHeight: 30
         //dockItemWidth: 30
         //dockItemExpandedWidth: 50
 
-        height: parent.height
+        height: 100
         dockItemModel: ListModel{
             ListElement{
                 title: "Exit"
@@ -34,4 +34,5 @@ ZAppUi{
             console.log(y);
         }
     }
+
 }
