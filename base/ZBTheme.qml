@@ -25,6 +25,16 @@ Item {
     property color ribbonColor: "red"
     property bool useAnimation: true
 
+    /*ENUMS scrollMode*/
+    property int zInfiniteHeight: 0
+    property int zInfiniteWidth: 1
+
+    /*ENUMS SideDockView mode*/
+    property int zSingleColumn: 0;
+    property int zSingleColumnExpand: 1;
+    property int zMultiColumn: 2;
+
+
     property alias metaTheme: objMetaTheme
     QbMetaTheme{
         id: objMetaTheme
