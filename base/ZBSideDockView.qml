@@ -128,6 +128,7 @@ Item {
                             font.pixelSize: objGridView.currentIndex===index?ZBTheme.dockItemSelectedFontSize:ZBTheme.dockItemFontSize
                             verticalAlignment: Text.AlignVCenter
                             visible: objBaseSideDockRoot.dockViewMode === ZBTheme.zMultiColumn||objBaseSideDockRoot.dockViewMode === ZBTheme.zSingleColumnExpand
+                            elide: Text.ElideRight
                         }
                     }
 
