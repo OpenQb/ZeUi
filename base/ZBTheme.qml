@@ -14,15 +14,34 @@ Item {
     property alias theme: objMetaTheme.theme
     property alias imageBrightness: objMetaTheme.imageBrightness
 
+    /*Dock Related settings*/
+    property int dockViewMode: zSingleColumn
+    property int dockItemHeight: 50
+    property int dockItemWidth: 50
+    property int dockItemExpandedWidth: 150
+
     property color dockBackgroundColor: "black"
 
-    property color dockItemColor: "black"
-    property color dockItemBackgroundColor: "white"
+    property color dockItemColor: "white"
+    property color dockItemBackgroundColor: "black"
 
-    property color dockItemSelectedColor: "white"
-    property color dockItemSelectedBackgroundColor: "blue"
 
-    property color ribbonColor: "red"
+    property string dockItemFont: "Ubuntu"
+    property int dockItemFontSize: 15
+    property bool dockItemFontBold: false
+    property bool dockItemIconFontBold: false
+
+
+    property string dockItemSelectedFont: "Ubuntu"
+    property int dockItemSelectedFontSize: 15
+    property bool dockItemSelectedFontBold: false
+    property bool dockItemSelectedIconFontBold: false
+
+    property color dockItemSelectedColor: "red"
+    property color dockItemSelectedBackgroundColor: "black"
+    /*END of Dock related settings */
+
+    property color ribbonColor: "yellow"
     property bool useAnimation: true
 
     /*ENUMS scrollMode*/

@@ -12,7 +12,10 @@ ZAppUi{
         id: objDockView
         x: 0
         y: 0
-        width: 50
+        //dockItemHeight: 30
+        //dockItemWidth: 30
+        //dockItemExpandedWidth: 50
+
         height: parent.height
         dockItemModel: ListModel{
             ListElement{
