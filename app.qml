@@ -11,7 +11,6 @@ ZAppUi{
     ZSideDockView{
         id: objDockView
         anchors.top: parent.top
-        anchors.left: parent.left
         //dockItemHeight: 30
         //dockItemWidth: 30
         //dockItemExpandedWidth: 50
@@ -33,6 +32,10 @@ ZAppUi{
             console.log(x);
             console.log(y);
         }
+    }
+
+    Component.onCompleted: {
+        objDockView.open();
     }
 
 }

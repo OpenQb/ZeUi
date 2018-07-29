@@ -7,10 +7,15 @@ import "."
 Item {
     id: objBaseSideDockRoot
     clip: false
-    focus: true
+
+    x: -objBaseSideDockRoot.width
+    visible: false
+    z: -10000000
+    focus: false
 
     signal selectedItem(string title,int index,int x,int y);
 
+    property bool isOpened: false
     property int dockItemHeight: ZBTheme.dockItemHeight
     property int dockItemWidth: ZBTheme.dockItemWidth
     property int dockItemExpandedWidth: ZBTheme.dockItemExpandedWidth
@@ -27,6 +32,33 @@ Item {
 
     width:objBaseSideDockRoot.dockViewMode === ZBTheme.zMultiColumn?objBaseSideDockRoot.dockItemWidth+objBaseSideDockRoot.dockItemExpandedWidth:objBaseSideDockRoot.dockItemWidth
 
+    Behavior on x{
+        enabled: ZBTheme.useAnimation
+        NumberAnimation{
+            duration: 500
+            easing.type: Easing.InOutQuad
+            onRunningChanged: {
+                if(objBaseSideDockRoot.x !== 0){
+                    if(!running){
+                        objBaseSideDockRoot.z = -100000;
+                        objBaseSideDockRoot.visible = false;
+                    }
+                }
+            }
+        }
+    }
+
+    function open(){
+        objBaseSideDockRoot.visible = true;
+        objBaseSideDockRoot.z = 10000000;
+        objBaseSideDockRoot.isOpened = true;
+        objBaseSideDockRoot.x = 0
+    }
+
+    function close(){
+        objBaseSideDockRoot.isOpened = false;
+        objBaseSideDockRoot.x = -objBaseSideDockRoot.width;
+    }
 
     function emitSelection(index,x,y){
         var obj = objGridView.model.get(index);
