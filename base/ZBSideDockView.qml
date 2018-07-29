@@ -46,7 +46,7 @@ Item {
     function canAcceptDownKey(){
         var len;
         try{
-            len = objGridView.model.count;
+            len = objGridView.count;
         }
         catch(e){
             len = objGridView.model.length;
@@ -73,7 +73,7 @@ Item {
         else if(event.key === Qt.Key_Up){
             var len;
             try{
-                len = objGridView.model.count;
+                len = objGridView.count;
             }
             catch(e){
                 len = objGridView.model.length;
@@ -98,7 +98,7 @@ Item {
             var len;
             var cIndex = objGridView.currentIndex;
             try{
-                len = objGridView.model.count;
+                len = objGridView.count;
             }
             catch(e){
                 len = objGridView.model.length;
@@ -146,30 +146,12 @@ Item {
     Rectangle{
         anchors.fill: parent
         color: ZBTheme.dockBackgroundColor
-        ListView{
+        GridView{
             id: objGridView
             anchors.fill: parent
-            //cellHeight: objBaseSideDockRoot.dockItemHeight
-            //cellWidth: parent.width
+            cellHeight: objBaseSideDockRoot.dockItemHeight
+            cellWidth: parent.width
             currentIndex: -1
-            //            highlight: Rectangle {
-            //                z: 10000
-            //                width: objBaseSideDockRoot.dockViewMode === ZBTheme.zSingleColumnExpand?objGridView.currentIndex===index?objBaseSideDockRoot.dockItemWidth+objBaseSideDockRoot.dockItemExpandedWidth:objGridView.width:objGridView.width
-            //                height: 3
-            //                color: ZBTheme.ribbonColor
-            //                y: objGridView.currentIndex!=-1?objGridView.currentItem.y + objBaseSideDockRoot.dockItemHeight - height:0
-            //                visible: objGridView.currentIndex!=-1?true:false
-            //                Behavior on y {
-            //                    enabled: ZBTheme.useAnimation
-            //                    SpringAnimation {
-            //                        spring: 3
-            //                        damping: 0.2
-            //                        duration: 500
-            //                    }
-            //                }
-            //            }
-
-            //            highlightFollowsCurrentItem: false
 
             property int selectedX: 0
             property int selectedY: 0
