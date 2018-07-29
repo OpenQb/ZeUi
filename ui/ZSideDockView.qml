@@ -4,5 +4,4 @@ import "./../base"
 
 ZBSideDockView{
     id: objSideDockViewRoot
-
 }
