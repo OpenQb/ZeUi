@@ -14,6 +14,15 @@ Item {
     property alias theme: objMetaTheme.theme
     property alias imageBrightness: objMetaTheme.imageBrightness
 
+    property string defaultFontFamily: "Ubuntu"
+    property int defaultFontSize: 15
+
+    /*Menu related settings*/
+    property int menuWindowWidth: 100
+    property int menuItemHeight: 50
+    property color menuWindowBackgroundColor: metaTheme.changeTransparency("black",200)
+
+
     /*Dock Related settings*/
     property int dockViewMode: zSingleColumn
     property int dockItemHeight: 50
@@ -24,9 +33,6 @@ Item {
 
     property color dockItemColor: "white"
     property color dockItemBackgroundColor: "transparent"
-
-    property string defaultFontFamily: "Ubuntu"
-    property int defaultFontSize: 15
 
     property string dockItemFontFamily: "Ubuntu"
     property int dockItemFontSize: 15
