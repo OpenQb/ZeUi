@@ -1,6 +1,6 @@
 import QtQuick 2.10
 
-import "."
+import "./../base"
 
 
 ZBAppUi{
