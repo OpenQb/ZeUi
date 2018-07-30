@@ -30,4 +30,8 @@ Project {
     Files{
         paths:"./ZSOne/qmldir"
     }
+
+    Files{
+        paths:"./qmldir"
+    }
 }
