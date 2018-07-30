@@ -69,7 +69,7 @@ ZBAppUi{
         }
         onSelectedItem: {
             var cPage = objPageView.getPage(objPageView.currentIndex);
-            if(cPage) cPage.selectedContextDockItem(title,index,x,y);
+            if(cPage) cPage.selectedContextDockItem(title,index,x+objDockView.width,y+objDockView.dockLogoHeight+objDockView.dockItemHeight);
         }
 
         KeyNavigation.tab: objPageView
