@@ -7,15 +7,13 @@ import "../ui"
 ZBAppUi{
     id: objAppUi
 
-    property string dockLogo: "image://letter-image/Z"
+    property string dockLogo: ""
     signal logoClicked();
 
     Keys.forwardTo: [objDockView]
 
     Component.onCompleted: {
         objDockView.open();
-        addPage("/ZSOne/ZSOneAppPage.qml",{"rColor":"blue"});
-        addPage("/ZSOne/ZSOneAppPage.qml",{"title":"G2","rColor":"red"});
     }
 
     onPageRemovedIndex: {
