@@ -20,15 +20,17 @@ Item {
     }
 
     function setCurrentIndex(index){
-        objPageView.oldIndex = objBasePageView.currentIndex;
-        objBasePageView.currentItem.visible = false;
-        objPageView.currentItem.pageHidden();
+        if(objPageView.currentIndex !== index){
+            objPageView.oldIndex = objBasePageView.currentIndex;
+            objBasePageView.currentItem.visible = false;
+            objPageView.currentItem.pageHidden();
 
-        objBasePageView.currentIndex = index;
-        objBasePageView.currentItem = objBasePageView.pageList[index];
+            objBasePageView.currentIndex = index;
+            objBasePageView.currentItem = objBasePageView.pageList[index];
 
-        objBasePageView.currentItem.visible = true;
-        objPageView.currentItem.pageOpened();
+            objBasePageView.currentItem.visible = true;
+            objPageView.currentItem.pageOpened();
+        }
     }
 
     function setCurrentPage(index){
@@ -80,23 +82,23 @@ Item {
     }
 
 
-//    onCurrentIndexChanged: {
-//        if(objBasePageView.oldIndex!==objBasePageView.currentIndex && objBasePageView.oldIndex !==-1){
-//            try{
-//                var i = objBasePageView.pageAt(objBasePageView.oldIndex);
-//                i.visible = false;
-//                i.pageHidden();
-//            }
-//            catch(e){
-//                console.log("Exception:"+e)
-//            }
-//        }
+    //    onCurrentIndexChanged: {
+    //        if(objBasePageView.oldIndex!==objBasePageView.currentIndex && objBasePageView.oldIndex !==-1){
+    //            try{
+    //                var i = objBasePageView.pageAt(objBasePageView.oldIndex);
+    //                i.visible = false;
+    //                i.pageHidden();
+    //            }
+    //            catch(e){
+    //                console.log("Exception:"+e)
+    //            }
+    //        }
 
-//        try{
-//            objBasePageView.currentItem.pageOpened();
-//        }
-//        catch(e){
-//        }
-//    }
+    //        try{
+    //            objBasePageView.currentItem.pageOpened();
+    //        }
+    //        catch(e){
+    //        }
+    //    }
 
 }
