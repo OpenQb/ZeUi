@@ -1,5 +1,3 @@
-module ZeUi
-
 singleton ZBTheme 1.0 base/ZBTheme.qml
 singleton ZBLib 1.0 base/ZBLib.qml
 ZBAppUi 1.0 base/ZBAppUi.qml
