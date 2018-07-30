@@ -1,6 +1,7 @@
 import Qb 1.0
 import Qb.Core 1.0
 import QtQuick 2.10
+import QtQuick.Window 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Controls.Material 2.4
 
@@ -15,19 +16,18 @@ Item {
     focus: false
     width: ZBTheme.menuWindowWidth
 
-    height: objGridView.contentHeight
+    height: Math.min(parent.height,Math.min(objGridView.contentHeight,ZBTheme.menuWindowHeight))
 
-    function open(x,y){
-        objBaseMenuRoot.forceActiveFocus();
+    function openMenu(x,y){
         objBaseMenuRoot.x = x;
         objBaseMenuRoot.y = y;
         objBaseMenuRoot.z = 10000000;
-        objBaseMenuRoot.visible = true;
         objBaseMenuRoot.focus = true;
+        objBaseMenuRoot.visible = true;
         objBaseMenuRoot.isOpened = true;
     }
 
-    function close(){
+    function closeMenu(){
         objBaseMenuRoot.visible = false;
         objBaseMenuRoot.z = -10000000;
         objBaseMenuRoot.focus = false;
@@ -37,6 +37,7 @@ Item {
     signal selectedItem(string title,int index,int x,int y);
     signal selectedByMouse();
 
+    property string title: ""
     property bool isOpened: false
     property int menuItemHeight: ZBTheme.menuItemHeight
 
@@ -107,6 +108,7 @@ Item {
         else if(event.key === Qt.Key_Escape||event.key === Qt.Key_Back){
             event.accepted = true;
             objGridView.currentIndex = -1;
+            objBaseMenuRoot.closeMenu();
         }
         else if(event.key === Qt.Key_Up){
             var len;
@@ -184,9 +186,40 @@ Item {
     Rectangle{
         anchors.fill: parent
         color: ZBTheme.dockBackgroundColor
+        Rectangle{
+            z: 3
+            id: objTitlePlaceHolder
+            anchors.top: parent.top
+            width: parent.width
+            height: objBaseMenuRoot.menuItemHeight
+            color: ZBTheme.itemSelectedBackgroundColor
+            Text{
+                anchors.fill: parent
+                anchors.leftMargin: 5
+                text: objBaseMenuRoot.title
+                color: ZBTheme.itemSelectedColor
+                font.family: ZBTheme.itemSelectedFontFamily
+                font.bold: ZBTheme.itemSelectedFontBold
+                font.pixelSize: ZBTheme.itemSelectedFontSize
+                verticalAlignment: Text.AlignVCenter
+            }
+            MouseArea{
+                anchors.fill: parent
+                preventStealing: true
+                onPressed: {
+                    objBaseMenuRoot.closeMenu();
+                }
+            }
+        }
+
         GridView{
             id: objGridView
-            anchors.fill: parent
+            z: 1
+            anchors.top: objTitlePlaceHolder.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+
             cellHeight: objBaseMenuRoot.menuItemHeight
             cellWidth: parent.width
             currentIndex: -1

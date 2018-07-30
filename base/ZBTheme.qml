@@ -18,7 +18,8 @@ Item {
     property int defaultFontSize: 15
 
     /*Menu related settings*/
-    property int menuWindowWidth: 100
+    property int menuWindowWidth: 200
+    property int menuWindowHeight: 300
     property int menuItemHeight: 50
     property color menuWindowBackgroundColor: metaTheme.changeTransparency("black",200)
 

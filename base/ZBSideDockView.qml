@@ -285,6 +285,10 @@ Item {
                             var gco = objDockItemDelegate.mapToItem(objBaseSideDockRoot, 0, 0);
                             objBaseSideDockRoot.emitSelection(index,gco.x,gco.y);
                             objBaseSideDockRoot.selectedByMouse();
+                            objGridView.selectedX = gco.x;
+                            objGridView.selectedY = gco.y;
+                            //console.log("X:",gco.x);
+                            //console.log("Y:",gco.y);
                         }
                         //                        onPressAndHold: {
                         //                            objGridView.currentIndex = index;

@@ -13,6 +13,7 @@ Item{
     focus: false
 
     signal selectedItem(string title,int index,int x,int y);
+    signal selectedPageItem(string title,int index,int x,int y);
 
     signal exitClicked();
     signal logoClicked();
@@ -21,6 +22,7 @@ Item{
 
     property int currentView: -1
     property string dockLogo: ""
+    property string pageTitle: "Pages"
     property int dockPowerHeight: ZBTheme.dockItemHeight
     property int dockLogoHeight: ZBTheme.dockItemHeight
     property int dockItemHeight: ZBTheme.dockItemHeight
@@ -29,6 +31,7 @@ Item{
     property int dockViewMode: ZBTheme.dockViewMode
 
 
+    property alias pageItemModel: objPagesList.menuItemModel
     property alias dockItemModel: objUserDataView.dockItemModel
     property alias dockItemDelegate: objUserDataView.dockItemDelegate
 
@@ -169,6 +172,7 @@ Item{
             objPagesView.clearSelection();
             objUserDataView.clearSelection();
             objPowerView.clearSelection();
+            objPagesList.closeMenu();
         }
     }
 
@@ -191,13 +195,21 @@ Item{
             }
         }
         onSelectedItem: {
-
+            objPagesList.openMenu(x+objSideDockSmartViewRoot.width,y+objSideDockSmartViewRoot.dockLogoHeight);
         }
         onSelectedByMouse: {
             objSideDockSmartViewRoot.currentView = 1;
             objLogoView.clearSelection();
             objUserDataView.clearSelection();
             objPowerView.clearSelection();
+        }
+    }
+
+    ZBListMenu{
+        id: objPagesList
+        title: objSideDockSmartViewRoot.pageTitle
+        onSelectedItem: {
+            objSideDockSmartViewRoot.selectedPageItem(title,index,x,y);
         }
     }
 
@@ -220,6 +232,7 @@ Item{
             objPagesView.clearSelection();
             objLogoView.clearSelection();
             objPowerView.clearSelection();
+            objPagesList.closeMenu();
         }
     }
 
@@ -249,6 +262,7 @@ Item{
             objPagesView.clearSelection();
             objLogoView.clearSelection();
             objUserDataView.clearSelection();
+            objPagesList.closeMenu();
         }
     }
 }
