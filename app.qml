@@ -12,7 +12,7 @@ ZAppUi{
         id: objDockView
         anchors.top: parent.top
         height: parent.height
-        dockLogo: "mf-widgets"
+        dockLogo: "image://letter-image/Z"
         onLogoClicked: {
             console.log("logo clicked");
         }

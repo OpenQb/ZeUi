@@ -245,15 +245,13 @@ Item {
                         Image{
                             anchors.fill: parent
                             anchors.centerIn: parent
-                            width: objBaseSideDockRoot.dockItemWidth
-                            height: objBaseSideDockRoot.dockItemHeight
                             visible: QbCoreOne.icon_font_is_image(icon)
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
                             mipmap: true
                             smooth: true
-                            sourceSize.width: width*2
-                            sourceSize.height: height*2
+                            //sourceSize.width: parent.width*2
+                            //sourceSize.height: parent.height*2
                             source: visible?icon:""
                         }
                     }
