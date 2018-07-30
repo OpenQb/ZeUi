@@ -34,7 +34,6 @@ ZBAppUi{
         id: objPageListModel
     }
 
-
     ZSideDockSmartView{
         id: objDockView
         anchors.top: parent.top
@@ -47,12 +46,7 @@ ZBAppUi{
             objAppUi.close();
         }
 
-        dockItemModel: ListModel{
-            ListElement{
-                icon: "mf-widgets"
-                title: "Test"
-            }
-        }
+        dockItemModel: null
         pageItemModel: objPageListModel
         onSelectedPageItem: {
             objPageView.setCurrentIndex(index);
@@ -60,6 +54,9 @@ ZBAppUi{
             if(cPage) {
                 if(cPage.contextDock){
                     objDockView.dockItemModel = cPage.contextDock
+                }
+                else{
+                    objDockView.dockItemModel = null;
                 }
             }
         }
