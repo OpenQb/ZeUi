@@ -8,17 +8,17 @@ ZBPage{
     signal selectedContextDockItem(string title,int index,int x,int y);
     title: "Generic Page"
     anchors.fill: parent
-
-//    property color rColor: "black"
-//    ListModel{
-//        id: objContextDock
+    ListModel{
+        id: objContextDock
 //        ListElement{
 //            icon: "image://letter-image/T"
 //            title: "Test"
 //        }
-//    }
-//    Rectangle{
-//        anchors.fill: parent
-//        color: objAppPage.rColor
-//    }
+    }
+
+    //    property color rColor: "black"
+    //    Rectangle{
+    //        anchors.fill: parent
+    //        color: objAppPage.rColor
+    //    }
 }
