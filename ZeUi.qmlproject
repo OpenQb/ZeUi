@@ -27,4 +27,7 @@ Project {
     Files{
         paths:"./ui/qmldir"
     }
+    Files{
+        paths:"./ZSOne/qmldir"
+    }
 }
