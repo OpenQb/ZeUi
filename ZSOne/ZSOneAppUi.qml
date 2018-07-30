@@ -73,6 +73,9 @@ ZBAppUi{
             var cPage = objPageView.getPage(objPageView.currentIndex);
             if(cPage) cPage.selectedContextDockItem(title,index,x,y);
         }
+
+        KeyNavigation.tab: objPageView
+        KeyNavigation.priority: KeyNavigation.BeforeItem
     }
 
 
