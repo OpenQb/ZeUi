@@ -9,7 +9,7 @@ Item{
 
     x: -objSideDockSmartViewRoot.width
     visible: false
-    z: -10000000
+    z: -100000
     focus: false
 
     signal selectedItem(string title,int index,int x,int y);
@@ -58,7 +58,7 @@ Item{
 
     function open(){
         objSideDockSmartViewRoot.visible = true;
-        objSideDockSmartViewRoot.z = 10000000;
+        objSideDockSmartViewRoot.z = 100000;
         objSideDockSmartViewRoot.isOpened = true;
         objSideDockSmartViewRoot.x = 0
     }
