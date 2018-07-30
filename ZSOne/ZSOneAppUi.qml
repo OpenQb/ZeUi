@@ -56,6 +56,16 @@ ZBAppUi{
         pageItemModel: objPageListModel
         onSelectedPageItem: {
             objPageView.setCurrentIndex(index);
+            var cPage = objPageView.getCurrentPage(objPageView.currentIndex);
+            if(cPage) {
+                if(cPage.contextDock){
+                    objDockView.dockItemModel = cPage.contextDock
+                }
+            }
+        }
+        onSelectedItem: {
+            var cPage = objPageView.getCurrentPage(objPageView.currentIndex);
+            if(cPage) cPage.selectedContextDockItem(title,index,x,y);
         }
     }
 

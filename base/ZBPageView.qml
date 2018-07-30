@@ -28,6 +28,10 @@ Item {
         objBasePageView.setCurrentIndex(index);
     }
 
+    function getCurrentPage(index){
+        return objBasePageView.pageList[index];
+    }
+
     function insertPage(index,item){
         objBasePageView.pageList.splice(index,0,item);
         objBasePageView.count = objBasePageView.pageList.length;
