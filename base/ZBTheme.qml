@@ -25,7 +25,7 @@ Item {
     property color dockItemColor: "white"
     property color dockItemBackgroundColor: "transparent"
 
-    property string defaultFont: "Ubuntu"
+    property string defaultFontFamily: "Ubuntu"
     property int defaultFontSize: 15
 
     property string dockItemFont: "Ubuntu"
