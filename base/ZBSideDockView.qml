@@ -44,7 +44,7 @@ Item {
             onRunningChanged: {
                 if(objBaseSideDockRoot.x !== 0){
                     if(!running){
-                        objBaseSideDockRoot.z = -100000;
+                        objBaseSideDockRoot.z = -10000000;
                         objBaseSideDockRoot.visible = false;
                     }
                 }
