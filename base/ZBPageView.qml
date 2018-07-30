@@ -20,15 +20,22 @@ Item {
     }
 
     function setCurrentIndex(index){
-        objBasePageView.currentItem = objBasePageView.pageList[index];
+        objPageView.oldIndex = objBasePageView.currentIndex;
+        objBasePageView.currentItem.visible = false;
+        objPageView.currentItem.pageHidden();
+
         objBasePageView.currentIndex = index;
+        objBasePageView.currentItem = objBasePageView.pageList[index];
+
+        objBasePageView.currentItem.visible = true;
+        objPageView.currentItem.pageOpened();
     }
 
     function setCurrentPage(index){
         objBasePageView.setCurrentIndex(index);
     }
 
-    function getCurrentPage(index){
+    function getPage(index){
         return objBasePageView.pageList[index];
     }
 
@@ -36,6 +43,8 @@ Item {
         objBasePageView.pageList.splice(index,0,item);
         objBasePageView.count = objBasePageView.pageList.length;
         objBasePageView.currentItem = item;
+        objBasePageView.oldIndex = objBasePageView.currentIndex;
+        objBasePageView.currentIndex = index;
     }
 
     function removePage(index){
@@ -71,23 +80,23 @@ Item {
     }
 
 
-    onCurrentIndexChanged: {
-        if(objBasePageView.oldIndex!==objBasePageView.currentIndex && objBasePageView.oldIndex !==-1){
-            try{
-                var i = objBasePageView.pageAt(objBasePageView.oldIndex);
-                i.visible = false;
-                i.pageHidden();
-            }
-            catch(e){
-                console.log("Exception:"+e)
-            }
-        }
+//    onCurrentIndexChanged: {
+//        if(objBasePageView.oldIndex!==objBasePageView.currentIndex && objBasePageView.oldIndex !==-1){
+//            try{
+//                var i = objBasePageView.pageAt(objBasePageView.oldIndex);
+//                i.visible = false;
+//                i.pageHidden();
+//            }
+//            catch(e){
+//                console.log("Exception:"+e)
+//            }
+//        }
 
-        try{
-            objBasePageView.currentItem.pageOpened();
-        }
-        catch(e){
-        }
-    }
+//        try{
+//            objBasePageView.currentItem.pageOpened();
+//        }
+//        catch(e){
+//        }
+//    }
 
 }

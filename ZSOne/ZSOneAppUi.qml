@@ -14,10 +14,16 @@ ZBAppUi{
 
     Component.onCompleted: {
         objDockView.open();
+        addPage("/ZSOne/ZSOneAppPage.qml",{"rColor":"blue"});
+        addPage("/ZSOne/ZSOneAppPage.qml",{"title":"G2","rColor":"red"});
     }
 
     onPageRemovedIndex: {
         removeRunningPage(index);
+    }
+
+    onPageAdded: {
+        addRunningPage(title)
     }
 
     function addRunningPage(title){
@@ -29,6 +35,15 @@ ZBAppUi{
             objPageListModel.remove(index);
         }
     }
+
+    function addPage(page,jsobject){
+        ZBLib.addPage(objAppUi,objPageView,objAppUi.absoluteURL(page),jsobject);
+    }
+
+    function closePage(index){
+        ZBLib.removePage(objAppUi,objPageView,index);
+    }
+
 
     ListModel{
         id: objPageListModel
@@ -50,18 +65,9 @@ ZBAppUi{
         pageItemModel: objPageListModel
         onSelectedPageItem: {
             objPageView.setCurrentIndex(index);
-            var cPage = objPageView.getCurrentPage(objPageView.currentIndex);
-            if(cPage) {
-                if(cPage.contextDock){
-                    objDockView.dockItemModel = cPage.contextDock
-                }
-                else{
-                    objDockView.dockItemModel = null;
-                }
-            }
         }
         onSelectedItem: {
-            var cPage = objPageView.getCurrentPage(objPageView.currentIndex);
+            var cPage = objPageView.getPage(objPageView.currentIndex);
             if(cPage) cPage.selectedContextDockItem(title,index,x,y);
         }
     }
@@ -74,5 +80,20 @@ ZBAppUi{
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 
+        onCurrentIndexChanged: {
+            if(currentIndex !==-1){
+                var cPage = objPageView.getPage(objPageView.currentIndex);
+                if(cPage) {
+                    if(cPage.contextDock){
+                        objDockView.dockItemModel = cPage.contextDock
+                        objDockView.dockItemCurrentIndex = -1;
+                    }
+                    else{
+                        objDockView.dockItemModel = null;
+                        objDockView.dockItemCurrentIndex = -1;
+                    }
+                }
+            }
+        }
     }
 }
