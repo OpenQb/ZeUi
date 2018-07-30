@@ -16,7 +16,7 @@ Item {
     focus: false
     width: ZBTheme.menuWindowWidth
 
-    height: Math.min(parent.height,Math.min(objGridView.contentHeight,ZBTheme.menuWindowHeight))
+    height: Math.min(parent.height,Math.min(objGridView.contentHeight+ZBTheme.menuItemHeight,ZBTheme.menuWindowHeight))
 
     function openMenu(x,y){
         objBaseMenuRoot.x = x;
