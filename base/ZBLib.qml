@@ -109,4 +109,25 @@ QtObject {
     function removePage(appUi,pageView,index){
         if(pageView.removePage(index)) appUi.pageRemovedIndex(index);
     }
+
+    function getGridState(s){
+        var gridState="xs";
+        if(s<576){
+            gridState = "xs";
+        }
+        else if(s>=576 && s<768){
+            gridState = "sm";
+        }
+        else if(s>=768 && s<960){
+            gridState = "md";
+        }
+        else if(s>=960 && s<1200){
+            gridState = "lg";
+        }
+        else{
+            gridState = "xl";
+        }
+
+        return gridState;
+    }
 }
