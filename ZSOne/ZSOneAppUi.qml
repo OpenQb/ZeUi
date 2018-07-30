@@ -44,6 +44,9 @@ ZBAppUi{
         ZBLib.removePage(objAppUi,objPageView,index);
     }
 
+    function closeCurrentPage(){
+            ZBLib.removePage(objAppUi,objPageView,objPageView.currentIndex);
+    }
 
     ListModel{
         id: objPageListModel
