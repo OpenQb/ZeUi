@@ -8,34 +8,26 @@ ZAppUi{
 
     Keys.forwardTo: [objDockView]
 
-    ZSideDockView{
+    ZSideDockSmartView{
         id: objDockView
         anchors.top: parent.top
-        //dockItemHeight: 30
-        //dockItemWidth: 30
-        //dockItemExpandedWidth: 50
-
-        height: 100
-        dockItemModel: ListModel{
-            ListElement{
-                title: "Exit"
-                icon: "mf-power_settings_new"
-            }
-            ListElement{
-                title: "Exit2"
-                icon: "mf-power_settings_new"
-            }
+        height: parent.height
+        dockLogo: "mf-widgets"
+        onLogoClicked: {
+            console.log("logo clicked");
+        }
+        onExitClicked: {
+            //objMainAppUi.close();
         }
 
-        onSelectedItem: {
-            console.log(title);
-            console.log(x);
-            console.log(y);
+//        dockItemModel: ListModel{
+//            ListElement{
+//                icon: "mf-widgets"
+//                title: "Test"
+//            }
+//        }
+        Component.onCompleted: {
+            objDockView.open();
         }
     }
-
-    Component.onCompleted: {
-        objDockView.open();
-    }
-
 }

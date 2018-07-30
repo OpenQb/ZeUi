@@ -20,10 +20,10 @@ Item {
     property int dockItemWidth: 50
     property int dockItemExpandedWidth: 150
 
-    property color dockBackgroundColor: "black"
+    property color dockBackgroundColor: metaTheme.changeTransparency("black",200)
 
     property color dockItemColor: "white"
-    property color dockItemBackgroundColor: "black"
+    property color dockItemBackgroundColor: "transparent"
 
 
     property string dockItemFont: "Ubuntu"

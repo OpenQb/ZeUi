@@ -1,6 +1,8 @@
 import Qb 1.0
 import Qb.Core 1.0
 import QtQuick 2.10
+import QtQuick.Controls 2.4
+import QtQuick.Controls.Material 2.4
 
 import "."
 
@@ -14,6 +16,7 @@ Item {
     focus: false
 
     signal selectedItem(string title,int index,int x,int y);
+    signal selectedByMouse();
 
     property bool isOpened: false
     property int dockItemHeight: ZBTheme.dockItemHeight
@@ -23,6 +26,7 @@ Item {
 
     property alias dockItemModel: objGridView.model
     property alias dockItemDelegate: objGridView.delegate
+    property alias dockInteractive: objGridView.interactive
 
     property alias dockItemCurrentIndex: objGridView.currentIndex
     property alias dockItemCurrentItem: objGridView.currentItem
@@ -66,7 +70,18 @@ Item {
     }
 
 
+    function canAcceptEnterKey(){
+        if(objGridView.currentIndex>-1 && objGridView.currentIndex<objGridView.count){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     function canAcceptUpKey(){
+        if(objGridView.count === 0) return false;
+
         if(objGridView.currentIndex === 0){
             return false;
         }
@@ -76,6 +91,7 @@ Item {
     }
 
     function canAcceptDownKey(){
+        if(objGridView.count === 0) return false;
         var len;
         try{
             len = objGridView.count;
@@ -89,6 +105,10 @@ Item {
         else{
             return true;
         }
+    }
+
+    function clearSelection(){
+        objGridView.currentIndex = -1;
     }
 
     function keysOnPressed(event){
@@ -184,6 +204,7 @@ Item {
             cellHeight: objBaseSideDockRoot.dockItemHeight
             cellWidth: parent.width
             currentIndex: -1
+            ScrollIndicator.vertical: ScrollIndicator { }
 
             property int selectedX: 0
             property int selectedY: 0
@@ -264,16 +285,17 @@ Item {
                             objGridView.currentIndex = index;
                             var gco = objDockItemDelegate.mapToItem(objBaseSideDockRoot, 0, 0);
                             objBaseSideDockRoot.emitSelection(index,gco.x,gco.y);
+                            objBaseSideDockRoot.selectedByMouse();
                         }
-                        onPressAndHold: {
-                            objGridView.currentIndex = index;
-                        }
-                        onPressed: {
-                            objGridView.currentIndex = index;
-                        }
-                        onReleased: {
-                            objGridView.currentIndex = index;
-                        }
+                        //                        onPressAndHold: {
+                        //                            objGridView.currentIndex = index;
+                        //                        }
+                        //                        onPressed: {
+                        //                            objGridView.currentIndex = index;
+                        //                        }
+                        //                        onReleased: {
+                        //                            objGridView.currentIndex = index;
+                        //                        }
                     }
 
                     Connections {
