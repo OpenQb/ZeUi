@@ -204,7 +204,7 @@ Item {
             cellHeight: objBaseSideDockRoot.dockItemHeight
             cellWidth: parent.width
             currentIndex: -1
-            ScrollIndicator.vertical: ScrollIndicator { }
+            ScrollIndicator.vertical: ScrollIndicator {z: 3}
 
             property int selectedX: 0
             property int selectedY: 0
@@ -212,6 +212,7 @@ Item {
             delegate: Item{
                 id: objDockItemDelegate
                 clip: false
+                z: 1
 
                 width: objGridView.width
                 height: objBaseSideDockRoot.dockItemHeight

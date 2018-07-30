@@ -20,12 +20,12 @@ ZAppUi{
             //objMainAppUi.close();
         }
 
-//        dockItemModel: ListModel{
-//            ListElement{
-//                icon: "mf-widgets"
-//                title: "Test"
-//            }
-//        }
+        dockItemModel: ListModel{
+            ListElement{
+                icon: "mf-widgets"
+                title: "Test"
+            }
+        }
         Component.onCompleted: {
             objDockView.open();
         }
