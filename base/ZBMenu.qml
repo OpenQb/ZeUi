@@ -208,7 +208,7 @@ Item {
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     width: parent.width
-                    color: objGridView.currentIndex===index?ZBTheme.dockItemSelectedBackgroundColor:ZBTheme.dockItemBackgroundColor
+                    color: objGridView.currentIndex===index?ZBTheme.itemSelectedBackgroundColor:ZBTheme.itemBackgroundColor
 
                     Item{
                         id: objIconPlaceHolder
@@ -219,12 +219,12 @@ Item {
                         visible: model.icon===undefined||model.icon===""?false:true
                         Text{
                             anchors.fill: parent
-                            color: objGridView.currentIndex===index?ZBTheme.dockItemSelectedColor:ZBTheme.dockItemColor
+                            color: objGridView.currentIndex===index?ZBTheme.itemSelectedColor:ZBTheme.itemColor
                             text: QbCoreOne.icon_font_text_code(model.icon)
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
                             font.family: QbCoreOne.icon_font_name(model.icon)
-                            font.bold: objGridView.currentIndex===index?ZBTheme.dockItemSelectedIconFontBold:ZBTheme.dockItemIconFontBold
+                            font.bold: objGridView.currentIndex===index?ZBTheme.itemSelectedIconFontBold:ZBTheme.itemIconFontBold
                             font.pixelSize: objDockItemDelegate.height*0.60
                             visible: QbCoreOne.icon_font_is_text(model.icon)
                         }
@@ -251,11 +251,11 @@ Item {
                         clip: true
                         Text{
                             anchors.fill: parent
-                            color: objGridView.currentIndex===index?ZBTheme.dockItemSelectedColor:ZBTheme.dockItemColor
+                            color: objGridView.currentIndex===index?ZBTheme.itemSelectedColor:ZBTheme.itemColor
                             text: title
-                            font.family: objGridView.currentIndex===index?ZBTheme.dockItemSelectedFontFamily:ZBTheme.dockItemFontFamily
-                            font.bold: objGridView.currentIndex===index?ZBTheme.dockItemSelectedFontBold:ZBTheme.dockItemFontBold
-                            font.pixelSize: objGridView.currentIndex===index?ZBTheme.dockItemSelectedFontSize:ZBTheme.dockItemFontSize
+                            font.family: objGridView.currentIndex===index?ZBTheme.itemSelectedFontFamily:ZBTheme.itemFontFamily
+                            font.bold: objGridView.currentIndex===index?ZBTheme.itemSelectedFontBold:ZBTheme.itemFontBold
+                            font.pixelSize: objGridView.currentIndex===index?ZBTheme.itemSelectedFontSize:ZBTheme.itemFontSize
                             verticalAlignment: Text.AlignVCenter
                             elide: Text.ElideRight
                         }

@@ -22,6 +22,21 @@ Item {
     property int menuItemHeight: 50
     property color menuWindowBackgroundColor: metaTheme.changeTransparency("black",200)
 
+    property color itemColor: "white"
+    property color itemBackgroundColor: "transparent"
+    property color itemSelectedColor: "red"
+    property color itemSelectedBackgroundColor: "black"
+
+    property string itemFontFamily: "Ubuntu"
+    property int itemFontSize: 15
+    property bool itemFontBold: false
+    property bool itemIconFontBold: false
+
+    property string itemSelectedFontFamily: "Ubuntu"
+    property int itemSelectedFontSize: 15
+    property bool itemSelectedFontBold: false
+    property bool itemSelectedIconFontBold: false
+
 
     /*Dock Related settings*/
     property int dockViewMode: zSingleColumn
