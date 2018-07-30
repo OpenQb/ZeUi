@@ -269,7 +269,7 @@ Item {
                             anchors.fill: parent
                             color: objGridView.currentIndex===index?ZBTheme.dockItemSelectedColor:ZBTheme.dockItemColor
                             text: title
-                            font.family: objGridView.currentIndex===index?ZBTheme.dockItemSelectedFont:ZBTheme.dockItemFont
+                            font.family: objGridView.currentIndex===index?ZBTheme.dockItemSelectedFontFamily:ZBTheme.dockItemFontFamily
                             font.bold: objGridView.currentIndex===index?ZBTheme.dockItemSelectedFontBold:ZBTheme.dockItemFontBold
                             font.pixelSize: objGridView.currentIndex===index?ZBTheme.dockItemSelectedFontSize:ZBTheme.dockItemFontSize
                             verticalAlignment: Text.AlignVCenter

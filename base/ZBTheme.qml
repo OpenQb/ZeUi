@@ -28,13 +28,13 @@ Item {
     property string defaultFontFamily: "Ubuntu"
     property int defaultFontSize: 15
 
-    property string dockItemFont: "Ubuntu"
+    property string dockItemFontFamily: "Ubuntu"
     property int dockItemFontSize: 15
     property bool dockItemFontBold: false
     property bool dockItemIconFontBold: false
 
 
-    property string dockItemSelectedFont: "Ubuntu"
+    property string dockItemSelectedFontFamily: "Ubuntu"
     property int dockItemSelectedFontSize: 15
     property bool dockItemSelectedFontBold: false
     property bool dockItemSelectedIconFontBold: false
