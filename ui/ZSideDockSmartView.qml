@@ -71,6 +71,10 @@ Item{
         objSideDockSmartViewRoot.x = -objSideDockSmartViewRoot.width;
     }
 
+    function closePageMenu(){
+        objPagesList.closeMenu();
+    }
+
     function keysOnPressed(event){
         var viewList = [objLogoView,objPagesView,objUserDataView,objPowerView];
         var cView;
