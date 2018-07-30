@@ -1,2 +1,20 @@
+singleton ZBTheme 1.0 ../base/ZBTheme.qml
+singleton ZBLib 1.0 ../base/ZBLib.qml
+ZBAppUi 1.0 ../base/ZBAppUi.qml
+ZBGridView 1.0 ../base/ZBGridView.qml
+ZBListMenu 1.0 ../base/ZBListMenu.qml
+ZBPage 1.0 ../base/ZBPage.qml
+ZBPageView 1.0 ../base/ZBPageView.qml
+ZBSideDockView 1.0 ../base/ZBSideDockView.qml
+
+
+ZAppUi 1.0 ../ui/ZAppUi.qml
+ZJSONView 1.0 ../ui/ZJSONView.qml
+ZNativeFileDialog 1.0 ../ui/ZNativeFileDialog.qml
+ZNativeFolderDialog 1.0 ../ui/ZNativeFolderDialog.qml
+ZPage 1.0 ../ui/ZPage.qml
+ZSideDockSmartView 1.0 ../ui/ZSideDockSmartView.qml
+ZSideDockView 1.0 ../ui/ZSideDockView.qml
+
 ZSOneAppPage 1.0 ZSOneAppPage.qml
 ZSOneAppUi 1.0 ZSOneAppUi.qml
