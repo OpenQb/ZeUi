@@ -18,7 +18,10 @@ Item {
 
     height: Math.min(parent.height,Math.min(objGridView.contentHeight+ZBTheme.menuItemHeight,ZBTheme.menuWindowHeight))
 
+    property Item lastActiveFocusItem: null;
+
     function openMenu(x,y){
+        objBaseMenuRoot.lastActiveFocusItem = QbCoreOne.getActiveFocusItem();
         objBaseMenuRoot.x = x;
         objBaseMenuRoot.y = y;
         objBaseMenuRoot.z = 10000000;
@@ -33,6 +36,8 @@ Item {
         objBaseMenuRoot.z = -10000000;
         objBaseMenuRoot.focus = false;
         objBaseMenuRoot.isOpened = false;
+        objBaseMenuRoot.lastActiveFocusItem.forceActiveFocus();
+        objBaseMenuRoot.lastActiveFocusItem.focus = true;
     }
 
     signal selectedItem(string title,int index,int x,int y);
