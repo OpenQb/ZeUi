@@ -123,6 +123,7 @@ Item {
             objGridView.currentIndex = -1;
         }
         else if(event.key === Qt.Key_Up){
+            objBaseSideDockRoot.forceActiveFocus();
             var len;
             try{
                 len = objGridView.count;
@@ -147,6 +148,7 @@ Item {
 
         }
         else if(event.key === Qt.Key_Down){
+            objBaseSideDockRoot.forceActiveFocus();
             var len;
             var cIndex = objGridView.currentIndex;
             try{
@@ -287,6 +289,7 @@ Item {
                             objBaseSideDockRoot.selectedByMouse();
                             objGridView.selectedX = gco.x;
                             objGridView.selectedY = gco.y;
+                            objBaseSideDockRoot.forceActiveFocus();
                             //console.log("X:",gco.x);
                             //console.log("Y:",gco.y);
                         }
@@ -314,7 +317,7 @@ Item {
 
                     Rectangle{
                         height: 3
-                        color: objGridView.focus?ZBTheme.ribbonColor:ZBTheme.ribbonColorNonFocus
+                        color: objBaseSideDockRoot.focus?ZBTheme.ribbonColor:ZBTheme.ribbonColorNonFocus
                         opacity: objGridView.currentIndex===index?1:0
                         width: objGridView.currentIndex===index?parent.width:0
                         anchors.bottom: parent.bottom
