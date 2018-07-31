@@ -11,6 +11,7 @@ Item{
     visible: false
     z: -100000
     focus: false
+    property var appUi: null
     onFocusChanged: {
         objLogoView.isFocused = focus;
         objUserDataView.isFocused = focus;
@@ -179,6 +180,7 @@ Item{
         visible: true
         z: 10000001
         focus: true
+        appUi: objSideDockSmartViewRoot.appUi
         //isFocused: objSideDockSmartViewRoot.focus
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
@@ -214,6 +216,7 @@ Item{
         height: objSideDockSmartViewRoot.dockItemHeight
         visible: true
         z: 10000001
+        appUi: objSideDockSmartViewRoot.appUi
         focus: true
         //isFocused: objSideDockSmartViewRoot.focus
         dockInteractive: false
@@ -247,6 +250,7 @@ Item{
     }
 
     ZBListMenu{
+        appUi: objSideDockSmartViewRoot.appUi
         id: objPagesList
         title: objSideDockSmartViewRoot.pageTitle
         onSelectedItem: {
@@ -258,6 +262,7 @@ Item{
     }
 
     ZBSideDockView{
+        appUi: objSideDockSmartViewRoot.appUi
         id: objUserDataView
         anchors.top: objPagesView.bottom
         anchors.left: parent.left
@@ -286,6 +291,7 @@ Item{
     }
 
     ZBSideDockView{
+        appUi: objSideDockSmartViewRoot.appUi
         id: objPowerView
         anchors.bottom: parent.bottom
         anchors.left: parent.left

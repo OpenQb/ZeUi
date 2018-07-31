@@ -14,6 +14,7 @@ Item {
     visible: false
     z: -10000000
     focus: false
+    property var appUi: null
 
     signal selectedItem(string title,int index,int x,int y);
     signal selectedByMouse();

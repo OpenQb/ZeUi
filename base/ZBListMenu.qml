@@ -20,8 +20,12 @@ Item {
 
     property Item lastActiveFocusItem: null;
 
+    property var appUi: null;
+
     function openMenu(x,y){
-        objBaseMenuRoot.lastActiveFocusItem = QbCoreOne.getActiveFocusItem();
+        if(objBaseMenuRoot.appUi){
+            objBaseMenuRoot.lastActiveFocusItem = objBaseMenuRoot.appUi.getCurrentFocusItem();
+        }
         objBaseMenuRoot.x = x;
         objBaseMenuRoot.y = y;
         objBaseMenuRoot.z = 10000000;

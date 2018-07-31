@@ -57,6 +57,7 @@ ZBAppUi{
         id: objDockView
         anchors.top: parent.top
         height: parent.height
+        appUi: objAppUi
         dockLogo: objAppUi.dockLogo
         onLogoClicked: {
             objAppUi.logoClicked();
@@ -75,6 +76,7 @@ ZBAppUi{
             if(cPage) cPage.selectedContextDockItem(title,index,x+objDockView.width,y+objDockView.dockLogoHeight+objDockView.dockItemHeight);
         }
 
+
         KeyNavigation.tab: objPageView
         KeyNavigation.priority: KeyNavigation.BeforeItem
     }
@@ -88,6 +90,7 @@ ZBAppUi{
         anchors.bottom: parent.bottom
         KeyNavigation.tab: objDockView
         KeyNavigation.priority: KeyNavigation.BeforeItem
+        appUi: objAppUi
 
         onFocusChanged: {
             if(objPageView.currentItem){

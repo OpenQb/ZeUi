@@ -9,6 +9,7 @@ Item {
     property int currentIndex: -1
     property var pageList: []
     property Item currentItem: null
+    property var appUi: null
 
 
     function pageAt(index){
