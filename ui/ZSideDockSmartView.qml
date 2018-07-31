@@ -172,6 +172,8 @@ Item{
             }
         }
         onSelectedItem: {
+            objSideDockSmartViewRoot.forceActiveFocus();
+            objSideDockSmartViewRoot.focus = true;
             objSideDockSmartViewRoot.logoClicked();
         }
         onSelectedByMouse: {
@@ -180,6 +182,8 @@ Item{
             objUserDataView.clearSelection();
             objPowerView.clearSelection();
             objPagesList.closeMenu();
+            objSideDockSmartViewRoot.forceActiveFocus();
+            objSideDockSmartViewRoot.focus = true;
         }
     }
 
@@ -203,9 +207,13 @@ Item{
             }
         }
         onSelectedItem: {
+            objSideDockSmartViewRoot.forceActiveFocus();
+            objSideDockSmartViewRoot.focus = true;
             objPagesList.openMenu(x+objSideDockSmartViewRoot.width,y+objSideDockSmartViewRoot.dockLogoHeight);
         }
         onSelectedByMouse: {
+            objSideDockSmartViewRoot.forceActiveFocus();
+            objSideDockSmartViewRoot.focus = true;
             objSideDockSmartViewRoot.currentView = 1;
             objLogoView.clearSelection();
             objUserDataView.clearSelection();
@@ -234,9 +242,13 @@ Item{
         dockViewMode: objSideDockSmartViewRoot.dockViewMode
         dockItemHeight: objSideDockSmartViewRoot.dockItemHeight
         onSelectedItem: {
+            objSideDockSmartViewRoot.forceActiveFocus();
+            objSideDockSmartViewRoot.focus = true;
             objSideDockSmartViewRoot.selectedItem(title,index,x,y)
         }
         onSelectedByMouse: {
+            objSideDockSmartViewRoot.forceActiveFocus();
+            objSideDockSmartViewRoot.focus = true;
             objSideDockSmartViewRoot.currentView = 2;
             objPagesView.clearSelection();
             objLogoView.clearSelection();
@@ -265,9 +277,13 @@ Item{
             }
         }
         onSelectedItem: {
+            objSideDockSmartViewRoot.forceActiveFocus();
+            objSideDockSmartViewRoot.focus = true;
             objSideDockSmartViewRoot.exitClicked();
         }
         onSelectedByMouse: {
+            objSideDockSmartViewRoot.forceActiveFocus();
+            objSideDockSmartViewRoot.focus = true;
             objSideDockSmartViewRoot.currentView = 3;
             objPagesView.clearSelection();
             objLogoView.clearSelection();
