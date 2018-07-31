@@ -11,6 +11,12 @@ Item{
     visible: false
     z: -100000
     focus: false
+    onFocusChanged: {
+        objLogoView.isFocused = focus;
+        objUserDataView.isFocused = focus;
+        objPagesView.isFocused = focus;
+        objPowerView.isFocused = focus;
+    }
 
     signal selectedItem(string title,int index,int x,int y);
     signal selectedPageItem(string title,int index,int x,int y);
@@ -174,7 +180,7 @@ Item{
         visible: true
         z: 10000001
         focus: true
-        isFocused: objSideDockSmartViewRoot.focus
+        //isFocused: objSideDockSmartViewRoot.focus
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
         dockItemHeight: objSideDockSmartViewRoot.dockLogoHeight
@@ -210,7 +216,7 @@ Item{
         visible: true
         z: 10000001
         focus: true
-        isFocused: objSideDockSmartViewRoot.focus
+        //isFocused: objSideDockSmartViewRoot.focus
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
         dockItemHeight: objSideDockSmartViewRoot.dockItemHeight
@@ -257,7 +263,7 @@ Item{
         visible: true
         z: 10000000
         focus: true
-        isFocused: objSideDockSmartViewRoot.focus
+        //isFocused: objSideDockSmartViewRoot.focus
         dockViewMode: objSideDockSmartViewRoot.dockViewMode
         dockItemHeight: objSideDockSmartViewRoot.dockItemHeight
         onSelectedItem: {
@@ -285,7 +291,7 @@ Item{
         visible: true
         z: 10000001
         focus: true
-        isFocused: objSideDockSmartViewRoot.focus
+        //isFocused: objSideDockSmartViewRoot.focus
         dockItemHeight: objSideDockSmartViewRoot.dockPowerHeight
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
