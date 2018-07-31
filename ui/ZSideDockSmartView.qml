@@ -120,6 +120,7 @@ Item{
             event.accepted = true;
             if(objPagesList.visible){
                 objPagesList.closeMenu();
+                objSideDockSmartViewRoot.focus = false;
                 objSideDockSmartViewRoot.forceActiveFocus();
                 objSideDockSmartViewRoot.focus = true;
             }
