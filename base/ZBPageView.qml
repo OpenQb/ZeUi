@@ -19,6 +19,8 @@ Item {
         }
     }
 
+    Keys.forwardTo: [objBasePageView.currentItem]
+
     function setCurrentIndex(index){
         if(objPageView.currentIndex !== index){
             objPageView.oldIndex = objBasePageView.currentIndex;
