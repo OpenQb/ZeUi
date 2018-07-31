@@ -116,6 +116,8 @@ Item{
                 objPagesList.closeMenu();
                 objSideDockSmartViewRoot.forceActiveFocus();
                 objSideDockSmartViewRoot.focus = true;
+                cView = viewList[objSideDockSmartViewRoot.currentView];
+                cView.isFocused = true;
             }
             else{
                 for(var i=0;i<viewList.length;++i){
