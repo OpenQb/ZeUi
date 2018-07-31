@@ -58,4 +58,8 @@ QbApp {
             objBaseAppUiRoot.gridState = "xl";
         }
     }
+
+    function CT(c,v){
+        return ZBTheme.metaTheme.changeTransparency(c,v);
+    }
 }
