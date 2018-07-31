@@ -112,15 +112,16 @@ Item{
         }
         else if(event.key === Qt.Key_Escape||event.key === Qt.Key_Back){
             event.accepted = true;
-            for(var i=0;i<viewList.length;++i){
-                cView = viewList[i].clearSelection();
-            }
-            objSideDockSmartViewRoot.currentView = -1;
-
             if(objPagesList.visible){
                 objPagesList.closeMenu();
                 objSideDockSmartViewRoot.forceActiveFocus();
                 objSideDockSmartViewRoot.focus = true;
+            }
+            else{
+                for(var i=0;i<viewList.length;++i){
+                    cView = viewList[i].clearSelection();
+                }
+                objSideDockSmartViewRoot.currentView = -1;
             }
         }
         else if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
