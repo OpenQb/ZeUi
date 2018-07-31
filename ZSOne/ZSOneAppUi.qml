@@ -59,6 +59,7 @@ ZBAppUi{
         height: parent.height
         dockLogo: objAppUi.dockLogo
         onLogoClicked: {
+            objDockView.forceActiveFocus();
             objAppUi.logoClicked();
         }
         onExitClicked: {
