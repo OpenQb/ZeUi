@@ -123,7 +123,7 @@ Item{
                 objSideDockSmartViewRoot.forceActiveFocus();
                 objSideDockSmartViewRoot.focus = true;
                 cView = viewList[objSideDockSmartViewRoot.currentView];
-                cView.isFocused = true;
+                cView.isFocused = objSideDockSmartViewRoot.focus;
             }
             else{
                 for(var i=0;i<viewList.length;++i){
