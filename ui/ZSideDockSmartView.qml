@@ -160,6 +160,7 @@ Item{
         visible: true
         z: 10000001
         focus: true
+        isFocused: objSideDockSmartViewRoot.focus
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
         dockItemHeight: objSideDockSmartViewRoot.dockLogoHeight
@@ -191,6 +192,7 @@ Item{
         visible: true
         z: 10000001
         focus: true
+        isFocused: objSideDockSmartViewRoot.focus
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
         dockItemHeight: objSideDockSmartViewRoot.dockItemHeight
@@ -228,6 +230,7 @@ Item{
         visible: true
         z: 10000000
         focus: true
+        isFocused: objSideDockSmartViewRoot.focus
         dockViewMode: objSideDockSmartViewRoot.dockViewMode
         dockItemHeight: objSideDockSmartViewRoot.dockItemHeight
         onSelectedItem: {
@@ -251,6 +254,7 @@ Item{
         visible: true
         z: 10000001
         focus: true
+        isFocused: objSideDockSmartViewRoot.focus
         dockItemHeight: objSideDockSmartViewRoot.dockPowerHeight
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
