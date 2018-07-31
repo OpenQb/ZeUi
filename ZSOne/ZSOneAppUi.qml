@@ -86,6 +86,8 @@ ZBAppUi{
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
+        KeyNavigation.tab: objDockView
+        KeyNavigation.priority: KeyNavigation.BeforeItem
 
         onCurrentIndexChanged: {
             if(currentIndex !==-1){
