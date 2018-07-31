@@ -10,6 +10,9 @@ ZBAppUi{
     property string dockLogo: ""
     signal logoClicked();
 
+    property alias dockView: objDockView
+    property alias pageView: objPageView
+
     Keys.forwardTo: [objDockView,objPageView]
 
     Component.onCompleted: {
