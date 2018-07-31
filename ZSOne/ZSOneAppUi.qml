@@ -118,7 +118,7 @@ ZBAppUi{
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
-        color: "blue"
+        color: objAppUi.mCT("black",200)
     }
 
     ZSideDockSmartView{
