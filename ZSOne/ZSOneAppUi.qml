@@ -46,7 +46,7 @@ ZBAppUi{
     }
 
     function closeCurrentPage(){
-            ZBLib.removePage(objAppUi,objPageView,objPageView.currentIndex);
+        ZBLib.removePage(objAppUi,objPageView,objPageView.currentIndex);
     }
 
     ListModel{
@@ -89,6 +89,18 @@ ZBAppUi{
         anchors.bottom: parent.bottom
         KeyNavigation.tab: objDockView
         KeyNavigation.priority: KeyNavigation.BeforeItem
+
+        onFocusChanged: {
+            if(objPageView.currentItem){
+                if(focus){
+                    objPageView.currentItem.forceActiveFocus();
+                    objPageView.currentItem.focus = true;
+                }
+                else{
+                    objPageView.currentItem.focus = false;
+                }
+            }
+        }
 
         onCurrentIndexChanged: {
             if(currentIndex !==-1){
