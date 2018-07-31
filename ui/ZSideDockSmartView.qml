@@ -251,6 +251,9 @@ Item{
         title: objSideDockSmartViewRoot.pageTitle
         onSelectedItem: {
             objSideDockSmartViewRoot.selectedPageItem(title,index,x,y);
+            objPagesList.closeMenu();
+            objSideDockSmartViewRoot.forceActiveFocus();
+            objSideDockSmartViewRoot.focus = true;
         }
     }
 
