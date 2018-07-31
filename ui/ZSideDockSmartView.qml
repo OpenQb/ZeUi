@@ -122,8 +122,8 @@ Item{
                 objPagesList.closeMenu();
                 objSideDockSmartViewRoot.forceActiveFocus();
                 objSideDockSmartViewRoot.focus = true;
-                cView = viewList[objSideDockSmartViewRoot.currentView];
-                cView.isFocused = objSideDockSmartViewRoot.focus;
+                //cView = viewList[objSideDockSmartViewRoot.currentView];
+                //cView.isFocused = objSideDockSmartViewRoot.focus;
             }
             else{
                 for(var i=0;i<viewList.length;++i){
