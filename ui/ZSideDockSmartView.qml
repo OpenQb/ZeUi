@@ -213,7 +213,7 @@ Item{
         onSelectedItem: {
             objSideDockSmartViewRoot.forceActiveFocus();
             objSideDockSmartViewRoot.focus = true;
-            if(objPagesList.visible){
+            if(!objPagesList.visible){
                 objPagesList.openMenu(x+objSideDockSmartViewRoot.width,y+objSideDockSmartViewRoot.dockLogoHeight);
             }
             else{
