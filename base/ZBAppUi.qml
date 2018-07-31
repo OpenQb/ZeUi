@@ -59,7 +59,7 @@ QbApp {
         }
     }
 
-    function CT(c,v){
+    function mCT(c,v){
         return ZBTheme.metaTheme.changeTransparency(c,v);
     }
 }
