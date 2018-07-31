@@ -18,6 +18,9 @@ QbApp {
     property bool isAddingPage: false;
     property int scrollMode: ZBTheme.zInfiniteHeight;
 
+    property var zBaseLib: ZBLib
+    property var zBaseTheme: ZBTheme
+
     /*
       0 - infinite height. fixed width
       1 - infinite width. fixed height
