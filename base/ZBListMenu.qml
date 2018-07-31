@@ -36,8 +36,10 @@ Item {
         objBaseMenuRoot.z = -10000000;
         objBaseMenuRoot.focus = false;
         objBaseMenuRoot.isOpened = false;
-        objBaseMenuRoot.lastActiveFocusItem.forceActiveFocus();
-        objBaseMenuRoot.lastActiveFocusItem.focus = true;
+        if(objBaseMenuRoot.lastActiveFocusItem){
+            objBaseMenuRoot.lastActiveFocusItem.forceActiveFocus();
+            objBaseMenuRoot.lastActiveFocusItem.focus = true;
+        }
     }
 
     signal selectedItem(string title,int index,int x,int y);
