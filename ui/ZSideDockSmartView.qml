@@ -80,6 +80,7 @@ Item{
         var cView;
 
         if(event.key === Qt.Key_Up){
+            objSideDockSmartViewRoot.forceActiveFocus();
             if(objSideDockSmartViewRoot.currentView<0){
                 objSideDockSmartViewRoot.currentView = viewList.length - 1;
             }
@@ -95,6 +96,7 @@ Item{
             }
         }
         else if(event.key === Qt.Key_Down){
+            objSideDockSmartViewRoot.forceActiveFocus();
             if(objSideDockSmartViewRoot.currentView<0 || objSideDockSmartViewRoot.currentView>=viewList.length){
                 objSideDockSmartViewRoot.currentView = 0;
             }
