@@ -123,7 +123,7 @@ Item {
             objGridView.currentIndex = -1;
         }
         else if(event.key === Qt.Key_Up){
-            objBaseSideDockRoot.forceActiveFocus();
+            //objBaseSideDockRoot.forceActiveFocus();
             var len;
             try{
                 len = objGridView.count;
@@ -148,7 +148,7 @@ Item {
 
         }
         else if(event.key === Qt.Key_Down){
-            objBaseSideDockRoot.forceActiveFocus();
+            //objBaseSideDockRoot.forceActiveFocus();
             var len;
             var cIndex = objGridView.currentIndex;
             try{
@@ -289,7 +289,7 @@ Item {
                             objBaseSideDockRoot.selectedByMouse();
                             objGridView.selectedX = gco.x;
                             objGridView.selectedY = gco.y;
-                            objBaseSideDockRoot.forceActiveFocus();
+                            //objBaseSideDockRoot.forceActiveFocus();
                             //console.log("X:",gco.x);
                             //console.log("Y:",gco.y);
                         }
