@@ -22,6 +22,7 @@ Item {
         objBaseMenuRoot.x = x;
         objBaseMenuRoot.y = y;
         objBaseMenuRoot.z = 10000000;
+        objBaseMenuRoot.forceActiveFocus();
         objBaseMenuRoot.focus = true;
         objBaseMenuRoot.visible = true;
         objBaseMenuRoot.isOpened = true;

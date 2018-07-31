@@ -116,6 +116,10 @@ Item{
                 cView = viewList[i].clearSelection();
             }
             objSideDockSmartViewRoot.currentView = -1;
+
+            if(objPagesList.visible){
+                objPagesList.closeMenu();
+            }
         }
         else if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
             cView = viewList[objSideDockSmartViewRoot.currentView];
@@ -209,7 +213,12 @@ Item{
         onSelectedItem: {
             objSideDockSmartViewRoot.forceActiveFocus();
             objSideDockSmartViewRoot.focus = true;
-            objPagesList.openMenu(x+objSideDockSmartViewRoot.width,y+objSideDockSmartViewRoot.dockLogoHeight);
+            if(objPagesList.visible){
+                objPagesList.openMenu(x+objSideDockSmartViewRoot.width,y+objSideDockSmartViewRoot.dockLogoHeight);
+            }
+            else{
+                objPagesList.closeMenu();
+            }
         }
         onSelectedByMouse: {
             objSideDockSmartViewRoot.forceActiveFocus();
