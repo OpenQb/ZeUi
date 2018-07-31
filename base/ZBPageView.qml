@@ -23,12 +23,14 @@ Item {
         if(objPageView.currentIndex !== index){
             objPageView.oldIndex = objBasePageView.currentIndex;
             objBasePageView.currentItem.visible = false;
+            objBasePageView.currentItem.focus = false;
             objPageView.currentItem.pageHidden();
 
             objBasePageView.currentIndex = index;
             objBasePageView.currentItem = objBasePageView.pageList[index];
 
             objBasePageView.currentItem.visible = true;
+            objBasePageView.currentItem.focus = true;
             objPageView.currentItem.pageOpened();
         }
     }
@@ -47,6 +49,8 @@ Item {
         objBasePageView.currentItem = item;
         objBasePageView.oldIndex = objBasePageView.currentIndex;
         objBasePageView.currentIndex = index;
+        objBasePageView.currentItem.visible = true;
+        objBasePageView.currentItem.focus = true;
     }
 
     function removePage(index){
@@ -56,6 +60,7 @@ Item {
 
                 var item = objBasePageView.takePage(index);
                 item.visible = false;
+                item.focus = false;
                 item.pageClosing();
                 delete item;
 
@@ -77,6 +82,8 @@ Item {
             if(ni<0) ni = 0;
             objBasePageView.currentItem = objBasePageView.pageList[ni];
             objBasePageView.currentIndex = ni;
+            objBasePageView.currentItem.visible = true;
+            objBasePageView.currentItem.focus = true;
         }
         return i;
     }
