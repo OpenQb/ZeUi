@@ -314,7 +314,7 @@ Item {
 
                     Rectangle{
                         height: 3
-                        color: ZBTheme.ribbonColor
+                        color: objGridView.focus?ZBTheme.ribbonColor:ZBTheme.ribbonColorNonFocus
                         opacity: objGridView.currentIndex===index?1:0
                         width: objGridView.currentIndex===index?parent.width:0
                         anchors.bottom: parent.bottom

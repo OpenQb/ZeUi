@@ -66,6 +66,7 @@ Item {
     /*END of Dock related settings */
 
     property color ribbonColor: "yellow"
+    property color ribbonColorNonFocus: "grey"
     property bool useAnimation: true
 
     /*ENUMS scrollMode*/
