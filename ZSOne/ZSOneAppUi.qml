@@ -10,7 +10,7 @@ ZBAppUi{
     property string dockLogo: ""
     signal logoClicked();
 
-    Keys.forwardTo: [objDockView]
+    Keys.forwardTo: [objDockView,objPageView]
 
     Component.onCompleted: {
         objDockView.open();
