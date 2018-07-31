@@ -1,5 +1,7 @@
 import QtQuick 2.10
 
-Item {
+import "./../base"
+
+ZBPage {
 
 }

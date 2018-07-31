@@ -3,7 +3,7 @@ import QtQuick 2.10
 import "./../base"
 
 
-Item{
+ZBItem{
     id: objSideDockSmartViewRoot
     clip: false
 
@@ -11,7 +11,6 @@ Item{
     visible: false
     z: -100000
     focus: false
-    property var appUi: null
     onFocusChanged: {
         objLogoView.isFocused = focus;
         objUserDataView.isFocused = focus;

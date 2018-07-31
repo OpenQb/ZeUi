@@ -1,6 +1,6 @@
 import QtQuick 2.10
 
-Item {
+ZBItem {
     id: objBasePageView
     clip: true
 
@@ -9,7 +9,6 @@ Item {
     property int currentIndex: -1
     property var pageList: []
     property Item currentItem: null
-    property var appUi: null
 
 
     function pageAt(index){

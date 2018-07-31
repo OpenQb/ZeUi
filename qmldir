@@ -6,6 +6,7 @@ ZBListMenu 1.0 base/ZBListMenu.qml
 ZBPage 1.0 base/ZBPage.qml
 ZBPageView 1.0 base/ZBPageView.qml
 ZBSideDockView 1.0 base/ZBSideDockView.qml
+ZBItem 1.0 base/ZBItem.qml
 
 ZAppUi 1.0 ui/ZAppUi.qml
 ZJSONView 1.0 ui/ZJSONView.qml

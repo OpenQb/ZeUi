@@ -1,6 +1,6 @@
 import QtQuick 2.10
 
-Item {
+ZBItem {
     id: objBasePage
     clip: true
 
@@ -8,8 +8,6 @@ Item {
     property bool isSingleInstance: false
     property string appId: ""
     property string title: ""
-
-    property var appUi: null;
 
     signal pageOpened();
     signal pageHidden();

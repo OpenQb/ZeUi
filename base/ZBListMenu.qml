@@ -7,7 +7,7 @@ import QtQuick.Controls.Material 2.4
 
 import "."
 
-Item {
+ZBItem {
     id: objBaseMenuRoot
     clip: true
 
@@ -20,7 +20,6 @@ Item {
 
     property Item lastActiveFocusItem: null;
 
-    property var appUi: null;
 
     function openMenu(x,y){
         if(objBaseMenuRoot.appUi){

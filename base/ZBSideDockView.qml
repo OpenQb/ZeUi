@@ -6,7 +6,7 @@ import QtQuick.Controls.Material 2.4
 
 import "."
 
-Item {
+ZBItem {
     id: objBaseSideDockRoot
     clip: false
 
@@ -14,7 +14,6 @@ Item {
     visible: false
     z: -10000000
     focus: false
-    property var appUi: null
 
     signal selectedItem(string title,int index,int x,int y);
     signal selectedByMouse();
