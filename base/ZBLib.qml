@@ -12,6 +12,7 @@ QtObject {
     function addPage(appUi,pageView,page,jsobject){
         try{
             jsobject["appId"] = appUi.appId;
+            jsobject["appUi"] = appUi;
         }
         catch(e){
             console.log("Failed to push appId");

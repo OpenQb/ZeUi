@@ -9,6 +9,8 @@ Item {
     property string appId: ""
     property string title: ""
 
+    property var appUi: null;
+
     signal pageOpened();
     signal pageHidden();
     signal pageClosing();
