@@ -119,9 +119,9 @@ Item{
         else if(event.key === Qt.Key_Escape||event.key === Qt.Key_Back){
             event.accepted = true;
             if(objPagesList.visible){
+                objPagesList.closeMenu();
                 objSideDockSmartViewRoot.forceActiveFocus();
                 objSideDockSmartViewRoot.focus = true;
-                objPagesList.closeMenu();
                 cView = viewList[objSideDockSmartViewRoot.currentView];
                 cView.isFocused = objSideDockSmartViewRoot.focus;
             }
