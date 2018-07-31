@@ -126,7 +126,6 @@ Item{
             event.accepted = true;
             if(objPagesList.visible){
                 objPagesList.closeMenu();
-                objSideDockSmartViewRoot.focus = false;
                 objSideDockSmartViewRoot.forceActiveFocus();
                 objSideDockSmartViewRoot.focus = true;
             }
@@ -227,13 +226,14 @@ Item{
             }
         }
         onSelectedItem: {
-            objSideDockSmartViewRoot.forceActiveFocus();
-            objSideDockSmartViewRoot.focus = true;
             if(!objPagesList.visible){
+                objSideDockSmartViewRoot.focus = false;
                 objPagesList.openMenu(x+objSideDockSmartViewRoot.width,y+objSideDockSmartViewRoot.dockLogoHeight);
             }
             else{
                 objPagesList.closeMenu();
+                objSideDockSmartViewRoot.forceActiveFocus();
+                objSideDockSmartViewRoot.focus = true;
             }
         }
         onSelectedByMouse: {
