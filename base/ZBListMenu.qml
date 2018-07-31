@@ -165,6 +165,11 @@ Item {
                 }
             }
         }
+        else{
+            event.accepted = true;
+            objGridView.currentIndex = -1;
+            objBaseMenuRoot.closeMenu();
+        }
     }
 
     function keysOnReleased(event){
@@ -178,6 +183,9 @@ Item {
             event.accepted = true;
         }
         else if(event.key === Qt.Key_Down){
+            event.accepted = true;
+        }
+        else{
             event.accepted = true;
         }
     }
