@@ -1,4 +1,7 @@
+import Qb 1.0
+import Qb.Core 1.0
 import QtQuick 2.10
+import Qb.Android 1.0
 
 import "./../base"
 import "./../ui"
@@ -17,7 +20,30 @@ ZBAppUi{
 
     Component.onCompleted: {
         objDockView.open();
+        enableAndroidFullScreen();
     }
+
+    onAppVisible: {
+        enableAndroidFullScreen();
+    }
+
+    Connections{
+        target: Qt.inputMethod
+        onVisibleChanged:{
+            if(!Qt.inputMethod.visible){
+                enableAndroidFullScreen();
+            }
+            else{
+                disableAndroidFullScreen();
+            }
+        }
+
+        onKeyboardRectangleChanged: {
+            if (Qt.inputMethod.visible) {
+            }
+        }
+    }
+
 
     onPageRemovedIndex: {
         removeRunningPage(index);
@@ -25,6 +51,39 @@ ZBAppUi{
 
     onPageAdded: {
         addRunningPage(title)
+    }
+
+    QbAndroidExtras{
+        id: objAndroidExtras
+    }
+
+    function dpscale(num){
+        return QbCoreOne.scale(num);
+    }
+
+    /** Android related things **/
+    function showAndroidStatusBar(){
+        if(Qt.platform.os !== "android") return;
+        objTopBlock.height = objAppUi.dpscale(25);
+        objAndroidExtras.showSystemUi();
+    }
+
+    function hideAndroidStatusBar(){
+        if(Qt.platform.os !== "android") return;
+        objAndroidExtras.hideSystemUi();
+        objTopBlock.height = 0;
+    }
+
+    function enableAndroidFullScreen(){
+        if(Qt.platform.os !== "android") return;
+        objAndroidExtras.enableFullScreen();
+        objTopBlock.height = 0;
+    }
+
+    function disableAndroidFullScreen(){
+        if(Qt.platform.os !== "android") return;
+        objAndroidExtras.disableFullScreen();
+        objTopBlock.height = objAppUi.dpscale(25);
     }
 
     function addRunningPage(title){
@@ -53,9 +112,18 @@ ZBAppUi{
         id: objPageListModel
     }
 
+    Rectangle{
+        id: objTopBlock
+        height: 0
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        color: "blue"
+    }
+
     ZSideDockSmartView{
         id: objDockView
-        anchors.top: parent.top
+        anchors.top: objTopBlock.bottom
         height: parent.height
         appUi: objAppUi
         dockLogo: objAppUi.dockLogo
@@ -84,9 +152,9 @@ ZBAppUi{
 
     ZBPageView{
         id: objPageView
+        anchors.top: objTopBlock.bottom
         anchors.left: objDockView.right
         anchors.right: parent.right
-        anchors.top: parent.top
         anchors.bottom: parent.bottom
         KeyNavigation.tab: objDockView
         KeyNavigation.priority: KeyNavigation.BeforeItem
