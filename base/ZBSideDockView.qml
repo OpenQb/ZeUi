@@ -287,8 +287,8 @@ ZBItem {
                         onClicked: {
                             objGridView.currentIndex = index;
                             var gco = objDockItemDelegate.mapToItem(objBaseSideDockRoot, 0, 0);
-                            objBaseSideDockRoot.emitSelection(index,gco.x,gco.y);
                             objBaseSideDockRoot.selectedByMouse();
+                            objBaseSideDockRoot.emitSelection(index,gco.x,gco.y);
                             objGridView.selectedX = gco.x;
                             objGridView.selectedY = gco.y;
                             //objBaseSideDockRoot.forceActiveFocus();
