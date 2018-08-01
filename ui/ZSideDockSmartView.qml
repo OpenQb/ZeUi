@@ -212,7 +212,7 @@ ZBItem{
         anchors.top: objLogoView.bottom
         anchors.left: parent.left
         width: objSideDockSmartViewRoot.width
-        height: objSideDockSmartViewRoot.dockItemHeight
+        height: objSideDockSmartViewRoot.dockItemHeight*2
         visible: true
         z: 10000001
         appUi: objSideDockSmartViewRoot.appUi
