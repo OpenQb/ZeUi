@@ -279,13 +279,13 @@ ZBItem{
             objSideDockSmartViewRoot.selectedItem(title,index,x,y)
         }
         onSelectedByMouse: {
-            objSideDockSmartViewRoot.forceActiveFocus();
-            objSideDockSmartViewRoot.focus = true;
             objSideDockSmartViewRoot.currentView = 2;
             objPagesView.clearSelection();
             objLogoView.clearSelection();
             objPowerView.clearSelection();
             objPagesList.closeMenu();
+            objSideDockSmartViewRoot.forceActiveFocus();
+            objSideDockSmartViewRoot.focus = true;
         }
     }
 
