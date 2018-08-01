@@ -249,15 +249,17 @@ ZBItem {
                             rotation: model.icon_rotation?icon_rotation:0
                         }
                         Image{
-                            anchors.fill: parent
+                            //anchors.fill: parent
+                            width: parent.width*0.90
+                            height: parent.height*0.90
                             anchors.centerIn: parent
                             visible: QbCoreOne.icon_font_is_image(icon)
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
                             mipmap: true
                             smooth: true
-                            //sourceSize.width: parent.width*2
-                            //sourceSize.height: parent.height*2
+                            sourceSize.width: width*2
+                            sourceSize.height: height*2
                             source: visible?icon:""
                             rotation: model.icon_rotation?icon_rotation:0
                         }
