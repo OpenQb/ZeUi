@@ -1,3 +1,5 @@
+import Qb 1.0
+import Qb.Core 1.0
 import QtQuick 2.10
 
 import "./../base"
@@ -212,7 +214,7 @@ ZBItem{
         anchors.top: objLogoView.bottom
         anchors.left: parent.left
         width: objSideDockSmartViewRoot.width
-        height: objSideDockSmartViewRoot.dockItemHeight*2
+        height: objSideDockSmartViewRoot.dockItemHeight*1
         visible: true
         z: 10000001
         appUi: objSideDockSmartViewRoot.appUi
@@ -221,14 +223,18 @@ ZBItem{
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
         dockItemHeight: objSideDockSmartViewRoot.dockItemHeight
+
+        Component.onCompleted: {
+            if(Qt.platform.os === "android" || Qt.platform.os === "ios"||QbCoreOne.isSingleWindowMode()||QbCoreOne.isWebglPlatofrm()){
+                objPageViewModel.append({title:"hide",icon:"mf-exit_to_app"});
+                objPagesView.height = objSideDockSmartViewRoot.dockItemHeight*2;
+            }
+        }
         dockItemModel: ListModel{
+            id: objPageViewModel
             ListElement{
                 title: "Pages"
                 icon: "mf-widgets"
-            }
-            ListElement{
-                title: "Hide"
-                icon: "mf-exit_to_app"
             }
         }
         onSelectedItem: {
