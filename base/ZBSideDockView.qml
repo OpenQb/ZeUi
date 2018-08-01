@@ -262,6 +262,7 @@ ZBItem {
                             sourceSize.height: height*2
                             source: visible?icon:""
                             rotation: model.icon_rotation?icon_rotation:0
+                            fillMode: Image.PreserveAspectFit
                         }
                     }
 
