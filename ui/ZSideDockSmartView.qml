@@ -284,8 +284,8 @@ ZBItem{
             objLogoView.clearSelection();
             objPowerView.clearSelection();
             objPagesList.closeMenu();
-            //objSideDockSmartViewRoot.forceActiveFocus();
-            //objSideDockSmartViewRoot.focus = true;
+            objSideDockSmartViewRoot.forceActiveFocus();
+            objSideDockSmartViewRoot.focus = true;
         }
     }
 
