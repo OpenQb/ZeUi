@@ -183,6 +183,7 @@ ZBItem{
         focus: true
         appUi: objSideDockSmartViewRoot.appUi
         //isFocused: objSideDockSmartViewRoot.focus
+        activeFocusOnTab: false
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
         dockItemHeight: objSideDockSmartViewRoot.dockLogoHeight
@@ -223,6 +224,7 @@ ZBItem{
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
         dockItemHeight: objSideDockSmartViewRoot.dockItemHeight
+        activeFocusOnTab: false
 
         Component.onCompleted: {
             if(Qt.platform.os === "android" || Qt.platform.os === "ios"||QbCoreOne.isSingleWindowMode()||QbCoreOne.isWebglPlatofrm()){
@@ -281,6 +283,7 @@ ZBItem{
             objSideDockSmartViewRoot.forceActiveFocus();
             objSideDockSmartViewRoot.focus = true;
         }
+        activeFocusOnTab: false
     }
 
     ZBSideDockView{
@@ -296,6 +299,7 @@ ZBItem{
         //isFocused: objSideDockSmartViewRoot.focus
         dockViewMode: objSideDockSmartViewRoot.dockViewMode
         dockItemHeight: objSideDockSmartViewRoot.dockItemHeight
+        activeFocusOnTab: false
         onSelectedItem: {
             objSideDockSmartViewRoot.forceActiveFocus();
             objSideDockSmartViewRoot.focus = true;
@@ -326,6 +330,7 @@ ZBItem{
         dockItemHeight: objSideDockSmartViewRoot.dockPowerHeight
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
+        activeFocusOnTab: false
         dockItemModel: ListModel{
             ListElement{
                 title: "Exit"
