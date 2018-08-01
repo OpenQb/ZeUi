@@ -250,8 +250,8 @@ ZBItem {
                         }
                         Image{
                             //anchors.fill: parent
-                            width: parent.width*0.90
-                            height: parent.height*0.90
+                            width: parent.width*0.80
+                            height: parent.height*0.80
                             anchors.centerIn: parent
                             visible: QbCoreOne.icon_font_is_image(icon)
                             verticalAlignment: Text.AlignVCenter
