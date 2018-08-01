@@ -225,10 +225,10 @@ ZBItem{
         dockItemHeight: objSideDockSmartViewRoot.dockItemHeight
 
         Component.onCompleted: {
-            if(Qt.platform.os === "android" || Qt.platform.os === "ios"||QbCoreOne.isSingleWindowMode()||QbCoreOne.isWebglPlatofrm()){
+            //if(Qt.platform.os === "android" || Qt.platform.os === "ios"||QbCoreOne.isSingleWindowMode()||QbCoreOne.isWebglPlatofrm()){
                 objPageViewModel.append({title:"Hide",icon:"mf-exit_to_app",icon_rotation:180});
                 objPagesView.height = objSideDockSmartViewRoot.dockItemHeight*2;
-            }
+            //}
         }
         dockItemModel: ListModel{
             id: objPageViewModel
