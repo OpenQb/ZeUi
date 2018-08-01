@@ -20,18 +20,33 @@ ZBAppUi{
 
     Component.onCompleted: {
         objDockView.open();
-        enableAndroidFullScreen();
+        if(objAppUi.androidFullScreen){
+            enableAndroidFullScreen();
+        }
+        else{
+            disableAndroidFullScreen();
+        }
     }
 
     onAppVisible: {
-        enableAndroidFullScreen();
+        if(objAppUi.androidFullScreen){
+            enableAndroidFullScreen();
+        }
+        else{
+            disableAndroidFullScreen();
+        }
     }
 
     Connections{
         target: Qt.inputMethod
         onVisibleChanged:{
             if(!Qt.inputMethod.visible){
-                enableAndroidFullScreen();
+                if(objAppUi.androidFullScreen){
+                    enableAndroidFullScreen();
+                }
+                else{
+                    disableAndroidFullScreen();
+                }
             }
             else{
                 disableAndroidFullScreen();
@@ -85,6 +100,16 @@ ZBAppUi{
         objAndroidExtras.disableFullScreen();
         objTopBlock.height = objAppUi.dpscale(25);
     }
+
+    function resetAndroidFullScreenState(){
+        if(objAppUi.androidFullScreen){
+            objAppUi.enableAndroidFullScreen();
+        }
+        else{
+            objAppUi.disableAndroidFullScreen();
+        }
+    }
+    /**/
 
     function addRunningPage(title){
         objPageListModel.append({"title":title})

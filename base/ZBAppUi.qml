@@ -17,6 +17,7 @@ QbApp {
     property string gridState: "xs"
     property bool isAddingPage: false;
     property int scrollMode: ZBTheme.zInfiniteHeight;
+    property bool androidFullScreen: true;
 
     property var zBaseLib: ZBLib
     property var zBaseTheme: ZBTheme
