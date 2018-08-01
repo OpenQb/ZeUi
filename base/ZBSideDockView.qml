@@ -259,6 +259,7 @@ ZBItem {
                             //sourceSize.width: parent.width*2
                             //sourceSize.height: parent.height*2
                             source: visible?icon:""
+                            rotation: model.icon_rotation?model.icon_rotation:0
                         }
                     }
 
