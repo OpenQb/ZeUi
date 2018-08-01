@@ -246,7 +246,7 @@ ZBItem {
                             font.bold: objGridView.currentIndex===index?ZBTheme.dockItemSelectedIconFontBold:ZBTheme.dockItemIconFontBold
                             font.pixelSize: objDockItemDelegate.height*0.60
                             visible: QbCoreOne.icon_font_is_text(icon)
-                            rotation: model.icon_rotation?model.icon_rotation:0
+                            rotation: icon_rotation?icon_rotation:0
                         }
                         Image{
                             anchors.fill: parent
@@ -259,7 +259,7 @@ ZBItem {
                             //sourceSize.width: parent.width*2
                             //sourceSize.height: parent.height*2
                             source: visible?icon:""
-                            rotation: model.icon_rotation?model.icon_rotation:0
+                            rotation: icon_rotation?icon_rotation:0
                         }
                     }
 
