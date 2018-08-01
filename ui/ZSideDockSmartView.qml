@@ -226,7 +226,7 @@ ZBItem{
 
         Component.onCompleted: {
             if(Qt.platform.os === "android" || Qt.platform.os === "ios"||QbCoreOne.isSingleWindowMode()||QbCoreOne.isWebglPlatofrm()){
-                objPageViewModel.append({title:"hide",icon:"mf-exit_to_app"});
+                objPageViewModel.append({title:"Hide",icon:"mf-exit_to_app"});
                 objPagesView.height = objSideDockSmartViewRoot.dockItemHeight*2;
             }
         }
@@ -251,6 +251,7 @@ ZBItem{
             }
             else if(title === "Hide"){
                 objPagesView.appUi.hide();
+                objPagesList.closeMenu();
             }
         }
         onSelectedByMouse: {
