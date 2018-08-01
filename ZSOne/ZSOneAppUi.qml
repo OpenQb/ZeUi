@@ -170,8 +170,8 @@ ZBAppUi{
         }
 
 
-        KeyNavigation.tab: objPageView
-        KeyNavigation.priority: KeyNavigation.BeforeItem
+        //KeyNavigation.tab: objPageView
+        //KeyNavigation.priority: KeyNavigation.BeforeItem
     }
 
 
@@ -181,8 +181,8 @@ ZBAppUi{
         anchors.left: objDockView.right
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        KeyNavigation.tab: objDockView
-        KeyNavigation.priority: KeyNavigation.BeforeItem
+        //KeyNavigation.tab: objDockView
+        //KeyNavigation.priority: KeyNavigation.BeforeItem
         appUi: objAppUi
 
         onFocusChanged: {
