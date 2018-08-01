@@ -28,7 +28,7 @@ ZBItem{
 
     property bool isOpened: false
 
-    property int currentView: -1
+    property int currentView: 0
     property string dockLogo: ""
     property string pageTitle: "Pages"
     property int dockPowerHeight: ZBTheme.dockItemHeight
@@ -183,6 +183,7 @@ ZBItem{
         focus: true
         appUi: objSideDockSmartViewRoot.appUi
         //isFocused: objSideDockSmartViewRoot.focus
+        dockItemCurrentIndex: 0
         activeFocusOnTab: false
         dockInteractive: false
         dockViewMode: ZBTheme.zSingleColumn
