@@ -226,16 +226,25 @@ ZBItem{
                 title: "Pages"
                 icon: "mf-widgets"
             }
+            ListElement{
+                title: "Hide"
+                icon: "mf-exit_to_app"
+            }
         }
         onSelectedItem: {
-            if(!objPagesList.visible){
-                //objSideDockSmartViewRoot.focus = false;
-                objPagesList.openMenu(x+objSideDockSmartViewRoot.width,y+objSideDockSmartViewRoot.dockLogoHeight);
+            if(title === "Pages"){
+                if(!objPagesList.visible){
+                    //objSideDockSmartViewRoot.focus = false;
+                    objPagesList.openMenu(x+objSideDockSmartViewRoot.width,y+objSideDockSmartViewRoot.dockLogoHeight);
+                }
+                else{
+                    objPagesList.closeMenu();
+                    //objSideDockSmartViewRoot.forceActiveFocus();
+                    //objSideDockSmartViewRoot.focus = true;
+                }
             }
-            else{
-                objPagesList.closeMenu();
-                //objSideDockSmartViewRoot.forceActiveFocus();
-                //objSideDockSmartViewRoot.focus = true;
+            else if(title === "Hide"){
+                objPagesView.appUi.hide();
             }
         }
         onSelectedByMouse: {
