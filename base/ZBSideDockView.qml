@@ -246,6 +246,7 @@ ZBItem {
                             font.bold: objGridView.currentIndex===index?ZBTheme.dockItemSelectedIconFontBold:ZBTheme.dockItemIconFontBold
                             font.pixelSize: objDockItemDelegate.height*0.60
                             visible: QbCoreOne.icon_font_is_text(icon)
+                            rotation: model.icon_rotation?model.icon_rotation:0
                         }
                         Image{
                             anchors.fill: parent
