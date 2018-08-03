@@ -18,10 +18,13 @@ ZBItem {
 
     signal selectedPath(string path);
 
-    onChoosenPathChanged: {
-        console.log("CHOOSEN PATH:",choosenPath);
+    QbSettings{
+        id: objSettings
+        name: "ZFolderView"
+        property alias browsingSelectedPath: objFolderView.browsingSelectedPath
+        property alias oldbrowsingSelectedPath: objFolderView.oldbrowsingSelectedPath
+        property alias selectedRoot: objFolderView.selectedRoot
     }
-
 
     function refresh(){
         if(browsingSelectedPath!==""){
@@ -136,7 +139,7 @@ ZBItem {
     }
 
     Component.onCompleted: {
-
+        objSettings.setAppId(appUi.appId);
         if(objDirObject.exists(objPathsObject.documents())){
             objHomeScreenModel.append({"name":"Documents","path":objPathsObject.documents()})
         }
@@ -579,6 +582,19 @@ ZBItem {
                             event.accepted = true;
                         }
                     }
+                }
+
+                Text{
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.left: objFolderViewUpButton.right
+                    anchors.right: parent.right
+                    verticalAlignment: Text.AlignVCenter
+                    //horizontalAlignment: Text.AlignHCenter
+                    text: objFolderView.browsingSelectedPath
+                    color: ZBTheme.metaTheme.isDark(ZBTheme.primary)?"white":"black"
+                    elide: Text.ElideLeft
+                    font.pixelSize: 15
                 }
             }
 

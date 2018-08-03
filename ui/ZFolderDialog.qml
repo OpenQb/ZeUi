@@ -5,12 +5,36 @@ import "./../base"
 ZBItem {
     id: objFolderDialog
     activeFocusOnTab: false
+    signal selectedPath(string path);
 
+    property Item folderView: null;
 
-    function openAs(path){
+    Component{
+        id: compFolderView
+        ZFolderView{
+            id: objFolderView
+            anchors.fill: parent
+            onSelectedPath:{
+                objFolderDialog.selectedPath(path);
+                objFolderDialog.close();
+            }
+        }
+    }
+
+    function open(){
+        if(objFolderDialog.folderView === null){
+            objFolderDialog.folderView = compFolderView.createObject(objFolderDialog,{"appUi":objFolderDialog.appUi});
+        }
+
     }
 
     function close(){
-
+        if(objFolderDialog.folderView!==null){
+            try{
+                folderView.destroy();
+            }
+            catch(e){}
+            objFolderDialog.folderView = null;
+        }
     }
 }

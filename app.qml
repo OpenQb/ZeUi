@@ -17,11 +17,16 @@ import "ui/"
 ZBAppUi{
     id: objMainAppUi
 
-    ZFolderView{
+    ZFolderDialog{
         id: fd
         anchors.fill: parent
         appUi: objMainAppUi
+        onSelectedPath: {
+            console.log(path)
+        }
     }
 
-    Keys.forwardTo: [fd]
+    onAppStarted: {
+        fd.open()
+    }
 }
