@@ -207,6 +207,7 @@ ZBItem {
             anchors.fill: parent
             cellHeight: objBaseSideDockRoot.dockItemHeight
             cellWidth: parent.width
+            snapMode: GridView.SnapOneRow
             currentIndex: -1
             ScrollIndicator.vertical: ScrollIndicator {z: 3}
 
@@ -288,7 +289,7 @@ ZBItem {
 
                     MouseArea{
                         anchors.fill: parent
-                        preventStealing: true
+                        preventStealing: false
                         onClicked: {
                             objGridView.currentIndex = index;
                             var gco = objDockItemDelegate.mapToItem(objBaseSideDockRoot, 0, 0);
