@@ -315,7 +315,6 @@ ZBItem {
 
                     MouseArea{
                         anchors.fill: parent
-                        preventStealing: true
                         onClicked: {
                             objGridView.currentIndex = index;
                             var gco = objDockItemDelegate.mapToItem(objBaseMenuRoot, 0, 0);
