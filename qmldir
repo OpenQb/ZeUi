@@ -1,3 +1,6 @@
+module ZeUi
+
+
 singleton ZBTheme 1.0 base/ZBTheme.qml
 singleton ZBLib 1.0 base/ZBLib.qml
 ZBAppUi 1.0 base/ZBAppUi.qml
@@ -20,3 +23,8 @@ ZFolderView 1.0 ui/ZFolderView.qml
 
 ZSOneAppPage 1.0 ZSOne/ZSOneAppPage.qml
 ZSOneAppUi 1.0 ZSOne/ZSOneAppUi.qml
+
+
+
+ZeUiOld         1.0    ZeUiOld.qml
+ZeUiOldPage     1.0    ZeUiOldPage.qml
