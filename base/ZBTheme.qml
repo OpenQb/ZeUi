@@ -65,6 +65,7 @@ Item {
     property color dockItemSelectedBackgroundColor: "black"
     /*END of Dock related settings */
 
+    property int ribbonHeight: 3
     property color ribbonColor: "yellow"
     property color ribbonColorNonFocus: "grey"
     property bool useAnimation: true
