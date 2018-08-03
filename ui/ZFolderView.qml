@@ -17,6 +17,7 @@ ZBItem {
     property string selectedRoot: ""
 
     signal selectedPath(string path);
+    signal closeClicked();
 
     QbSettings{
         id: objSettings
@@ -201,12 +202,66 @@ ZBItem {
         Item{
             id: objHomeScreen
             anchors.fill: parent
+
+            Rectangle{
+                id: objHomeScreenTopToolBar
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                height: 50
+                color: ZBTheme.primary
+
+                Text{
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.left: objHomeScreenTopToolBar.left
+                    anchors.leftMargin: 5
+                    anchors.right: objHomeScreenCloseButton.left
+                    verticalAlignment: Text.AlignVCenter
+                    //horizontalAlignment: Text.AlignHCenter
+                    text: "Select a folder"
+                    color: ZBTheme.metaTheme.isDark(ZBTheme.primary)?"white":"black"
+                    elide: Text.ElideLeft
+                    font.pixelSize: 15
+                }
+
+                RoundButton{
+                    id: objHomeScreenCloseButton
+                    focusReason: Qt.StrongFocus
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    Material.background: ZBTheme.secondary
+                    Material.primary: ZBTheme.primary
+                    Material.accent: ZBTheme.accent
+                    Material.theme: ZBTheme.theme === "dark"?Material.Dark:Material.Light
+                    text: QbMF3.icon("mf-close")
+                    font.family: QbMF3.family
+                    font.pixelSize: parent.height*0.5
+                    onPressed: {
+                        objFolderView.closeClicked();
+                    }
+                    Keys.onPressed: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                            objFolderView.closeClicked();
+
+                        }
+                    }
+                    Keys.onReleased: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                        }
+                    }
+                }
+
+            }
             GridView{
                 id: objHomeScreenView
                 activeFocusOnTab: true
                 cellWidth: parent.width
                 cellHeight: 50
-                anchors.top: parent.top
+                anchors.top: objHomeScreenTopToolBar.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
@@ -590,13 +645,43 @@ ZBItem {
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     anchors.left: objFolderViewUpButton.right
-                    anchors.right: parent.right
+                    anchors.right: objFolderViewCloseButton.left
                     verticalAlignment: Text.AlignVCenter
                     //horizontalAlignment: Text.AlignHCenter
                     text: objFolderView.browsingSelectedPath
                     color: ZBTheme.metaTheme.isDark(ZBTheme.primary)?"white":"black"
                     elide: Text.ElideLeft
                     font.pixelSize: 15
+                }
+
+                RoundButton{
+                    id: objFolderViewCloseButton
+                    focusReason: Qt.StrongFocus
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    Material.background: ZBTheme.secondary
+                    Material.primary: ZBTheme.primary
+                    Material.accent: ZBTheme.accent
+                    Material.theme: ZBTheme.theme === "dark"?Material.Dark:Material.Light
+                    text: QbMF3.icon("mf-close")
+                    font.family: QbMF3.family
+                    font.pixelSize: parent.height*0.5
+                    onPressed: {
+                        objFolderView.closeClicked();
+                    }
+                    Keys.onPressed: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                            objFolderView.closeClicked();
+
+                        }
+                    }
+                    Keys.onReleased: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                        }
+                    }
                 }
             }
 

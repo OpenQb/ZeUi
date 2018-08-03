@@ -27,6 +27,6 @@ ZBAppUi{
     }
 
     onAppStarted: {
-        fd.open()
+       fd.open()
     }
 }
