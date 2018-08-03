@@ -84,6 +84,10 @@ Item {
     QbMetaTheme{
         id: objMetaTheme
     }
+
+    function mCT(c,v){
+        return objMetaTheme.changeTransparency(c,v);
+    }
     /**********************************************************************************************
       All available metaTheme methods
       ---------------------------------------------------------------------------------------------

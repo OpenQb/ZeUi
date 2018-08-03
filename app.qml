@@ -17,9 +17,10 @@ import "ui/"
 ZBAppUi{
     id: objMainAppUi
 
-    ZFolderDialog{
+    ZFolderView{
         id: fd
         anchors.fill: parent
+        appUi: objMainAppUi
     }
 
     Keys.forwardTo: [fd]

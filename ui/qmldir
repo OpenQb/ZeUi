@@ -17,3 +17,4 @@ ZPage 1.0 ZPage.qml
 ZSideDockSmartView 1.0 ZSideDockSmartView.qml
 ZSideDockView 1.0 ZSideDockView.qml
 ZFolderDialog 1.0 ZFolderDialog.qml
+ZFolderView 1.0 ZFolderView.qml

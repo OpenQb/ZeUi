@@ -7,24 +7,56 @@ import QtQuick.Controls.Material 2.2
 import "./../base"
 
 ZBItem {
-    id: objFolderDialog
+    id: objFolderView
     clip: true
     state: "Home"
 
-    property string selectedPath: ""
-    property string oldSelectedPath: ""
+    property string choosenPath: ""
+    property string browsingSelectedPath: ""
+    property string oldbrowsingSelectedPath: ""
+    property string selectedRoot: ""
 
-    onSelectedPathChanged: {
-        console.log(selectedPath);
+    signal selectedPath(string path);
 
-        objFolderDialog.state = "FolderView";
-        objFolderScreenModel.clear();
-        objDirObject.setPath(selectedPath);
-        objDirObject.setFilter(QbDir.Dirs|QbDir.NoDotAndDotDot);
-        var mv = objDirObject.entryInfoList();
-        for(var i=0;i<mv.length;++i){
-            if(objDirObject.isReadable(mv[i].absoluteFilePath)){
-                objFolderScreenModel.append({"name":mv[i].fileName,"path":mv[i].absoluteFilePath})
+    onChoosenPathChanged: {
+        console.log("CHOOSEN PATH:",choosenPath);
+    }
+
+
+
+    onBrowsingSelectedPathChanged: {
+        if(browsingSelectedPath!==""){
+            objFolderView.state = "FolderView";
+            objFolderScreenModel.clear();
+            objDirObject.setPath(browsingSelectedPath);
+            objDirObject.setFilter(QbDir.Dirs|QbDir.NoDotAndDotDot);
+            var mv = objDirObject.entryInfoList();
+            if(mv.length === 0){
+                if( objDirObject.isWritable(objFolderView.browsingSelectedPath)){
+                    objFolderViewScreen.selectFolderEnabled = true;
+                }
+                else{
+                    objFolderViewScreen.selectFolderEnabled = false;
+                }
+
+                objFolderViewScreenView.currentIndex = -1;
+            }
+            else{
+                objFolderViewScreenView.currentIndex = 0;
+            }
+            for(var i=0;i<mv.length;++i){
+                if(objDirObject.isReadable(mv[i].absoluteFilePath)){
+                    objFolderScreenModel.append({"name":mv[i].fileName,"path":mv[i].absoluteFilePath})
+                    if(i===0){
+                        var t = objDirObject.isWritable(mv[i].absoluteFilePath);
+                        if(t){
+                            objFolderViewScreen.selectFolderEnabled = true;
+                        }
+                        else{
+                            objFolderViewScreen.selectFolderEnabled = false;
+                        }
+                    }
+                }
             }
         }
     }
@@ -69,6 +101,21 @@ ZBItem {
             }
         }
     ]
+
+    function goHome(){
+        objFolderView.state = "Home";
+        objFolderView.browsingSelectedPath = "";
+        objFolderView.oldbrowsingSelectedPath = "";
+        objFolderView.selectedRoot = "";
+    }
+
+    function goToPath(path){
+        if(objFolderView.browsingSelectedPath !== path){
+            objFolderViewScreenView.currentIndex = -1;
+            objFolderView.oldbrowsingSelectedPath = objFolderView.browsingSelectedPath;
+            objFolderView.browsingSelectedPath = path;
+        }
+    }
 
     Component.onCompleted: {
 
@@ -140,7 +187,7 @@ ZBItem {
                 delegate: Rectangle{
                     width: objHomeScreenView.cellWidth
                     height: objHomeScreenView.cellHeight
-                    color: objHomeScreenView.focus?objHomeScreenView.currentIndex === index?ZBTheme.itemSelectedBackgroundColor:ZBTheme.itemBackgroundColor:ZBTheme.itemBackgroundColor
+                    color: objHomeScreenView.currentIndex === index?ZBTheme.itemSelectedBackgroundColor:ZBTheme.itemBackgroundColor
                     Text{
                         id: objDelIcon
                         anchors.top: parent.top
@@ -179,23 +226,23 @@ ZBItem {
 
                     MouseArea{
                         anchors.fill: parent
+                        onDoubleClicked: {
+                            objHomeScreenView.focus = true;
+                            objHomeScreenView.currentIndex = index;
+                            objFolderView.selectedRoot = path;
+                            objFolderView.goToPath(path);
+                        }
                         onClicked: {
                             objHomeScreenView.focus = true;
                             objHomeScreenView.currentIndex = index;
-                            if(objFolderDialog.selectedPath !== path){
-                                objFolderDialog.oldSelectedPath = objFolderDialog.selectedPath;
-                                objFolderDialog.selectedPath = path;
-                            }
                         }
                     }
 
                     Keys.onPressed: {
                         if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
                             event.accepted = true;
-                            if(objFolderDialog.selectedPath !== path){
-                                objFolderDialog.oldSelectedPath = objFolderDialog.selectedPath;
-                                objFolderDialog.selectedPath = path;
-                            }
+                            objFolderView.selectedRoot = path;
+                            objFolderView.goToPath(path);
                         }
                     }
                     Keys.onReleased: {
@@ -212,12 +259,84 @@ ZBItem {
             id: objFolderViewScreen
             anchors.fill: parent
 
+            property bool selectFolderEnabled: false;
+
             Rectangle{
                 id: objFolderViewScreenTopToolBar
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
                 height: 50
+                color: ZBTheme.primary
+
+                RoundButton{
+                    id: objFolderViewScreenHomeButton
+                    focusReason: Qt.StrongFocus
+                    anchors.left: parent.left
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    Material.background: ZBTheme.secondary
+                    Material.primary: ZBTheme.primary
+                    Material.accent: ZBTheme.accent
+                    Material.theme: ZBTheme.theme === "dark"?Material.Dark:Material.Light
+                    text: QbMF3.icon("mf-home")
+                    font.family: QbMF3.family
+                    font.pixelSize: parent.height*0.5
+                    onPressed: {
+                        objFolderView.goHome();
+                    }
+                    Keys.onPressed: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                            objFolderView.goHome();
+                        }
+                    }
+                    Keys.onReleased: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                        }
+                    }
+                }
+                RoundButton{
+                    id: objFolderViewUpButton
+                    focusReason: Qt.StrongFocus
+                    anchors.left: objFolderViewScreenHomeButton.right
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    Material.background: ZBTheme.secondary
+                    Material.primary: ZBTheme.primary
+                    Material.accent: ZBTheme.accent
+                    Material.theme: ZBTheme.theme === "dark"?Material.Dark:Material.Light
+                    text: QbMF3.icon("mf-keyboard_arrow_up")
+                    font.family: QbMF3.family
+                    font.pixelSize: parent.height*0.5
+                    onPressed: {
+                        var pf = objDirObject.backPath(objFolderView.browsingSelectedPath);
+                        if(objFolderView.selectedRoot === objFolderView.browsingSelectedPath){
+                            objFolderView.goHome();
+                        }
+                        else{
+                            objFolderView.goToPath(pf);
+                        }
+                    }
+                    Keys.onPressed: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                            var pf = objDirObject.backPath(objFolderView.browsingSelectedPath);
+                            if(objFolderView.selectedRoot === objFolderView.browsingSelectedPath){
+                                objFolderView.goHome();
+                            }
+                            else{
+                                objFolderView.goToPath(pf);
+                            }
+                        }
+                    }
+                    Keys.onReleased: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                        }
+                    }
+                }
             }
 
             GridView{
@@ -229,13 +348,26 @@ ZBItem {
                 anchors.top: objFolderViewScreenTopToolBar.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.bottom: parent.bottom
+                anchors.bottom: objFolderViewScreenBottomToolBar.top
                 model: objFolderScreenModel
                 currentIndex: 0
+                onCurrentIndexChanged: {
+                    if(currentIndex===-1) return;
+                    var p = objFolderScreenModel.get(currentIndex);
+                    if(p){
+                        var t = objDirObject.isWritable(p.path);
+                        if(t){
+                            objFolderViewScreen.selectFolderEnabled = true;
+                        }
+                        else{
+                            objFolderViewScreen.selectFolderEnabled = false;
+                        }
+                    }
+                }
                 delegate: Rectangle{
                     width: objFolderViewScreenView.cellWidth
                     height: objFolderViewScreenView.cellHeight
-                    color: objFolderViewScreenView.focus?objFolderViewScreenView.currentIndex === index?ZBTheme.itemSelectedBackgroundColor:ZBTheme.itemBackgroundColor:ZBTheme.itemBackgroundColor
+                    color: objFolderViewScreenView.currentIndex === index?ZBTheme.itemSelectedBackgroundColor:ZBTheme.itemBackgroundColor
                     Text{
                         id: objFolderViewScreenViewDelIcon
                         anchors.top: parent.top
@@ -277,19 +409,81 @@ ZBItem {
                         onClicked: {
                             objFolderViewScreenView.focus = true;
                             objFolderViewScreenView.currentIndex = index;
-                            if(objFolderDialog.selectedPath !== path){
-                                objFolderDialog.oldSelectedPath = objFolderDialog.selectedPath;
-                                objFolderDialog.selectedPath = path;
+
+                            if(objDirObject.isWritable(path)){
+                                objFolderViewScreen.selectFolderEnabled = true;
                             }
+                            else{
+                                objFolderViewScreen.selectFolderEnabled = false;
+                            }
+                        }
+                        onDoubleClicked: {
+                            objFolderViewScreenView.focus = true;
+                            objFolderViewScreenView.currentIndex = index;
+                            objFolderView.goToPath(path);
                         }
                     }
 
                     Keys.onPressed: {
                         if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
                             event.accepted = true;
-                            if(objFolderDialog.selectedPath !== path){
-                                objFolderDialog.oldSelectedPath = objFolderDialog.selectedPath;
-                                objFolderDialog.selectedPath = path;
+                            if(objFolderView.browsingSelectedPath !== path){
+                                objFolderView.oldbrowsingSelectedPath = objFolderView.browsingSelectedPath;
+                                objFolderView.browsingSelectedPath = path;
+                            }
+                        }
+                    }
+                    Keys.onReleased: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                        }
+                    }
+                }
+            }
+
+            Rectangle{
+                id: objFolderViewScreenBottomToolBar
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: 50
+                color: ZBTheme.primary;
+
+                Button{
+                    id: objSelectButton
+                    text: "SELECT"
+                    enabled: objFolderViewScreen.selectFolderEnabled
+                    anchors.right: parent.right
+                    anchors.rightMargin: 5
+                    anchors.bottom: parent.bottom
+                    focusReason: Qt.TabFocus
+
+                    Material.background: ZBTheme.secondary
+                    Material.primary: ZBTheme.primary
+                    Material.accent: ZBTheme.accent
+                    Material.theme: ZBTheme.theme === "dark"?Material.Dark:Material.Light
+
+                    onClicked: {
+                        if(objFolderViewScreenView.currentIndex !== -1){
+                            objFolderView.choosenPath = objFolderScreenModel.get(objFolderViewScreenView.currentIndex).path;
+                            objFolderView.selectedPath(objFolderView.choosenPath);
+                        }
+                        else{
+                            objFolderView.choosenPath = objFolderView.browsingSelectedPath;
+                            objFolderView.selectedPath(objFolderView.choosenPath);
+                        }
+
+                    }
+                    Keys.onPressed: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                            if(objFolderViewScreenView.currentIndex !== -1){
+                                objFolderView.choosenPath = objFolderScreenModel.get(objFolderViewScreenView.currentIndex).path;
+                                objFolderView.selectedPath(objFolderView.choosenPath);
+                            }
+                            else{
+                                objFolderView.choosenPath = objFolderView.browsingSelectedPath;
+                                objFolderView.selectedPath(objFolderView.choosenPath);
                             }
                         }
                     }
