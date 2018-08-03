@@ -85,22 +85,18 @@ ZBItem {
             PropertyChanges {
                 target: objHomeScreen
                 visible: true;
-                enabled: true;
             }
             PropertyChanges {
                 target: objFolderViewScreen
                 visible: false;
-                enabled: false;
             }
             PropertyChanges {
                 target: objHomeScreenView
                 focus: true;
-                enabled: true;
             }
             PropertyChanges {
                 target: objFolderViewScreenView
                 focus: false;
-                enabled: false;
             }
         },
         State {
@@ -108,22 +104,18 @@ ZBItem {
             PropertyChanges {
                 target: objHomeScreen
                 visible: false;
-                enabled: false;
             }
             PropertyChanges {
                 target: objFolderViewScreen
                 visible: true;
-                enabled: true;
             }
             PropertyChanges {
                 target: objHomeScreenView
                 focus: false;
-                enabled: false;
             }
             PropertyChanges {
                 target: objFolderViewScreenView
                 focus: true;
-                enabled: true;
             }
         }
     ]
@@ -351,7 +343,6 @@ ZBItem {
                         }
 
                         Rectangle{
-                            enabled: !objNfwWindow.isError
                             visible: !objNfwWindow.isError
                             anchors.top: objNfwTitle.bottom
                             anchors.bottom: objNfwCancelButton.top
@@ -364,7 +355,6 @@ ZBItem {
                                 anchors.leftMargin: 5
                                 anchors.rightMargin: 5
                                 activeFocusOnTab: true
-                                enabled: !objNfwWindow.isError
                                 visible: !objNfwWindow.isError
                                 verticalAlignment: TextInput.AlignVCenter
                                 font.family: ZBTheme.defaultFontFamily
@@ -379,7 +369,6 @@ ZBItem {
 
                         Button{
                             id: objNfwCancelButton
-                            enabled: !objNfwWindow.isError
                             visible: !objNfwWindow.isError
                             text: "Cancel"
                             focusPolicy: Qt.StrongFocus
@@ -412,7 +401,6 @@ ZBItem {
                             Material.accent: ZBTheme.accent
                             Material.theme: ZBTheme.theme === "dark"?Material.Dark:Material.Light
                             visible: !objNfwWindow.isError
-                            enabled: !objNfwWindow.isError
                             id: objNfwOkButton
                             text: "Ok"
                             focusPolicy: Qt.StrongFocus
@@ -453,7 +441,6 @@ ZBItem {
                         Text{
                             id: objNfwErrorMsg
                             visible: objNfwWindow.isError
-                            enabled: objNfwWindow.isError
                             text: "Folder already exists."
                             anchors.top: objNfwTitle.bottom
                             anchors.bottom: objNfwCloseButton.top
@@ -468,7 +455,6 @@ ZBItem {
                         Button{
                             id: objNfwCloseButton
                             visible: objNfwWindow.isError
-                            enabled: objNfwWindow.isError
                             text: "Ok"
                             focusPolicy: Qt.StrongFocus
                             anchors.bottom: parent.bottom
