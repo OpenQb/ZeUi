@@ -27,6 +27,7 @@ ZBItem {
     }
 
     function refresh(){
+        //console.log("REFRESH");
         if(browsingSelectedPath!==""){
             if(objDirObject.isWritable(browsingSelectedPath)){
                 objFolderViewScreen.newFolderEnabled = true;
@@ -67,6 +68,10 @@ ZBItem {
                     }
                 }
             }
+        }
+        else{
+            //console.log("Nothing Found");
+            objFolderScreenModel.clear();
         }
     }
 
@@ -154,8 +159,18 @@ ZBItem {
             if(objDirObject.exists("/sdcard")){
                 objHomeScreenModel.append({"name":"sdcard","path":"/sdcard"})
             }
-            if(objDirObject.exists("/storage")){
-                objHomeScreenModel.append({"name":"storage","path":"/storage"})
+
+            if(objDirObject.exists("/storage/sdcard0")){
+                objHomeScreenModel.append({"name":"sdcard0","path":"/storage/sdcard0"})
+            }
+            if(objDirObject.exists("/storage/sdcard1")){
+                objHomeScreenModel.append({"name":"sdcard1","path":"/storage/sdcard1"})
+            }
+            if(objDirObject.exists("/storage/usbstorage0")){
+                objHomeScreenModel.append({"name":"usbstorage0","path":"/storage/usbstorage0"})
+            }
+            if(objDirObject.exists("/storage/usbdisk0")){
+                objHomeScreenModel.append({"name":"usbdisk0","path":"/storage/usbdisk0"})
             }
         }
 
@@ -556,23 +571,24 @@ ZBItem {
                     text: QbMF3.icon("mf-keyboard_arrow_up")
                     font.family: QbMF3.family
                     font.pixelSize: parent.height*0.5
+                    visible: objFolderView.selectedRoot !== objFolderView.browsingSelectedPath
                     onPressed: {
-                        var pf = objDirObject.backPath(objFolderView.browsingSelectedPath);
                         if(objFolderView.selectedRoot === objFolderView.browsingSelectedPath){
                             objFolderView.goHome();
                         }
                         else{
+                            var pf = objDirObject.backPath(objFolderView.browsingSelectedPath);
                             objFolderView.goToPath(pf);
                         }
                     }
                     Keys.onPressed: {
                         if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
                             event.accepted = true;
-                            var pf = objDirObject.backPath(objFolderView.browsingSelectedPath);
                             if(objFolderView.selectedRoot === objFolderView.browsingSelectedPath){
                                 objFolderView.goHome();
                             }
                             else{
+                                var pf = objDirObject.backPath(objFolderView.browsingSelectedPath);
                                 objFolderView.goToPath(pf);
                             }
                         }
