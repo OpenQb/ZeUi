@@ -23,9 +23,15 @@ ZBItem {
     }
 
 
-
-    onBrowsingSelectedPathChanged: {
+    function refresh(){
         if(browsingSelectedPath!==""){
+            if(objDirObject.isWritable(browsingSelectedPath)){
+                objFolderViewScreen.newFolderEnabled = true;
+            }
+            else{
+                objFolderViewScreen.newFolderEnabled = false;
+            }
+
             objFolderView.state = "FolderView";
             objFolderScreenModel.clear();
             objDirObject.setPath(browsingSelectedPath);
@@ -61,24 +67,32 @@ ZBItem {
         }
     }
 
+    onBrowsingSelectedPathChanged: {
+        refresh();
+    }
+
     states: [
         State {
             name: "Home"
             PropertyChanges {
                 target: objHomeScreen
                 visible: true;
+                enabled: true;
             }
             PropertyChanges {
                 target: objFolderViewScreen
                 visible: false;
+                enabled: false;
             }
             PropertyChanges {
                 target: objHomeScreenView
                 focus: true;
+                enabled: true;
             }
             PropertyChanges {
                 target: objFolderViewScreenView
                 focus: false;
+                enabled: false;
             }
         },
         State {
@@ -86,18 +100,22 @@ ZBItem {
             PropertyChanges {
                 target: objHomeScreen
                 visible: false;
+                enabled: false;
             }
             PropertyChanges {
                 target: objFolderViewScreen
                 visible: true;
+                enabled: true;
             }
             PropertyChanges {
                 target: objHomeScreenView
                 focus: false;
+                enabled: false;
             }
             PropertyChanges {
                 target: objFolderViewScreenView
                 focus: true;
+                enabled: true;
             }
         }
     ]
@@ -258,8 +276,233 @@ ZBItem {
         Item{
             id: objFolderViewScreen
             anchors.fill: parent
-
             property bool selectFolderEnabled: false;
+            property bool newFolderEnabled: false;
+            property Item newFolderWindow: null
+
+            Component{
+                id: compNewFolderWindow
+                Rectangle{
+                    id: objNfwRoot
+                    anchors.fill: parent
+                    color: ZBTheme.mCT("black",160)
+                    visible: true
+                    activeFocusOnTab: false
+                    Component.onCompleted: {
+                        objNfwFolderInput.forceActiveFocus();
+                        objNfwFolderInput.focus = true;
+                    }
+                    MouseArea{
+                        anchors.fill: parent
+                        preventStealing: true
+                        hoverEnabled: true
+                    }
+                    Keys.onPressed: {
+                        event.accepted = true;
+                    }
+                    Keys.onReleased: {
+                        event.accepted = true;
+                    }
+
+                    Rectangle{
+                        id: objNfwWindow
+                        width: Math.min(parent.width*0.90,300)
+                        height: 150
+                        color: ZBTheme.background
+                        radius: 5
+                        x: (parent.width - width)/2.0
+                        y: 50
+                        activeFocusOnTab: false
+                        property bool isError: false
+
+                        Rectangle{
+                            id: objNfwTitle
+                            anchors.top: parent.top
+                            height: 50
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            color: ZBTheme.primary
+                            Text{
+                                anchors.fill: parent
+                                anchors.leftMargin: 5
+                                text: "New Folder"
+                                font.pixelSize: 15
+                                verticalAlignment: Text.AlignVCenter
+                                color: ZBTheme.metaTheme.isDark(ZBTheme.primary)?"white":"black"
+                            }
+                        }
+
+                        Rectangle{
+                            enabled: !objNfwWindow.isError
+                            visible: !objNfwWindow.isError
+                            anchors.top: objNfwTitle.bottom
+                            anchors.bottom: objNfwCancelButton.top
+                            anchors.right: parent.right
+                            anchors.left: parent.left
+                            color: ZBTheme.background
+                            TextInput{
+                                id: objNfwFolderInput
+                                anchors.fill: parent
+                                anchors.leftMargin: 5
+                                anchors.rightMargin: 5
+                                activeFocusOnTab: true
+                                enabled: !objNfwWindow.isError
+                                visible: !objNfwWindow.isError
+                                verticalAlignment: TextInput.AlignVCenter
+                                font.family: ZBTheme.defaultFontFamily
+                                font.pixelSize: 20
+                                font.bold: true
+                                activeFocusOnPress: true
+                                selectionColor: "lightblue"
+                                selectedTextColor: "black"
+                                color: ZBTheme.metaTheme.isDark(ZBTheme.background)?"white":"black"
+                            }
+                        }
+
+                        Button{
+                            id: objNfwCancelButton
+                            enabled: !objNfwWindow.isError
+                            visible: !objNfwWindow.isError
+                            text: "Cancel"
+                            focusPolicy: Qt.StrongFocus
+                            anchors.bottom: parent.bottom
+                            anchors.right: objNfwOkButton.left
+                            anchors.rightMargin: 5
+                            Material.background: ZBTheme.secondary
+                            Material.primary: ZBTheme.primary
+                            Material.accent: ZBTheme.accent
+                            Material.theme: ZBTheme.theme === "dark"?Material.Dark:Material.Light
+                            onPressed: {
+                                objFolderViewScreen.closeNewFolderWindow()
+                            }
+                            Keys.onPressed: {
+                                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                                    event.accepted = true;
+                                    objFolderViewScreen.closeNewFolderWindow();
+                                }
+                            }
+                            Keys.onReleased: {
+                                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                                    event.accepted = true;
+                                }
+                            }
+                        }
+
+                        Button{
+                            Material.background: ZBTheme.secondary
+                            Material.primary: ZBTheme.primary
+                            Material.accent: ZBTheme.accent
+                            Material.theme: ZBTheme.theme === "dark"?Material.Dark:Material.Light
+                            visible: !objNfwWindow.isError
+                            enabled: !objNfwWindow.isError
+                            id: objNfwOkButton
+                            text: "Ok"
+                            focusPolicy: Qt.StrongFocus
+                            anchors.bottom: parent.bottom
+                            anchors.right: parent.right
+                            anchors.rightMargin: 5
+                            onPressed: {
+                                objNfwOkButton.createFolder(objNfwFolderInput.text)
+                            }
+
+                            function createFolder(name){
+                                if(name!==""){
+                                    if(objDirObject.exists(name)){
+                                        objNfwWindow.isError = true;
+                                    }
+                                    else{
+                                        objDirObject.mkdir(name);
+                                        objFolderView.refresh();
+                                        objFolderViewScreen.closeNewFolderWindow();
+                                    }
+                                }
+                            }
+
+                            Keys.onPressed: {
+                                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                                    event.accepted = true;
+                                    objNfwOkButton.createFolder(objNfwFolderInput.text)
+                                }
+                            }
+
+                            Keys.onReleased: {
+                                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                                    event.accepted = true;
+                                }
+                            }
+                        }
+
+                        Text{
+                            id: objNfwErrorMsg
+                            visible: objNfwWindow.isError
+                            enabled: objNfwWindow.isError
+                            text: "Folder already exists."
+                            anchors.top: objNfwTitle.bottom
+                            anchors.bottom: objNfwCloseButton.top
+                            anchors.right: parent.right
+                            anchors.left: parent.left
+                            font.pixelSize: 15
+                            verticalAlignment: Text.AlignVCenter
+                            horizontalAlignment: Text.AlignHCenter
+                            color: ZBTheme.metaTheme.isDark(ZBTheme.primary)?"white":"black"
+                        }
+
+                        Button{
+                            id: objNfwCloseButton
+                            visible: objNfwWindow.isError
+                            enabled: objNfwWindow.isError
+                            text: "Ok"
+                            focusPolicy: Qt.StrongFocus
+                            anchors.bottom: parent.bottom
+                            x: (parent.width - width)/2.0
+                            Material.background: ZBTheme.secondary
+                            Material.primary: ZBTheme.primary
+                            Material.accent: ZBTheme.accent
+                            Material.theme: ZBTheme.theme === "dark"?Material.Dark:Material.Light
+                            onPressed: {
+                                objFolderViewScreen.closeNewFolderWindow()
+                            }
+                            Keys.onPressed: {
+                                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                                    event.accepted = true;
+                                    objFolderViewScreen.closeNewFolderWindow()
+                                }
+                            }
+                            Keys.onReleased: {
+                                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                                    event.accepted = true;
+                                }
+                            }
+                        }
+
+
+                    }
+                }
+            }
+
+            function openNewFolderWindow(){
+                if(objFolderViewScreen.newFolderWindow === null){
+                    objFolderViewScreen.enabled = false;
+                    objFolderViewScreen.newFolderWindow = compNewFolderWindow.createObject(objFolderView)
+                }
+                else{
+                    closeNewFolderWindow();
+                }
+            }
+
+            function closeNewFolderWindow(){
+                if(objFolderViewScreen.newFolderWindow){
+                    try{
+                        objFolderViewScreen.newFolderWindow.destroy();
+                    }
+                    catch(e){
+                    }
+                    objFolderViewScreen.newFolderWindow = null;
+                    objFolderViewScreen.enabled = true;
+                }
+            }
+
+
 
             Rectangle{
                 id: objFolderViewScreenTopToolBar
@@ -450,6 +693,36 @@ ZBItem {
                 color: ZBTheme.primary;
 
                 Button{
+                    id: objNewFolderButton
+                    enabled: objFolderViewScreen.newFolderEnabled
+                    text: "New Folder"
+                    anchors.left: parent.left
+                    anchors.leftMargin: 5
+                    anchors.bottom: parent.bottom
+                    focusReason: Qt.TabFocus
+
+                    Material.background: ZBTheme.secondary
+                    Material.primary: ZBTheme.primary
+                    Material.accent: ZBTheme.accent
+                    Material.theme: ZBTheme.theme === "dark"?Material.Dark:Material.Light
+
+                    onClicked: {
+                        objFolderViewScreen.openNewFolderWindow();
+                    }
+                    Keys.onPressed: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                            objFolderViewScreen.openNewFolderWindow();
+                        }
+                    }
+                    Keys.onReleased: {
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                            event.accepted = true;
+                        }
+                    }
+                }
+
+                Button{
                     id: objSelectButton
                     text: "SELECT"
                     enabled: objFolderViewScreen.selectFolderEnabled
@@ -494,6 +767,8 @@ ZBItem {
                     }
                 }
             }
-        }
-    }
+        }//folderView
+    }//background
+
+
 }
