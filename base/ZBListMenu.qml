@@ -210,7 +210,7 @@ ZBItem {
             id: objTitlePlaceHolder
             anchors.top: parent.top
             width: parent.width
-            height: objBaseMenuRoot.menuItemHeight
+            height: objBaseMenuRoot.title?objBaseMenuRoot.menuItemHeight:0
             color: ZBTheme.itemSelectedBackgroundColor
             Text{
                 anchors.fill: parent
