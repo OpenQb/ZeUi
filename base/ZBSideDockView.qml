@@ -207,7 +207,7 @@ ZBItem {
             anchors.fill: parent
             cellHeight: objBaseSideDockRoot.dockItemHeight
             cellWidth: parent.width
-            snapMode: GridView.SnapToRow
+            //snapMode: GridView.SnapToRow
             currentIndex: -1
             ScrollIndicator.vertical: ScrollIndicator {z: 3}
 
