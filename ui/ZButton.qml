@@ -57,9 +57,11 @@ Item {
                 objButton.buttonPressed()
             }
             onEntered: {
+                console.log("onEntered on button")
                 objButton.isHovered = true;
             }
             onExited: {
+                console.log("onExited from button")
                 objButton.isHovered = false;
             }
         }
