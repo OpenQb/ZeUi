@@ -104,7 +104,8 @@ Rectangle {
                             width: parent.width*0.60
                             radius: height/2.0
                             activeFocusOnTab: true
-                            color: focus?objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):objDialogRoot.appUi.zBaseTheme.accent
+                            property bool isHovered: false
+                            color: isHovered?objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):focus?objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):objDialogRoot.appUi.zBaseTheme.accent
                             Keys.onPressed: {
                                 if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
                                     event.accepted = true;
@@ -128,10 +129,10 @@ Rectangle {
                                 anchors.fill: parent
                                 hoverEnabled: true;
                                 onEntered: {
-                                    objCloseButtonBG.color = objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180);
+                                    objCloseButtonBG.isHovered = true;
                                 }
                                 onExited: {
-                                    objCloseButtonBG.color =  objCloseButtonBG.focus?objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):objDialogRoot.appUi.zBaseTheme.accent
+                                    objCloseButtonBG.isHovered = false;
                                 }
                                 onClicked: {
                                     objDialogRoot.close();
@@ -168,35 +169,35 @@ Rectangle {
                     Keys.onDownPressed: objScrollBar.increase()
                 }
 
-//                Item {
-//                    id: objScrollBar
-//                    width: QbCoreOne.scale(8)
-//                    height: objListView.height
-//                    anchors.right: objListView.right
-//                    anchors.top: objListView.top
-//                    opacity: 1
-//                    clip: true
-//                    visible: objScrollBar.height!=objHandle.height
-//                    property real position: objListView.visibleArea.yPosition
-//                    property real pageSize: objListView.visibleArea.heightRatio
+                //                Item {
+                //                    id: objScrollBar
+                //                    width: QbCoreOne.scale(8)
+                //                    height: objListView.height
+                //                    anchors.right: objListView.right
+                //                    anchors.top: objListView.top
+                //                    opacity: 1
+                //                    clip: true
+                //                    visible: objScrollBar.height!=objHandle.height
+                //                    property real position: objListView.visibleArea.yPosition
+                //                    property real pageSize: objListView.visibleArea.heightRatio
 
-//                    Rectangle {
-//                        id: objScrollBarBack
-//                        anchors.fill: parent
-//                        color: objDialogRoot.appUi.zBaseTheme.accent
-//                        opacity: 0.3
-//                    }
-//                    Rectangle {
-//                        id: objHandle
-//                        x: 0
-//                        y: objScrollBar.position * (objScrollBar.height)
-//                        width: (objScrollBar.width)
-//                        height: (objScrollBar.pageSize * (objListView.height))
-//                        //radius: (width/2)
-//                        color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.accent)?"white":"black"
-//                        opacity: 0.7
-//                    }
-//                }//custom ScrollBar
+                //                    Rectangle {
+                //                        id: objScrollBarBack
+                //                        anchors.fill: parent
+                //                        color: objDialogRoot.appUi.zBaseTheme.accent
+                //                        opacity: 0.3
+                //                    }
+                //                    Rectangle {
+                //                        id: objHandle
+                //                        x: 0
+                //                        y: objScrollBar.position * (objScrollBar.height)
+                //                        width: (objScrollBar.width)
+                //                        height: (objScrollBar.pageSize * (objListView.height))
+                //                        //radius: (width/2)
+                //                        color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.accent)?"white":"black"
+                //                        opacity: 0.7
+                //                    }
+                //                }//custom ScrollBar
 
             }
         }
