@@ -72,5 +72,14 @@ Rectangle {
         }
     }
 
+    function toggle(){
+        if(objDialogRoot.visible){
+            objDialogRoot.close();
+        }
+        else{
+            objDialogRoot.open();
+        }
+    }
+
 
 }
