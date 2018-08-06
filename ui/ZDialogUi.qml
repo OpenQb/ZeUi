@@ -147,7 +147,6 @@ Rectangle {
                     clip: true
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.rightMargin: objScrollBar.active?objScrollBar.width:0
                     anchors.top: objTopBar.bottom
                     anchors.bottom: parent.bottom
                     model: objDialogRoot.model
