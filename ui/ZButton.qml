@@ -20,6 +20,7 @@ Item {
     property bool isHovered: false
 
     Keys.onPressed: {
+        console.log(event)
         if(event.key === Qt.Key_Enter || event.key === Qt.Key_Escape){
             event.accept = true;
             objButton.buttonPressed();
