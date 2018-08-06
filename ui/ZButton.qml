@@ -34,7 +34,11 @@ Item {
 
     Rectangle{
         anchors.fill: parent
-        color: objButton.backgroundColor
+        color: objButton.isHovered?
+                   QbCoreOne.lighter(objButton.backgroundColor,180):
+                   objButton.focus?
+                       QbCoreOne.lighter(objButton.backgroundColor,180):objButton.backgroundColor
+
         radius: objButton.radious
         border.color: objButton.borderColor
         border.width: objButton.border
@@ -54,6 +58,12 @@ Item {
             hoverEnabled: true
             onClicked: {
                 objButton.buttonPressed()
+            }
+            onEntered: {
+                objButton.isHovered = true;
+            }
+            onExited: {
+                objButton.isHovered = false;
             }
         }
     }
