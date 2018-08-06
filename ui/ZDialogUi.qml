@@ -77,9 +77,26 @@ Rectangle {
                         color: objDialogRoot.appUi.zBaseTheme.primary
                         anchors.bottom: parent.bottom
                     }
-
-
-                }
+                    Text{
+                        id: objTitle
+                        anchors.left: parent.left
+                        anchors.leftMargin: 5
+                        anchors.right: objCloseButton.left
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                        horizontalAlignment: Text.AlignHCenter
+                        text: objDialogRoot.title
+                        color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.primary)?"white":"black"
+                    }
+                    RoundButton{
+                        id: objCloseButton
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        text: "X"
+                        focusReason: Qt.StrongFocus
+                        onClicked: objDialogRoot.close()
+                    }
+                }//end of TopBar
 
 
 
