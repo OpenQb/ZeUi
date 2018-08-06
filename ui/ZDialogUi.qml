@@ -85,7 +85,11 @@ Rectangle {
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
                         text: objDialogRoot.title
+                        font.family: objDialogRoot.appUi.zBaseTheme.defaultFontFamily
+                        font.pixelSize: objDialogRoot.appUi.zBaseTheme.defaultFontSize+3
+                        font.bold: true
                         color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.primary)?"white":"black"
                     }
                     RoundButton{
@@ -95,6 +99,7 @@ Rectangle {
                         text: "X"
                         focusReason: Qt.StrongFocus
                         onClicked: objDialogRoot.close()
+                        Material.background: objDialogRoot.appUi.zBaseTheme.primary
                     }
                 }//end of TopBar
 
