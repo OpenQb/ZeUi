@@ -53,7 +53,7 @@ Rectangle {
 
             Rectangle{
                 anchors.fill: parent
-                color: objDialog.appUi.zBaseTheme.background
+                color: objDialogRoot.appUi.zBaseTheme.background
                 radius: 5
 
                 Rectangle{
@@ -62,11 +62,11 @@ Rectangle {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     radius: 5
-                    color: objDialog.appUi.zBaseTheme.primary
+                    color: objDialogRoot.appUi.zBaseTheme.primary
                     Rectangle{
                         width: parent.width
                         height: 5
-                        color: objDialog.appUi.zBaseTheme.primary
+                        color: objDialogRoot.appUi.zBaseTheme.primary
                         anchors.bottom: parent.bottom
                     }
 
