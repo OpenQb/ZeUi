@@ -167,8 +167,14 @@ Rectangle {
                     Component.onCompleted: {
                         objDialogRoot.dialogView = objListView;
                     }
-                    Keys.onUpPressed: objScrollBar.decrease()
-                    Keys.onDownPressed: objScrollBar.increase()
+                    Keys.onUpPressed: {
+                        objListView.decrementCurrentIndex()
+                        objScrollBar.decrease()
+                    }
+                    Keys.onDownPressed: {
+                        objListView.incrementCurrentIndex();
+                        objScrollBar.increase()
+                    }
                 }
 
                 //                Item {
