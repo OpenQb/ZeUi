@@ -103,7 +103,7 @@ Rectangle {
                             width: parent.width*0.60
                             radius: height/2.0
                             activeFocusOnTab: true
-                            color: focus?objDialogRoot.appUi.zBaseTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):objDialogRoot.appUi.zBaseTheme.accent
+                            color: focus?objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):objDialogRoot.appUi.zBaseTheme.accent
                             Keys.onPressed: {
                                 if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
                                     event.accepted = true;
