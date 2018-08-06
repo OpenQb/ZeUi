@@ -172,9 +172,6 @@ Rectangle {
                         objListView.decrementCurrentIndex()
                         //objScrollBar.decrease()
                     }
-                    Keys.onTabPressed: {
-                        objListView.incrementCurrentIndex();
-                    }
                     Keys.onDownPressed: {
                         objListView.incrementCurrentIndex();
                         //objScrollBar.increase()
