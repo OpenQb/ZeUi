@@ -150,7 +150,7 @@ Rectangle {
                     anchors.top: objTopBar.bottom
                     anchors.bottom: parent.bottom
                     model: objDialogRoot.model
-                    ScrollIndicator.vertical: ScrollIndicator {}
+                    ScrollBar.vertical: ScrollBar {id: objScrollBar}
                     Material.accent: objDialogRoot.appUi.zBaseTheme.accent
                     Material.primary: objDialogRoot.appUi.zBaseTheme.primary
                     Material.foreground: objDialogRoot.appUi.zBaseTheme.foreground
@@ -158,6 +158,8 @@ Rectangle {
                     Component.onCompleted: {
                         objDialogRoot.dialogView = objListView;
                     }
+                    Keys.onUpPressed: objScrollBar.decrease()
+                    Keys.onDownPressed: objScrollBar.increase()
                 }
 
 //                Item {
