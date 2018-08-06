@@ -151,7 +151,13 @@ Rectangle {
                     anchors.bottom: parent.bottom
                     model: objDialogRoot.model
                     activeFocusOnTab: true
-                    ScrollBar.vertical: ScrollBar {id: objScrollBar;active: objListView.focus}
+                    ScrollBar.vertical: ScrollBar {
+                        id: objScrollBar;
+                        active: objScrollBar.focus || objListView.focus
+                        focusReason: Qt.StrongFocus
+                        Keys.onUpPressed: objScrollBar.decrease()
+                        Keys.onDownPressed: objScrollBar.increase()
+                    }
                     Material.accent: objDialogRoot.appUi.zBaseTheme.accent
                     Material.primary: objDialogRoot.appUi.zBaseTheme.primary
                     Material.foreground: objDialogRoot.appUi.zBaseTheme.foreground
