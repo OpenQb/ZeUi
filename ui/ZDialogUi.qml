@@ -133,8 +133,46 @@ Rectangle {
                     }
                 }//end of TopBar
 
+                ListView{
+                    id: objListView
+                    clip: true
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.top: objTopBar.bottom
+                    anchors.bottom: parent.bottom
+                    model: objDialogRoot.model
+                    //ScrollIndicator.vertical: ScrollIndicator {}
+                }
 
+                Item {
+                    id: objScrollBar
+                    width: QbCoreOne.scale(8)
+                    height: objListView.height
+                    anchors.right: objListView.right
+                    anchors.top: objListView.top
+                    opacity: 1
+                    clip: true
+                    visible: objScrollBar.height!=objHandle.height
+                    property real position: objListView.visibleArea.yPosition
+                    property real pageSize: objListView.visibleArea.heightRatio
 
+                    Rectangle {
+                        id: objScrollBarBack
+                        anchors.fill: parent
+                        color: objDialogRoot.appUi.zBaseTheme.accent
+                        opacity: 0.3
+                    }
+                    Rectangle {
+                        id: objHandle
+                        x: 0
+                        y: objScrollBar.position * (objScrollBar.height)
+                        width: (objScrollBar.width)
+                        height: (objScrollBar.pageSize * (objListView.height))
+                        //radius: (width/2)
+                        color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.accent)?"white":"black"
+                        opacity: 0.7
+                    }
+                }
             }
         }
     }
