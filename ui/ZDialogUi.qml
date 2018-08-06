@@ -98,6 +98,7 @@ Rectangle {
                         height: parent.height
                         width: height
                         Rectangle{
+                            id: objCloseButtonBG
                             anchors.centerIn: parent
                             height: parent.height*0.60
                             width: parent.width*0.60
@@ -125,6 +126,13 @@ Rectangle {
                             }
                             MouseArea{
                                 anchors.fill: parent
+                                hoverEnabled: true;
+                                onEntered: {
+                                    objCloseButtonBG.color = objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180);
+                                }
+                                onExited: {
+                                    objCloseButtonBG.color =  objCloseButtonBG.focus?objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):objDialogRoot.appUi.zBaseTheme.accent
+                                }
                                 onClicked: {
                                     objDialogRoot.close();
                                 }
