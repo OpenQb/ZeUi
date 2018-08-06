@@ -91,13 +91,45 @@ Rectangle {
                         font.pixelSize: objDialogRoot.appUi.zBaseTheme.defaultFontSize+3
                         color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.primary)?"white":"black"
                     }
-                    Rectangle{
+                    Item{
                         id: objCloseButton
                         anchors.right: parent.right
                         anchors.top: parent.top
                         height: parent.height
                         width: height
-                        radius: height/2.0
+                        Rectangle{
+                            anchors.centerIn: parent
+                            height: parent.height*0.60
+                            width: parent.width*0.60
+                            radius: height/2.0
+                            activeFocusOnTab: true
+                            color: focus?objDialogRoot.appUi.zBaseTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):objDialogRoot.appUi.zBaseTheme.accent
+                            Keys.onPressed: {
+                                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                                    event.accepted = true;
+                                    objDialogRoot.close();
+                                }
+                            }
+                            Keys.onReleased: {
+                                event.accepted = true;
+                            }
+
+                            Text{
+                                anchors.fill: parent
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                                font.family: QbMF3.family
+                                text: QbMF3.icon("mf-close")
+                                font.pixelSize: parent.height/2
+                                color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.accent)?"white":"black"
+                            }
+                            MouseArea{
+                                anchors.fill: parent
+                                onClicked: {
+                                    objDialogRoot.close();
+                                }
+                            }
+                        }
                     }
                 }//end of TopBar
 
