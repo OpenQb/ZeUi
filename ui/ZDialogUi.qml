@@ -67,7 +67,7 @@ Rectangle {
     }
 
     function open(){
-        if(objDialogRoot.mainView === null){
+        if(objDialogRoot.mainView === null && objDialogRoot.appUi){
             objDialogRoot.visible = true;
             objDialogRoot.mainView = compDialog.createObject(objDialogRoot,{})
         }
