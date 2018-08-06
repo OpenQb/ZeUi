@@ -81,8 +81,7 @@ Rectangle {
                     Text{
                         id: objTitle
                         anchors.left: parent.left
-                        anchors.leftMargin: 5
-                        anchors.right: objCloseButton.left
+                        anchors.right: parent.right
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         horizontalAlignment: Text.AlignHCenter
