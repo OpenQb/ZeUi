@@ -15,6 +15,9 @@ Rectangle {
     visible: false
     focus: false
 
+    property int dialogWidth: parent.width*0.80
+    property int dialogHeight: parent.height*0.80
+
     property Item mainView: null
     property ObjectModel model:null
 
@@ -42,8 +45,8 @@ Rectangle {
         id: compDialog
         Item{
             id: objDialog
-            width: parent.width*0.80
-            height: parent.height*0.80
+            width: objDialogRoot.dialogWidth
+            height: objDialogRoot.dialogHeight
             anchors.centerIn: parent
             Rectangle{
                 anchors.fill: parent
