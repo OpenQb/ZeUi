@@ -152,6 +152,7 @@ Rectangle {
                     anchors.bottom: parent.bottom
                     model: objDialogRoot.model
                     activeFocusOnTab: true
+                    highlightFollowsCurrentItem: true
                     onCurrentIndexChanged: objDialogRoot.currentIndex = objListView.currentIndex;
                     ScrollBar.vertical: ScrollBar {
                         id: objScrollBar;
@@ -169,11 +170,11 @@ Rectangle {
                     }
                     Keys.onUpPressed: {
                         objListView.decrementCurrentIndex()
-                        objScrollBar.decrease()
+                        //objScrollBar.decrease()
                     }
                     Keys.onDownPressed: {
                         objListView.incrementCurrentIndex();
-                        objScrollBar.increase()
+                        //objScrollBar.increase()
                     }
                 }
 
