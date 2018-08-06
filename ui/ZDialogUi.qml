@@ -23,6 +23,13 @@ Rectangle {
     property Item mainView: null
     property ObjectModel model:null
 
+    Connections{
+        target: appUi
+        onAppClosing:{
+            objDialogRoot.close();
+        }
+    }
+
     MouseArea{
         anchors.fill: parent
         preventStealing: true
