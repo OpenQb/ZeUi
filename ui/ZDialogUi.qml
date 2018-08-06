@@ -14,6 +14,7 @@ Rectangle {
     activeFocusOnTab: false
     visible: false
     focus: false
+    property string title: "Dialog"
     property Item appUi: null
 
     property int dialogWidth: parent.width*0.80
@@ -49,10 +50,31 @@ Rectangle {
             width: objDialogRoot.dialogWidth
             height: objDialogRoot.dialogHeight
             anchors.centerIn: parent
+
             Rectangle{
                 anchors.fill: parent
-                color: "white"
+                color: objDialog.appUi.zBaseTheme.background
                 radius: 5
+
+                Rectangle{
+                    id: objTopBar
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    radius: 5
+                    color: objDialog.appUi.zBaseTheme.primary
+                    Rectangle{
+                        width: parent.width
+                        height: 5
+                        color: objDialog.appUi.zBaseTheme.primary
+                        anchors.bottom: parent.bottom
+                    }
+
+
+                }
+
+
+
             }
         }
     }
