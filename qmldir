@@ -21,6 +21,7 @@ ZSideDockView 1.0 ui/ZSideDockView.qml
 ZFolderDialog 1.0 ui/ZFolderDialog.qml
 ZFolderView 1.0 ui/ZFolderView.qml
 ZDialogUi 1.0 ui/ZDialogUi.qml
+ZButton 1.0 ui/ZButton.qml
 
 ZSOneAppPage 1.0 ZSOne/ZSOneAppPage.qml
 ZSOneAppUi 1.0 ZSOne/ZSOneAppUi.qml

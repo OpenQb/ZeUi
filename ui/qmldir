@@ -19,3 +19,4 @@ ZSideDockView 1.0 ZSideDockView.qml
 ZFolderDialog 1.0 ZFolderDialog.qml
 ZFolderView 1.0 ZFolderView.qml
 ZDialogUi 1.0 ZDialogUi.qml
+ZButton 1.0 ZButton.qml
