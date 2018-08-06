@@ -22,6 +22,7 @@ Rectangle {
 
     property Item mainView: null
     property ObjectModel model:null
+    property Item dialogView: null
 
     Connections{
         target: appUi
@@ -154,6 +155,9 @@ Rectangle {
                     Material.primary: objDialogRoot.appUi.zBaseTheme.primary
                     Material.foreground: objDialogRoot.appUi.zBaseTheme.foreground
                     Material.background: objDialogRoot.appUi.zBaseTheme.background
+                    Component.onCompleted: {
+                        objDialogRoot.dialogView = objListView;
+                    }
                 }
 
 //                Item {
