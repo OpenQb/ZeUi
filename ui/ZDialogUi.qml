@@ -14,6 +14,7 @@ Rectangle {
     activeFocusOnTab: false
     visible: false
     focus: false
+    property Item appUi: null
 
     property int dialogWidth: parent.width*0.80
     property int dialogHeight: parent.height*0.80
