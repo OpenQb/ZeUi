@@ -61,6 +61,7 @@ Rectangle {
                     anchors.top: parent.top
                     anchors.left: parent.left
                     anchors.right: parent.right
+                    height: 50
                     radius: 5
                     color: objDialogRoot.appUi.zBaseTheme.primary
                     Rectangle{
