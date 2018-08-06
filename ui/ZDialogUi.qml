@@ -150,6 +150,10 @@ Rectangle {
                     anchors.bottom: parent.bottom
                     model: objDialogRoot.model
                     ScrollIndicator.vertical: ScrollIndicator {}
+                    Material.accent: objDialogRoot.appUi.zBaseTheme.accent
+                    Material.primary: objDialogRoot.appUi.zBaseTheme.primary
+                    Material.foreground: objDialogRoot.appUi.zBaseTheme.foreground
+                    Material.background: objDialogRoot.appUi.zBaseTheme.background
                 }
 
 //                Item {
