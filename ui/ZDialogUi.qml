@@ -81,11 +81,11 @@ Rectangle {
     }
 
     function close(){
-        objDialogRoot.visible = false;
-        objDialogRoot.focus = false;
         if(objDialogRoot.mainView){
             try{objDialogRoot.mainView.destroy();}catch(e){}
         }
+        objDialogRoot.visible = false;
+        objDialogRoot.focus = false;
         objDialogRoot.mainView = null;
     }
 
