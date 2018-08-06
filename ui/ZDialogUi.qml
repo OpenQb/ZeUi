@@ -23,6 +23,7 @@ Rectangle {
     property Item mainView: null
     property ObjectModel model:null
     property Item dialogView: null
+    property int currentIndex:-1
 
     Connections{
         target: appUi
@@ -151,6 +152,7 @@ Rectangle {
                     anchors.bottom: parent.bottom
                     model: objDialogRoot.model
                     activeFocusOnTab: true
+                    onCurrentIndexChanged: objDialogRoot.currentIndex = objListView.currentIndex;
                     ScrollBar.vertical: ScrollBar {
                         id: objScrollBar;
                         active: objScrollBar.focus || objListView.focus
