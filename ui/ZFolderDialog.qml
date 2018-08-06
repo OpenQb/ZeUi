@@ -10,6 +10,13 @@ ZBItem {
 
     property Item folderView: null;
 
+    Connections{
+        target: appUi
+        onAppClosing:{
+            objFolderDialog.close();
+        }
+    }
+
     MouseArea{
         anchors.fill: parent
         preventStealing: true
