@@ -89,14 +89,15 @@ Rectangle {
                         text: objDialogRoot.title
                         font.family: objDialogRoot.appUi.zBaseTheme.defaultFontFamily
                         font.pixelSize: objDialogRoot.appUi.zBaseTheme.defaultFontSize+3
-                        font.bold: true
                         color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.primary)?"white":"black"
                     }
                     RoundButton{
                         id: objCloseButton
                         anchors.right: parent.right
                         anchors.top: parent.top
-                        text: "X"
+                        text: QbMF3.icon("mf-close")
+                        font.family: QbMF3.family
+                        font.pixelSize: height*0.50
                         focusReason: Qt.StrongFocus
                         onClicked: objDialogRoot.close()
                         Material.background: objDialogRoot.appUi.zBaseTheme.primary
