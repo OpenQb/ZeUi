@@ -150,7 +150,8 @@ Rectangle {
                     anchors.top: objTopBar.bottom
                     anchors.bottom: parent.bottom
                     model: objDialogRoot.model
-                    ScrollBar.vertical: ScrollBar {id: objScrollBar}
+                    activeFocusOnTab: true
+                    ScrollBar.vertical: ScrollBar {id: objScrollBar;active: objListView.focus}
                     Material.accent: objDialogRoot.appUi.zBaseTheme.accent
                     Material.primary: objDialogRoot.appUi.zBaseTheme.primary
                     Material.foreground: objDialogRoot.appUi.zBaseTheme.foreground
