@@ -34,7 +34,7 @@ Item {
 
     Rectangle{
         anchors.fill: parent
-        color: objButton.isHovered?QbCoreOne.lighter(objButton.backgroundColor,180):objButton.focus?QbCoreOne.lighter(objButton.backgroundColor,180):objButton.backgroundColor
+        color: objButton.isHovered?QbCoreOne.lighter(objButton.backgroundColor,180):objButton.activeFocus?QbCoreOne.lighter(objButton.backgroundColor,180):objButton.backgroundColor
 
         radius: objButton.radious
         border.color: objButton.borderColor
@@ -57,11 +57,11 @@ Item {
                 objButton.buttonPressed()
             }
             onEntered: {
-                console.log("onEntered on button")
+                //console.log("onEntered on button")
                 objButton.isHovered = true;
             }
             onExited: {
-                console.log("onExited from button")
+                //console.log("onExited from button")
                 objButton.isHovered = false;
             }
         }
