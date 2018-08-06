@@ -91,16 +91,13 @@ Rectangle {
                         font.pixelSize: objDialogRoot.appUi.zBaseTheme.defaultFontSize+3
                         color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.primary)?"white":"black"
                     }
-                    RoundButton{
+                    Rectangle{
                         id: objCloseButton
                         anchors.right: parent.right
                         anchors.top: parent.top
-                        text: QbMF3.icon("mf-close")
-                        font.family: QbMF3.family
-                        font.pixelSize: height*0.50
-                        focusReason: Qt.StrongFocus
-                        onClicked: objDialogRoot.close()
-                        Material.background: objDialogRoot.appUi.zBaseTheme.primary
+                        height: parent.height
+                        width: height
+                        radius: height/2.0
                     }
                 }//end of TopBar
 
