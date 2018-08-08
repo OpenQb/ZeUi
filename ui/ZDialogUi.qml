@@ -169,12 +169,35 @@ Rectangle {
                         objDialogRoot.dialogView = objListView;
                     }
                     Keys.onUpPressed: {
-                        objListView.decrementCurrentIndex()
-                        //objScrollBar.decrease()
+                        if(objListView.currentIndex === 0){
+                            event.accepted = false;
+                            return;
+                        }
+
+                        while(true){
+                            objListView.decrementCurrentIndex();
+                            if(objListView.currentIndex === 0){
+                                break;
+                            }
+                            if(objListView.currentItem.visible !== false){
+                                break;
+                            }
+                        }
                     }
                     Keys.onDownPressed: {
-                        objListView.incrementCurrentIndex();
-                        //objScrollBar.increase()
+                        if(objListView.currentIndex >= (objListView.count-1)){
+                            event.accepted = false;
+                            return;
+                        }
+                        while(true){
+                            objListView.incrementCurrentIndex();
+                            if(objListView.currentIndex >=(objListView.count-1)){
+                                break;
+                            }
+                            if(objListView.currentItem.visible !== false){
+                                break;
+                            }
+                        }
                     }
                 }
 
