@@ -147,9 +147,13 @@ Rectangle {
                     id: objListView
                     clip: true
                     anchors.left: parent.left
+                    anchors.leftMargin: 5
                     anchors.right: parent.right
+                    anchors.rightMargin: 5
                     anchors.top: objTopBar.bottom
+                    anchors.topMargin: 5
                     anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 5
                     model: objDialogRoot.model
                     activeFocusOnTab: true
                     highlightFollowsCurrentItem: true
