@@ -13,6 +13,7 @@ Item {
     id: objHBoxRoot
     property ObjectModel model: null
     property int currentIndex: -1
+    property Item appUi: null
 
     ListView{
         id: objListView
