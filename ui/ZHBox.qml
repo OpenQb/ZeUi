@@ -16,6 +16,11 @@ Item {
     property alias currentItem: objListView.currentItem
     property Item appUi: null
     property bool focreActiveFocusToFirstItem: true;
+    onActiveFocusChanged: {
+        if(activeFocus){
+            objHBoxRoot.currentItem.forceActiveFocus();
+        }
+    }
 
     ListView{
         id: objListView
