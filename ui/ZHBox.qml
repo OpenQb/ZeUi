@@ -21,11 +21,6 @@ Item {
         anchors.fill: parent
         model: objHBoxRoot.model
         activeFocusOnTab: true
-        onActiveFocusChanged: {
-            if(!activeFocus){
-                objListView.currentIndex = 0;
-            }
-        }
         orientation: ListView.Horizontal
         highlightFollowsCurrentItem: true
         onCurrentIndexChanged: objHBoxRoot.currentIndex = objListView.currentIndex;
@@ -38,6 +33,12 @@ Item {
             }
             Keys.onRightPressed: {
                 objListView.incrementCurrentIndex();
+            }
+        }
+        Connections{
+            target: objListView.currentItem
+            onActiveFocusChanged:{
+                console.log(objListView.currentItem.activeFocus);
             }
         }
         Material.accent: objHBoxRoot.appUi.zBaseTheme.accent
