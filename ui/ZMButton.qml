@@ -15,11 +15,10 @@ Button{
 
     Rectangle{
         visible: objMButton.activeFocus
-        anchors.fill: parent
+        width: parent.width
+        height: ZBTheme.ribbonHeight
+        anchors.bottom: parent.bottom
         focus: false
-        color: "transparent"
-        border.width: 1
-        border.color: ZBTheme.ribbonColor
-        radius: 5
+        color: ZBTheme.ribbonColor
     }
 }
