@@ -34,17 +34,23 @@ Item {
             Keys.onRightPressed: {
                 objListView.incrementCurrentIndex();
             }
-        }
-        Connections{
-            target: objListView.currentItem
-            onActiveFocusChanged:{
-                console.log(objListView.currentItem.activeFocus);
+            Keys.onUpPressed: {
+                event.accepted = false;
+            }
+            Keys.onDownPressed: {
+                 event.accepted = false;
             }
         }
         Material.accent: objHBoxRoot.appUi.zBaseTheme.accent
         Material.primary: objHBoxRoot.appUi.zBaseTheme.primary
         Material.foreground: objHBoxRoot.appUi.zBaseTheme.foreground
         Material.background: objHBoxRoot.appUi.zBaseTheme.background
+        Keys.onUpPressed: {
+            event.accepted = false;
+        }
+        Keys.onDownPressed: {
+             event.accepted = false;
+        }
 
         Keys.onLeftPressed: {
             while(true){
