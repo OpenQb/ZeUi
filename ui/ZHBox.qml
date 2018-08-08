@@ -21,7 +21,7 @@ Item {
         clip: true
         anchors.fill: parent
         model: objHBoxRoot.model
-        activeFocusOnTab: true
+        activeFocusOnTab: false
         orientation: ListView.Horizontal
         highlightFollowsCurrentItem: true
         currentIndex: 0
