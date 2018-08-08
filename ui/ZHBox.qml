@@ -21,6 +21,11 @@ Item {
         anchors.fill: parent
         model: objHBoxRoot.model
         activeFocusOnTab: true
+        onActiveFocusChanged: {
+            if(!activeFocus){
+                objListView.currentIndex = 0;
+            }
+        }
         orientation: ListView.Horizontal
         highlightFollowsCurrentItem: true
         onCurrentIndexChanged: objHBoxRoot.currentIndex = objListView.currentIndex;
