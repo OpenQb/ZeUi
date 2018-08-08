@@ -7,6 +7,7 @@ import QtQml.Models 2.1
 import QtQuick.Controls 2.4
 import QtQuick.Controls.Material 2.4
 
+import "./../base"
 
 Rectangle {
     id: objDialogRoot
@@ -15,7 +16,6 @@ Rectangle {
     visible: false
     focus: false
     property string title: "Dialog"
-    property Item appUi: null
 
     property int dialogWidth: parent.width*0.80
     property int dialogHeight: parent.height*0.80
@@ -26,7 +26,7 @@ Rectangle {
     property int currentIndex:-1
 
     Connections{
-        target: appUi
+        target: ZBLib.appUi
         onAppClosing:{
             objDialogRoot.close();
         }
@@ -62,7 +62,7 @@ Rectangle {
 
             Rectangle{
                 anchors.fill: parent
-                color: objDialogRoot.appUi.zBaseTheme.background
+                color: ZBLib.appUi.zBaseTheme.background
                 radius: 5
 
                 Rectangle{
@@ -72,11 +72,11 @@ Rectangle {
                     anchors.right: parent.right
                     height: 50
                     radius: 5
-                    color: objDialogRoot.appUi.zBaseTheme.primary
+                    color: ZBLib.appUi.zBaseTheme.primary
                     Rectangle{
                         width: parent.width
                         height: 5
-                        color: objDialogRoot.appUi.zBaseTheme.primary
+                        color: ZBLib.appUi.zBaseTheme.primary
                         anchors.bottom: parent.bottom
                     }
                     Text{
@@ -88,9 +88,9 @@ Rectangle {
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                         text: objDialogRoot.title
-                        font.family: objDialogRoot.appUi.zBaseTheme.defaultFontFamily
-                        font.pixelSize: objDialogRoot.appUi.zBaseTheme.defaultFontSize+3
-                        color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.primary)?"white":"black"
+                        font.family: ZBLib.appUi.zBaseTheme.defaultFontFamily
+                        font.pixelSize: ZBLib.appUi.zBaseTheme.defaultFontSize+3
+                        color: ZBLib.appUi.zBaseTheme.metaTheme.isDark(ZBLib.appUi.zBaseTheme.primary)?"white":"black"
                     }
                     Item{
                         id: objCloseButton
@@ -106,7 +106,7 @@ Rectangle {
                             radius: height/2.0
                             activeFocusOnTab: true
                             property bool isHovered: false
-                            color: isHovered?objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):focus?objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):objDialogRoot.appUi.zBaseTheme.accent
+                            color: isHovered?ZBLib.appUi.zBaseTheme.metaTheme.lighter(ZBLib.appUi.zBaseTheme.accent,180):focus?ZBLib.appUi.zBaseTheme.metaTheme.lighter(ZBLib.appUi.zBaseTheme.accent,180):ZBLib.appUi.zBaseTheme.accent
                             Keys.onPressed: {
                                 if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
                                     event.accepted = true;
@@ -124,7 +124,7 @@ Rectangle {
                                 font.family: QbMF3.family
                                 text: QbMF3.icon("mf-close")
                                 font.pixelSize: parent.height/2
-                                color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.accent)?"white":"black"
+                                color: ZBLib.appUi.zBaseTheme.metaTheme.isDark(ZBLib.appUi.zBaseTheme.accent)?"white":"black"
                             }
                             MouseArea{
                                 anchors.fill: parent
@@ -161,10 +161,10 @@ Rectangle {
                         Keys.onUpPressed: objScrollBar.decrease()
                         Keys.onDownPressed: objScrollBar.increase()
                     }
-                    Material.accent: objDialogRoot.appUi.zBaseTheme.accent
-                    Material.primary: objDialogRoot.appUi.zBaseTheme.primary
-                    Material.foreground: objDialogRoot.appUi.zBaseTheme.foreground
-                    Material.background: objDialogRoot.appUi.zBaseTheme.background
+                    Material.accent: ZBLib.appUi.zBaseTheme.accent
+                    Material.primary: ZBLib.appUi.zBaseTheme.primary
+                    Material.foreground: ZBLib.appUi.zBaseTheme.foreground
+                    Material.background: ZBLib.appUi.zBaseTheme.background
                     Component.onCompleted: {
                         objDialogRoot.dialogView = objListView;
                     }
@@ -193,7 +193,7 @@ Rectangle {
                 //                    Rectangle {
                 //                        id: objScrollBarBack
                 //                        anchors.fill: parent
-                //                        color: objDialogRoot.appUi.zBaseTheme.accent
+                //                        color: ZBLib.appUi.zBaseTheme.accent
                 //                        opacity: 0.3
                 //                    }
                 //                    Rectangle {
@@ -203,7 +203,7 @@ Rectangle {
                 //                        width: (objScrollBar.width)
                 //                        height: (objScrollBar.pageSize * (objListView.height))
                 //                        //radius: (width/2)
-                //                        color: objDialogRoot.appUi.zBaseTheme.metaTheme.isDark(objDialogRoot.appUi.zBaseTheme.accent)?"white":"black"
+                //                        color: ZBLib.appUi.zBaseTheme.metaTheme.isDark(ZBLib.appUi.zBaseTheme.accent)?"white":"black"
                 //                        opacity: 0.7
                 //                    }
                 //                }//custom ScrollBar
@@ -222,7 +222,7 @@ Rectangle {
     }
 
     function open(){
-        if(objDialogRoot.mainView === null && objDialogRoot.appUi){
+        if(objDialogRoot.mainView === null && ZBLib.appUi){
             objDialogRoot.visible = true;
             objDialogRoot.mainView = compDialog.createObject(objDialogRoot,{})
         }

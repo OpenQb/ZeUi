@@ -11,7 +11,7 @@ ZBItem {
     property Item folderView: null;
 
     Connections{
-        target: appUi
+        target: ZBLib.appUi
         onAppClosing:{
             objFolderDialog.close();
         }
@@ -35,7 +35,7 @@ ZBItem {
     Rectangle{
         id: objDialogParent
         anchors.fill: parent
-        color: appUi.mCT("black",160)
+        color: ZBLib.appUi.mCT("black",160)
     }
 
     Component{
@@ -60,7 +60,7 @@ ZBItem {
             objFolderDialog.forceActiveFocus();
             objFolderDialog.focus = false;
             objFolderDialog.visible = true;
-            objFolderDialog.folderView = compFolderView.createObject(objDialogParent,{"appUi":objFolderDialog.appUi});
+            objFolderDialog.folderView = compFolderView.createObject(objDialogParent,{});
         }
 
     }

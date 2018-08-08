@@ -181,7 +181,6 @@ ZBItem{
         visible: true
         z: 10000001
         focus: true
-        appUi: objSideDockSmartViewRoot.appUi
         //isFocused: objSideDockSmartViewRoot.focus
         dockItemCurrentIndex: 0
         activeFocusOnTab: false
@@ -219,7 +218,6 @@ ZBItem{
         height: objSideDockSmartViewRoot.dockItemHeight*1
         visible: true
         z: 10000001
-        appUi: objSideDockSmartViewRoot.appUi
         focus: true
         //isFocused: objSideDockSmartViewRoot.focus
         dockInteractive: false
@@ -260,7 +258,7 @@ ZBItem{
                 }
             }
             else if(title === "Hide"){
-                objPagesView.appUi.hide();
+                ZBLib.appUi.hide();
                 objPagesList.closeMenu();
             }
         }
@@ -275,7 +273,6 @@ ZBItem{
     }
 
     ZBListMenu{
-        appUi: objSideDockSmartViewRoot.appUi
         id: objPagesList
         title: objSideDockSmartViewRoot.pageTitle
         onSelectedItem: {
@@ -288,7 +285,6 @@ ZBItem{
     }
 
     ZBSideDockView{
-        appUi: objSideDockSmartViewRoot.appUi
         id: objUserDataView
         anchors.top: objPagesView.bottom
         anchors.left: parent.left
@@ -318,7 +314,6 @@ ZBItem{
     }
 
     ZBSideDockView{
-        appUi: objSideDockSmartViewRoot.appUi
         id: objPowerView
         anchors.bottom: parent.bottom
         anchors.left: parent.left
