@@ -71,7 +71,7 @@ Item {
                 if(objListView.currentIndex === 0){
                     break;
                 }
-                if(objListView.currentItem.visible !== false){
+                if(objListView.currentItem.visible === true && objListView.currentItem.enabled === true){
                     break;
                 }
             }
@@ -86,7 +86,7 @@ Item {
                 if(objListView.currentIndex >=(objListView.count-1)){
                     break;
                 }
-                if(objListView.currentItem.visible !== false){
+                if(objListView.currentItem.visible === true && objListView.currentItem.enabled === true){
                     break;
                 }
             }
