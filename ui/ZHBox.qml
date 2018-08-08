@@ -25,19 +25,12 @@ Item {
         orientation: ListView.Horizontal
         highlightFollowsCurrentItem: true
         currentIndex: 0
-        onActiveFocusChanged: {
-            if(activeFocus){
-                objListView.currentItem.forceActiveFocus();
-                objListView.currentItem.focus = true;
-            }
-        }
         onCurrentIndexChanged: objHBoxRoot.currentIndex = objListView.currentIndex;
         Connections{
             target: objListView.currentItem
             onActiveFocusChanged:{
-                if(!objListView.currentItem.activeFocus)
                 if(objListView.currentIndex === (objListView.count-1)){
-                    objListView.currentIndex = 0;
+                    if(!objListView.currentItem.activeFocus) objListView.currentIndex = 0;
                 }
             }
         }
@@ -55,7 +48,7 @@ Item {
                 event.accepted = false;
             }
             Keys.onDownPressed: {
-                 event.accepted = false;
+                event.accepted = false;
             }
         }
         Material.accent: objHBoxRoot.appUi.zBaseTheme.accent
@@ -66,7 +59,7 @@ Item {
             event.accepted = false;
         }
         Keys.onDownPressed: {
-             event.accepted = false;
+            event.accepted = false;
         }
 
         Keys.onLeftPressed: {
