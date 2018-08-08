@@ -14,7 +14,6 @@ Item {
     property ObjectModel model: null
     property alias currentIndex: objListView.currentIndex
     property alias currentItem: objListView.currentItem
-    property Item appUi: null
     property bool focreActiveFocusToFirstItem: true;
     onActiveFocusChanged: {
         if(activeFocus){
@@ -57,10 +56,10 @@ Item {
                 objListView.incrementCurrentIndex();
             }
         }
-        Material.accent: objVBoxRoot.appUi.zBaseTheme.accent
-        Material.primary: objVBoxRoot.appUi.zBaseTheme.primary
-        Material.foreground: objVBoxRoot.appUi.zBaseTheme.foreground
-        Material.background: objVBoxRoot.appUi.zBaseTheme.background
+        Material.accent: ZBLib.appUi.zBaseTheme.accent
+        Material.primary: ZBLib.appUi.zBaseTheme.primary
+        Material.foreground: ZBLib.appUi.zBaseTheme.foreground
+        Material.background: ZBLib.appUi.zBaseTheme.background
         Keys.onUpPressed: {
             if(objListView.currentIndex === 0){
                 event.accepted = false;

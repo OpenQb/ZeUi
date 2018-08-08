@@ -7,6 +7,7 @@ import QtQml.Models 2.1
 import QtQuick.Controls 2.4
 import QtQuick.Controls.Material 2.4
 
+import "./../base"
 
 
 Item {
@@ -14,7 +15,6 @@ Item {
     property ObjectModel model: null
     property alias currentIndex: objListView.currentIndex
     property alias currentItem: objListView.currentItem
-    property Item appUi: null
     property bool focreActiveFocusToFirstItem: true;
     onActiveFocusChanged: {
         if(activeFocus){
@@ -57,10 +57,10 @@ Item {
                 event.accepted = false;
             }
         }
-        Material.accent: objHBoxRoot.appUi.zBaseTheme.accent
-        Material.primary: objHBoxRoot.appUi.zBaseTheme.primary
-        Material.foreground: objHBoxRoot.appUi.zBaseTheme.foreground
-        Material.background: objHBoxRoot.appUi.zBaseTheme.background
+        Material.accent: ZBLib.appUi.zBaseTheme.accent
+        Material.primary: ZBLib.appUi.zBaseTheme.primary
+        Material.foreground: ZBLib.appUi.zBaseTheme.foreground
+        Material.background: ZBLib.appUi.zBaseTheme.background
         Keys.onUpPressed: {
             event.accepted = false;
         }
