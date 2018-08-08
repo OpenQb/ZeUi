@@ -110,7 +110,7 @@ ZBItem {
     }
 
     function keysOnPressed(event){
-        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
             event.accepted = true;
             if(objGridView.currentIndex !==-1){
                 emitSelection(objGridView.currentIndex,objGridView.selectedX,objGridView.selectedY);
@@ -183,7 +183,7 @@ ZBItem {
     }
 
     function keysOnReleased(event){
-        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
             event.accepted = true;
         }
         else if(event.key === Qt.Key_Escape||event.key === Qt.Key_Back){

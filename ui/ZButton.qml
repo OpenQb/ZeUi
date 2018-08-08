@@ -22,14 +22,14 @@ Item {
     property bool isHovered: false
 
     Keys.onPressed: {
-        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
             event.accept = true;
             objButton.buttonPressed();
         }
     }
 
     Keys.onReleased: {
-        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Escape){
+        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Escape || event.key === Qt.Key_Space){
             event.accept = true;
         }
     }

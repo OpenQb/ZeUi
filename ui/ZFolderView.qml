@@ -771,7 +771,7 @@ ZBItem {
                     }
 
                     Keys.onPressed: {
-                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
                             event.accepted = true;
                             if(objFolderView.browsingSelectedPath !== path){
                                 objFolderView.oldbrowsingSelectedPath = objFolderView.browsingSelectedPath;
@@ -780,7 +780,7 @@ ZBItem {
                         }
                     }
                     Keys.onReleased: {
-                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                        if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
                             event.accepted = true;
                         }
                     }
