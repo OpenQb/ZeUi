@@ -108,7 +108,7 @@ Rectangle {
                             property bool isHovered: false
                             color: isHovered?objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):focus?objDialogRoot.appUi.zBaseTheme.metaTheme.lighter(objDialogRoot.appUi.zBaseTheme.accent,180):objDialogRoot.appUi.zBaseTheme.accent
                             Keys.onPressed: {
-                                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
                                     event.accepted = true;
                                     objDialogRoot.close();
                                 }
