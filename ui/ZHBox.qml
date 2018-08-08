@@ -12,7 +12,8 @@ import QtQuick.Controls.Material 2.4
 Item {
     id: objHBoxRoot
     property ObjectModel model: null
-    property int currentIndex: -1
+    property alias currentIndex: objListView.currentIndex
+    property alias currentItem: objListView.currentItem
     property Item appUi: null
     property bool focreActiveFocusToFirstItem: true;
 
@@ -21,7 +22,7 @@ Item {
         clip: true
         anchors.fill: parent
         model: objHBoxRoot.model
-        activeFocusOnTab: false
+        activeFocusOnTab: true
         orientation: ListView.Horizontal
         highlightFollowsCurrentItem: true
         currentIndex: 0
