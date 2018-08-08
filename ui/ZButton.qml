@@ -14,6 +14,8 @@ Item {
     property int fontPixelSize: 15
     property bool fontBold: false
     activeFocusOnTab: true
+    width: 100
+    height: 50
 
     signal buttonPressed();
 
