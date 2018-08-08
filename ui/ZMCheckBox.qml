@@ -8,8 +8,8 @@ import "./../base/"
 CheckBox{
     id: objMCheckBox
     Material.accent: ZBTheme.accent
-    Material.background: ZBTheme.primary
-    Material.foreground: QbCoreOne.isBright(Material.background)?"black":"white"
+    Material.background: "transparent"
+    Material.foreground: ZBTheme.accent
     Material.primary: ZBTheme.primary
     Material.theme: Material.Light
 
