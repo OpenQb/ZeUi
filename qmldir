@@ -26,6 +26,7 @@ ZHBox 1.0 ui/ZHBox.qml
 ZVBox 1.0 ui/ZVBox.qml
 
 ZMButton 1.0 ui/ZMButton.qml
+ZMCheckBox 1.0 ui/ZMCheckBox.qml
 
 ZSOneAppPage 1.0 ZSOne/ZSOneAppPage.qml
 ZSOneAppUi 1.0 ZSOne/ZSOneAppUi.qml

@@ -24,3 +24,4 @@ ZHBox 1.0 ZHBox.qml
 ZVBox 1.0 ZVBox.qml
 
 ZMButton 1.0 ZMButton.qml
+ZMCheckBox 1.0 ZMCheckBox.qml
