@@ -138,7 +138,7 @@ ZBItem{
                 objSideDockSmartViewRoot.currentView = -1;
             }
         }
-        else if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+        else if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
             cView = viewList[objSideDockSmartViewRoot.currentView];
             if(cView){
                 if(cView.canAcceptEnterKey()){
@@ -164,7 +164,7 @@ ZBItem{
         else if(event.key === Qt.Key_Escape||event.key === Qt.Key_Back){
             event.accepted = true;
         }
-        else if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+        else if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
             event.accepted = true;
         }
     }
