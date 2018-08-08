@@ -23,6 +23,7 @@ Item {
         activeFocusOnTab: true
         orientation: ListView.Horizontal
         highlightFollowsCurrentItem: true
+        currentIndex: 0
         onCurrentIndexChanged: objHBoxRoot.currentIndex = objListView.currentIndex;
         ScrollBar.horizontal: ScrollBar {
             id: objScrollBar;
