@@ -69,6 +69,11 @@ Item {
         }
 
         Keys.onLeftPressed: {
+            if(objListView.currentIndex === 0){
+                event.accepted = false;
+                return;
+            }
+
             while(true){
                 objListView.decrementCurrentIndex();
                 if(objListView.currentIndex === 0){
@@ -81,6 +86,10 @@ Item {
 
         }
         Keys.onRightPressed: {
+            if(objListView.currentIndex >= (objListView.count-1)){
+                event.accepted = false;
+                return;
+            }
             while(true){
                 objListView.incrementCurrentIndex();
                 if(objListView.currentIndex >=(objListView.count-1)){
