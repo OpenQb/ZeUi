@@ -31,7 +31,7 @@ ZMCheckBox        1.0   ui/ZMCheckBox.qml
 ZMRoundButton     1.0   ui/ZMRoundButton.qml
 ZMRadioButton     1.0   ui/ZMRadioButton.qml
 ZMSwitch          1.0   ui/ZMSwitch.qml
-
+ZMPane            1.0   ui/ZMPane.qml
 
 ZSOneAppPage 1.0 ZSOne/ZSOneAppPage.qml
 ZSOneAppUi 1.0 ZSOne/ZSOneAppUi.qml

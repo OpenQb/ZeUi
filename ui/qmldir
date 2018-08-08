@@ -28,3 +28,4 @@ ZMCheckBox 1.0 ZMCheckBox.qml
 ZMRoundButton 1.0 ZMRoundButton.qml
 ZMRadioButton 1.0 ZMRadioButton.qml
 ZMSwitch 1.0 ZMSwitch.qml
+ZMPane 1.0 ZMPane.qml
