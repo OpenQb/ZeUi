@@ -26,4 +26,5 @@ ZVBox 1.0 ZVBox.qml
 ZMButton 1.0 ZMButton.qml
 ZMCheckBox 1.0 ZMCheckBox.qml
 ZMRoundButton 1.0 ZMRoundButton.qml
-ZMRadioButton.qml 1.0 ZMRadioButton.qml
+ZMRadioButton 1.0 ZMRadioButton.qml
+ZMSwitch 1.0 ZMSwitch.qml
