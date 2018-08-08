@@ -150,7 +150,6 @@ ZBAppUi{
         id: objDockView
         anchors.top: objTopBlock.bottom
         height: parent.height
-        appUi: objAppUi
         dockLogo: objAppUi.dockLogo
         onLogoClicked: {
             objAppUi.logoClicked();
@@ -183,7 +182,6 @@ ZBAppUi{
         anchors.bottom: parent.bottom
         //KeyNavigation.tab: objDockView
         //KeyNavigation.priority: KeyNavigation.BeforeItem
-        appUi: objAppUi
 
         onFocusChanged: {
             if(objPageView.currentItem){
