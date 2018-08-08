@@ -7,6 +7,7 @@ import QtQuick 2.10
 
 QtObject {
     id: objBaseLib
+    property Item appUi: null
 
 
     function addPage(appUi,pageView,page,jsobject){

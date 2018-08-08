@@ -37,6 +37,10 @@ QbApp {
         }
     }
 
+    Component.onCompleted: {
+        ZBLib.appUi = objBaseAppUiRoot;
+    }
+
     function appResized(){
         var s;
         if(objBaseAppUiRoot.scrollMode === ZBTheme.zInfiniteHeight){
