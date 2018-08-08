@@ -20,3 +20,5 @@ ZFolderDialog 1.0 ZFolderDialog.qml
 ZFolderView 1.0 ZFolderView.qml
 ZDialogUi 1.0 ZDialogUi.qml
 ZButton 1.0 ZButton.qml
+ZHBox 1.0 ZHBox.qml
+ZVBox 1.0 ZVBox.qml
