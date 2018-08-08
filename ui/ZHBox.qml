@@ -14,6 +14,7 @@ Item {
     property ObjectModel model: null
     property int currentIndex: -1
     property Item appUi: null
+    property bool focreActiveFocusToFirstItem: true;
 
     ListView{
         id: objListView
@@ -24,6 +25,12 @@ Item {
         orientation: ListView.Horizontal
         highlightFollowsCurrentItem: true
         currentIndex: 0
+        onActiveFocusChanged: {
+            if(activeFocus){
+                objListView.currentItem.forceActiveFocus();
+                objListView.currentItem.focus = true;
+            }
+        }
         onCurrentIndexChanged: objHBoxRoot.currentIndex = objListView.currentIndex;
         Connections{
             target: objListView.currentItem
