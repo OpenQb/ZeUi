@@ -25,6 +25,15 @@ Item {
         highlightFollowsCurrentItem: true
         currentIndex: 0
         onCurrentIndexChanged: objHBoxRoot.currentIndex = objListView.currentIndex;
+        Connections{
+            target: objListView.currentItem
+            onActiveFocusChanged:{
+                if(!objListView.currentItem.activeFocus)
+                if(objListView.currentIndex === (objListView.count-1)){
+                    objListView.currentIndex = 0;
+                }
+            }
+        }
         ScrollBar.horizontal: ScrollBar {
             id: objScrollBar;
             active: objScrollBar.focus || objListView.focus
