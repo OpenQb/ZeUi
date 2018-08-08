@@ -8,7 +8,7 @@ import "./../base/"
 Button{
     id: objMButton
     Material.accent: ZBTheme.accent
-    Material.background: ZBTheme.background
+    Material.background: ZBTheme.primary
     Material.foreground: QbCoreOne.isBright(Material.background)?"black":"white"
     Material.primary: ZBTheme.primary
     Material.theme: Material.Light
