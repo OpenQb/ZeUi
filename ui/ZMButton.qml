@@ -17,7 +17,7 @@ Button{
         visible: objMButton.activeFocus
         width: parent.width
         height: ZBTheme.ribbonHeight
-        anchors.bottom: parent.bottom
+        anchors.bottom: objMButton.bottom
         focus: false
         color: ZBTheme.ribbonColor
     }
