@@ -172,7 +172,8 @@ Rectangle {
                     Component.onCompleted: {
                         objDialogRoot.dialogView = objListView;
                     }
-                    Keys.onUpPressed: {
+
+                    function actionUpPressed(event){
                         if(objListView.currentIndex === 0){
                             event.accepted = false;
                             return;
@@ -188,7 +189,8 @@ Rectangle {
                             }
                         }
                     }
-                    Keys.onDownPressed: {
+
+                    function actionDownPressed(event){
                         if(objListView.currentIndex >= (objListView.count-1)){
                             event.accepted = false;
                             return;
@@ -203,6 +205,8 @@ Rectangle {
                             }
                         }
                     }
+                    Keys.onUpPressed: actionUpPressed(event)
+                    Keys.onDownPressed: actionDownPressed(event)
                 }
 
                 //                Item {
