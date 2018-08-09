@@ -16,6 +16,7 @@ Item {
     property alias currentItem: objListView.currentItem
     property bool focreActiveFocusToFirstItem: true;
     property alias spacing: objListView.spacing
+    property alias interactive: objListView.interactive
     onActiveFocusChanged: {
         if(activeFocus){
             objVBoxRoot.currentItem.forceActiveFocus();
