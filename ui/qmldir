@@ -22,6 +22,7 @@ ZDialogUi 1.0 ZDialogUi.qml
 ZButton 1.0 ZButton.qml
 ZHBox 1.0 ZHBox.qml
 ZVBox 1.0 ZVBox.qml
+ZSpacer 1.0 ZSpacer.qml
 
 ZMButton 1.0 ZMButton.qml
 ZMCheckBox 1.0 ZMCheckBox.qml

@@ -24,6 +24,7 @@ ZDialogUi 1.0 ui/ZDialogUi.qml
 ZButton 1.0 ui/ZButton.qml
 ZHBox 1.0 ui/ZHBox.qml
 ZVBox 1.0 ui/ZVBox.qml
+ZSpacer 1.0 ui/ZSpacer.qml
 
 
 ZMButton          1.0   ui/ZMButton.qml
