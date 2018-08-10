@@ -26,6 +26,11 @@ ZVBox 1.0 ZVBox.qml
 ZSpacer 1.0 ZSpacer.qml
 ZDMUi 1.0 ZDMUi.qml
 ZDMDialog 1.0 ZDMDialog.qml
+ZHBar 1.0 ZHBar.qml
+ZVBar 1.0 ZVBar.qml
+ZFMDialog 1.0 ZFMDialog.qml
+ZFMUi 1.0 ZFMUi.qml
+
 
 ZMButton 1.0 ZMButton.qml
 ZMCheckBox 1.0 ZMCheckBox.qml

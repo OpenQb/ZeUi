@@ -29,6 +29,9 @@ ZVBox                       1.0    ui/ZVBox.qml
 ZSpacer                     1.0    ui/ZSpacer.qml
 ZDMUi                       1.0    ui/ZDMUi.qml
 ZDMDialog                   1.0    ui/ZDMDialog.qml
+ZTopBar                     1.0    ui/ZTopBar.qml
+ZFMDialog                   1.0    ui/ZFMDialog.qml
+ZFMUi                       1.0    ui/ZFMUi.qml
 
 
 ZMButton                    1.0    ui/ZMButton.qml
