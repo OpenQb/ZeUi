@@ -3,8 +3,7 @@ import Qb.Core 1.0
 import QtQuick 2.11
 
 
-ListModel{
-    id: objModel
-
+Item{
+    id: objBaseCoreDM
 
 }
