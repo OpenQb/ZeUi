@@ -20,7 +20,6 @@ ZBAppUi{
     ZFolderDialog{
         id: fd
         anchors.fill: parent
-        appUi: objMainAppUi
         onSelectedPath: {
             console.log(path)
         }

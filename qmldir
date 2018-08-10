@@ -1,43 +1,47 @@
 module ZeUi
 
 
-singleton ZBTheme 1.0 base/ZBTheme.qml
-singleton ZBLib 1.0 base/ZBLib.qml
-ZBAppUi 1.0 base/ZBAppUi.qml
-ZBGridView 1.0 base/ZBGridView.qml
-ZBListMenu 1.0 base/ZBListMenu.qml
-ZBPage 1.0 base/ZBPage.qml
-ZBPageView 1.0 base/ZBPageView.qml
-ZBSideDockView 1.0 base/ZBSideDockView.qml
-ZBItem 1.0 base/ZBItem.qml
-
-ZAppUi 1.0 ui/ZAppUi.qml
-ZJSONView 1.0 ui/ZJSONView.qml
-ZNativeFileDialog 1.0 ui/ZNativeFileDialog.qml
-ZNativeFolderDialog 1.0 ui/ZNativeFolderDialog.qml
-ZPage 1.0 ui/ZPage.qml
-ZSideDockSmartView 1.0 ui/ZSideDockSmartView.qml
-ZSideDockView 1.0 ui/ZSideDockView.qml
-ZFolderDialog 1.0 ui/ZFolderDialog.qml
-ZFolderView 1.0 ui/ZFolderView.qml
-ZDialogUi 1.0 ui/ZDialogUi.qml
-ZButton 1.0 ui/ZButton.qml
-ZHBox 1.0 ui/ZHBox.qml
-ZVBox 1.0 ui/ZVBox.qml
-ZSpacer 1.0 ui/ZSpacer.qml
+singleton ZBTheme           1.0    base/ZBTheme.qml
+singleton ZBLib             1.0    base/ZBLib.qml
+ZBAppUi                     1.0    base/ZBAppUi.qml
+ZBGridView                  1.0    base/ZBGridView.qml
+ZBListMenu                  1.0    base/ZBListMenu.qml
+ZBPage                      1.0    base/ZBPage.qml
+ZBPageView                  1.0    base/ZBPageView.qml
+ZBSideDockView              1.0    base/ZBSideDockView.qml
+ZBItem                      1.0    base/ZBItem.qml
+ZBCoreDM                    1.0    base/ZBCoreDM.qml
 
 
-ZMButton          1.0   ui/ZMButton.qml
-ZMCheckBox        1.0   ui/ZMCheckBox.qml
-ZMRoundButton     1.0   ui/ZMRoundButton.qml
-ZMRadioButton     1.0   ui/ZMRadioButton.qml
-ZMSwitch          1.0   ui/ZMSwitch.qml
-ZMPane            1.0   ui/ZMPane.qml
+ZAppUi                      1.0    ui/ZAppUi.qml
+ZJSONView                   1.0    ui/ZJSONView.qml
+ZNativeFileDialog           1.0    ui/ZNativeFileDialog.qml
+ZNativeFolderDialog         1.0    ui/ZNativeFolderDialog.qml
+ZPage                       1.0    ui/ZPage.qml
+ZSideDockSmartView          1.0    ui/ZSideDockSmartView.qml
+ZSideDockView               1.0    ui/ZSideDockView.qml
+ZFolderDialog               1.0    ui/ZFolderDialog.qml
+ZFolderView                 1.0    ui/ZFolderView.qml
+ZDialogUi                   1.0    ui/ZDialogUi.qml
+ZButton                     1.0    ui/ZButton.qml
+ZHBox                       1.0    ui/ZHBox.qml
+ZVBox                       1.0    ui/ZVBox.qml
+ZSpacer                     1.0    ui/ZSpacer.qml
+ZDMUi                       1.0    ui/ZDMUi.qml
+ZDMDialog                   1.0    ui/ZDMDialog.qml
 
-ZSOneAppPage 1.0 ZSOne/ZSOneAppPage.qml
-ZSOneAppUi 1.0 ZSOne/ZSOneAppUi.qml
+
+ZMButton                    1.0    ui/ZMButton.qml
+ZMCheckBox                  1.0    ui/ZMCheckBox.qml
+ZMRoundButton               1.0    ui/ZMRoundButton.qml
+ZMRadioButton               1.0    ui/ZMRadioButton.qml
+ZMSwitch                    1.0    ui/ZMSwitch.qml
+ZMPane                      1.0    ui/ZMPane.qml
 
 
+ZSOneAppPage                1.0    ZSOne/ZSOneAppPage.qml
+ZSOneAppUi                  1.0    ZSOne/ZSOneAppUi.qml
 
-ZeUiOld         1.0    ZeUiOld.qml
-ZeUiOldPage     1.0    ZeUiOldPage.qml
+
+ZeUiOld                     1.0    ZeUiOld.qml
+ZeUiOldPage                 1.0    ZeUiOldPage.qml

@@ -7,6 +7,7 @@ ZBPage 1.0 ../base/ZBPage.qml
 ZBPageView 1.0 ../base/ZBPageView.qml
 ZBSideDockView 1.0 ../base/ZBSideDockView.qml
 ZBItem 1.0 ../base/ZBItem.qml
+ZBCoreDM 1.0 ../base/ZBCoreDM.qml
 
 
 ZAppUi 1.0 ZAppUi.qml
@@ -23,6 +24,8 @@ ZButton 1.0 ZButton.qml
 ZHBox 1.0 ZHBox.qml
 ZVBox 1.0 ZVBox.qml
 ZSpacer 1.0 ZSpacer.qml
+ZDMUi 1.0 ZDMUi.qml
+ZDMDialog 1.0 ZDMDialog.qml
 
 ZMButton 1.0 ZMButton.qml
 ZMCheckBox 1.0 ZMCheckBox.qml
