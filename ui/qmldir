@@ -1,5 +1,6 @@
 singleton ZBTheme 1.0 ../base/ZBTheme.qml
 singleton ZBLib 1.0 ../base/ZBLib.qml
+singleton ZBConstantList 1.0 ../base/ZBConstantList.qml
 ZBAppUi 1.0 ../base/ZBAppUi.qml
 ZBGridView 1.0 ../base/ZBGridView.qml
 ZBListMenu 1.0 ../base/ZBListMenu.qml
