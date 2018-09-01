@@ -137,7 +137,7 @@ ZBItem {
     }
 
     Component.onCompleted: {
-        objSettings.setAppId(appUi.appId);
+        objSettings.setAppId(ZBLib.appUi.appId);
         if(objDirObject.exists(objPathsObject.documents())){
             objHomeScreenModel.append({"name":"Documents","path":objPathsObject.documents()})
         }

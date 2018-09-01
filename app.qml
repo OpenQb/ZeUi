@@ -1,4 +1,4 @@
-import QtQuick 2.10
+//import QtQuick 2.10
 
 
 //import "ZSOne/"
@@ -14,18 +14,50 @@ import QtQuick 2.10
 
 import "base/"
 import "ui/"
+import QtQuick.Window 2.11
 ZBAppUi{
     id: objMainAppUi
 
-    ZFolderDialog{
+    ZNativeFolderDialog{
         id: fd
-        anchors.fill: parent
-        onSelectedPath: {
-            console.log(path)
-        }
     }
 
+    //    ZFolderDialog{
+    //        id: fd
+    //        anchors.fill: parent
+    //        onSelectedPath: {
+    //            console.log(path)
+    //        }
+    //    }
+
     onAppStarted: {
-       fd.open()
+        fd.folderDialog.open()
     }
 }
+
+
+
+
+//import QtQuick 2.11
+//import QtQuick.Window 2.11
+//import Qt.labs.platform 1.0
+//import QtQuick.Controls 2.4
+
+//ZBAppUi{
+
+//    //Window{
+//    //visible: false
+//        FileDialog {
+//         id: fileDialog
+//         currentFile: ""
+//         folder: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
+//     }
+//    //}
+
+//    Button {
+//        text: "Ok"
+//        onClicked: {
+//            fileDialog.open();
+//        }
+//    }
+//}
