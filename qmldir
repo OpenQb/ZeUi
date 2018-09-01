@@ -33,6 +33,7 @@ ZDMDialog                   1.0    ui/ZDMDialog.qml
 ZTopBar                     1.0    ui/ZTopBar.qml
 ZFMDialog                   1.0    ui/ZFMDialog.qml
 ZFMUi                       1.0    ui/ZFMUi.qml
+ZFileManager                1.0    ui/ZFileManager.qml
 
 
 ZMButton                    1.0    ui/ZMButton.qml
