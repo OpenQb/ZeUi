@@ -1,6 +1,7 @@
 pragma Singleton
 
 import Qb 1.0
+import Qb.Net 1.0
 import Qb.Core 1.0
 import QtQuick 2.10
 
