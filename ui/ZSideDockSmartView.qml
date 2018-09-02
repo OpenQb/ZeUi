@@ -13,7 +13,7 @@ ZBItem{
     visible: false
     z: -100000
     focus: false
-    Keys.priority: Keys.AfterItem
+    //Keys.priority: Keys.AfterItem
 
     onFocusChanged: {
         objLogoView.isFocused = focus;
@@ -147,11 +147,11 @@ ZBItem{
                     cView.keysOnPressed(event);
                 }
                 else{
-                    event.accepted = true;
+                    event.accepted = false;
                 }
             }
             else{
-                event.accepted = true;
+                event.accepted = false;
             }
         }
     }
