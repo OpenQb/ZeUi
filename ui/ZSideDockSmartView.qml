@@ -13,6 +13,8 @@ ZBItem{
     visible: false
     z: -100000
     focus: false
+    Keys.priority: Keys.AfterItem
+
     onFocusChanged: {
         objLogoView.isFocused = focus;
         objUserDataView.isFocused = focus;
