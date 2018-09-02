@@ -18,6 +18,7 @@ ZBItem {
     signal selectedItem(string title,int index,int x,int y);
     signal selectedByMouse();
 
+    property bool keyAccepted: false;
     property bool isOpened: false
     property int dockItemHeight: ZBTheme.dockItemHeight
     property int dockItemWidth: ZBTheme.dockItemWidth
@@ -114,6 +115,7 @@ ZBItem {
     }
 
     function keysOnPressed(event){
+        event.accepted = objBaseSideDockRoot.keyAccepted;
         if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
             event.accepted = true;
             if(objGridView.currentIndex !==-1){
@@ -183,6 +185,7 @@ ZBItem {
     }
 
     function keysOnReleased(event){
+        event.accepted = objBaseSideDockRoot.keyAccepted;
         if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
             event.accepted = true;
         }

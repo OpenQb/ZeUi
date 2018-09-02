@@ -324,6 +324,7 @@ ZBItem{
         visible: true
         z: 10000001
         focus: true
+        keyAccepted: true
         //isFocused: objSideDockSmartViewRoot.focus
         dockItemHeight: objSideDockSmartViewRoot.dockPowerHeight
         dockInteractive: false
