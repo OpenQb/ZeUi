@@ -145,11 +145,11 @@ ZBItem{
                     cView.keysOnPressed(event);
                 }
                 else{
-                    event.accepted = false;
+                    event.accepted = true;
                 }
             }
             else{
-                event.accepted = false;
+                event.accepted = true;
             }
         }
     }
