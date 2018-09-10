@@ -36,6 +36,29 @@ QtObject {
         }
     }
 
+    function addComponent(appUi,pageView,component,jsobject){
+        if(!appUi.isAddingPage){
+            appUi.isAddingPage = true;
+            var nobj;
+            if(jsobject !== undefined){
+                nobj = component.createObject(pageView,jsobject);
+            }
+            else{
+                nobj = component.createObject(pageView);
+            }
+
+            if(nobj){
+                //console.log("Page created");
+                appUi.pageAdded(nobj.title);
+                pageView.insertPage(pageView.count,nobj);
+            }
+            else{
+                console.log("Undefined object");
+            }
+            appUi.isAddingPage = false;
+        }
+    }
+
     function directAdd(appUi,pageView,page,jsobject){
         //showLoadingScreen();
         var component = Qt.createComponent(page);

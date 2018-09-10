@@ -125,6 +125,10 @@ ZBAppUi{
         ZBLib.addPage(objAppUi,objPageView,objAppUi.absoluteURL(page),jsobject);
     }
 
+    function addComponent(comp,jsobject){
+        ZBLib.addComponent(objAppUi,objPageView,comp,jsobject);
+    }
+
     function closePage(index){
         ZBLib.removePage(objAppUi,objPageView,index);
     }
