@@ -137,6 +137,10 @@ ZBAppUi{
         ZBLib.removePage(objAppUi,objPageView,objPageView.currentIndex);
     }
 
+    function getPage(index){
+        return objPageView.getPage(index);
+    }
+
     ListModel{
         id: objPageListModel
     }
