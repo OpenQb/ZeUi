@@ -31,10 +31,26 @@ Rectangle {
     property string statusBarMessageColor: "white"
     signal buttonClicked();
 
+    onStatusBarMessageChanged: {
+        if(statusBarMessage !== ""){
+            if(objStatusBarClearTimer.running) objStatusBarClearTimer.stop();
+            objStatusBarClearTimer.start();
+        }
+    }
+
     Connections{
         target: ZBLib.appUi
         onAppClosing:{
             objDialogRoot.close();
+        }
+    }
+
+    Timer{
+        id: objStatusBarClearTimer
+        interval: 5000
+        onTriggered: {
+            objDialogRoot.statusBarMessage = ""
+            objStatusBarClearTimer.stop();
         }
     }
 
