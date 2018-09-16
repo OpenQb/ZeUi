@@ -25,6 +25,12 @@ Rectangle {
     property Item dialogView: null
     property int currentIndex:-1
 
+    property bool enableStatusBar: false
+    property string statusBarButtonText: "OK"
+    property string statusBarMessage: ""
+    property string statusBarMessageColor: "white"
+    signal buttonClicked();
+
     Connections{
         target: ZBLib.appUi
         onAppClosing:{
@@ -207,6 +213,31 @@ Rectangle {
                     }
                     Keys.onUpPressed: actionUpPressed(event)
                     Keys.onDownPressed: actionDownPressed(event)
+                }//End of ListView
+
+                //StatusBar
+                Rectangle{
+                    visible: objDialogRoot.enableStatusBar
+                    width: parent.width
+                    height: objDialogRoot.enableStatusBar?QbCoreOne.scale(50):0
+                    color: ZBLib.appUi.zBaseTheme.primary
+                    Label{
+                        anchors.left: parent.left
+                        anchors.right: objOKButton.left
+                        text: objDialogRoot.statusBarMessage
+                        color: objDialogRoot.statusBarMessageColor
+                        elide: Label.ElideMiddle
+                    }
+                    Button{
+                        id: objOKButton
+                        Material.background: ZBTheme.accent
+                        Material.theme: Material.Light
+                        text: objDialogRoot.statusBarButtonText
+                        anchors.right: parent.right
+                        onClicked: {
+                            objDialogRoot.buttonClicked();
+                        }
+                    }
                 }
 
                 //                Item {
