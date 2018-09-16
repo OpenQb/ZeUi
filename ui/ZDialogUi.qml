@@ -222,7 +222,7 @@ Rectangle {
                     visible: objDialogRoot.enableStatusBar
                     width: parent.width
                     height: objDialogRoot.enableStatusBar?QbCoreOne.scale(50):0
-                    color: ZBLib.appUi.zBaseTheme.primary
+                    color: ZBTheme.primary
                     Label{
                         anchors.left: parent.left
                         anchors.right: objOKButton.left
@@ -232,7 +232,7 @@ Rectangle {
                     }
                     Button{
                         id: objOKButton
-                        Material.background: ZBTheme.accent
+                        Material.background: ZBTheme.secondary
                         Material.theme: Material.Light
                         text: objDialogRoot.statusBarButtonText
                         anchors.right: parent.right
