@@ -236,6 +236,7 @@ Rectangle {
                         Material.theme: Material.Light
                         text: objDialogRoot.statusBarButtonText
                         anchors.right: parent.right
+                        anchors.rightMargin: QbCoreOne.scale(5)
                         onClicked: {
                             objDialogRoot.buttonClicked();
                         }
