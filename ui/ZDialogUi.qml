@@ -233,7 +233,7 @@ Rectangle {
                         text: objDialogRoot.statusBarMessage
                         color: objDialogRoot.statusBarMessageColor
                         elide: Label.ElideMiddle
-                        verticalAlignment: Label.AlignVCenter
+                        //verticalAlignment: Label.AlignVCenter
                         horizontalAlignment: Label.AlignHCenter
                     }
                     Button{
