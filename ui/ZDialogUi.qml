@@ -225,7 +225,11 @@ Rectangle {
                     color: ZBTheme.primary
                     Label{
                         anchors.left: parent.left
+                        anchors.leftMargin: QbCoreOne.scale(5)
                         anchors.right: objOKButton.left
+                        anchors.rightMargin: QbCoreOne.scale(5)
+                        anchors.bottom: parent.bottom
+                        anchors.top: parent.top
                         text: objDialogRoot.statusBarMessage
                         color: objDialogRoot.statusBarMessageColor
                         elide: Label.ElideMiddle
