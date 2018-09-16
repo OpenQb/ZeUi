@@ -158,7 +158,7 @@ Rectangle {
                     //anchors.rightMargin: 5
                     anchors.top: objTopBar.bottom
                     //anchors.topMargin: 5
-                    anchors.bottom: parent.bottom
+                    anchors.bottom: objStatusBar.top
                     //anchors.bottomMargin: 5
                     model: objDialogRoot.model
                     activeFocusOnTab: true
@@ -217,6 +217,8 @@ Rectangle {
 
                 //StatusBar
                 Rectangle{
+                    id: objStatusBar
+                    anchors.bottom: parent.bottom
                     visible: objDialogRoot.enableStatusBar
                     width: parent.width
                     height: objDialogRoot.enableStatusBar?QbCoreOne.scale(50):0
