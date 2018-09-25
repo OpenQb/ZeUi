@@ -17,7 +17,7 @@ ZBAppUi{
     property alias pageView: objPageView
 
     Keys.forwardTo: [objDockView,objPageView]
-    Keys.priority: Keys.AfterItem
+    Keys.priority: Keys.BeforeItem
 
     Keys.onPressed: {
         console.log("Pressed event");
