@@ -118,7 +118,7 @@ ZBItem {
         event.accepted = objBaseSideDockRoot.keyAccepted;
         if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
             event.accepted = true;
-            console.log("Enter or Return or Space key pressed");
+            //console.log("Enter or Return or Space key pressed");
             if(objGridView.currentIndex !==-1){
                 emitSelection(objGridView.currentIndex,objGridView.selectedX,objGridView.selectedY);
             }
@@ -189,7 +189,7 @@ ZBItem {
         event.accepted = objBaseSideDockRoot.keyAccepted;
         if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
             event.accepted = true;
-            console.log("Enter or Return or Space key released");
+            //console.log("Enter or Return or Space key released");
         }
         else if(event.key === Qt.Key_Escape||event.key === Qt.Key_Back){
             event.accepted = true;
