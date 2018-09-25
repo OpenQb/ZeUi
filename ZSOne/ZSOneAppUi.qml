@@ -19,6 +19,13 @@ ZBAppUi{
     Keys.forwardTo: [objDockView,objPageView]
     Keys.priority: Keys.AfterItem
 
+    Keys.onPressed: {
+        console.log("Pressed event");
+    }
+    Keys.onReleased: {
+        console.log("Released event");
+    }
+
     Component.onCompleted: {
         objDockView.open();
         if(objAppUi.androidFullScreen){
