@@ -17,6 +17,7 @@ ZBAppUi{
     property alias pageView: objPageView
 
     Keys.forwardTo: [objDockView,objPageView]
+    Keys.priority: Keys.AfterItem
 
     Component.onCompleted: {
         objDockView.open();
