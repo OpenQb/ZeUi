@@ -20,10 +20,10 @@ ZBAppUi{
     Keys.priority: Keys.BeforeItem
 
     Keys.onPressed: {
-        console.log("Pressed event");
+        //console.log("Pressed event");
     }
     Keys.onReleased: {
-        console.log("Released event");
+        //console.log("Released event");
     }
 
     Component.onCompleted: {
