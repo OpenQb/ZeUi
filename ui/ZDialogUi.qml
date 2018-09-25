@@ -20,6 +20,11 @@ Rectangle {
     property int dialogWidth: parent.width*0.80
     property int dialogHeight: parent.height*0.80
 
+    property int leftMargin: 0
+    property int rightMargin: 0
+    property int topMargin: 0
+    property int bottomMargin: 0
+
     property Item mainView: null
     property ObjectModel model:null
     property Item dialogView: null
@@ -168,14 +173,16 @@ Rectangle {
                 ListView{
                     id: objListView
                     clip: true
+
                     anchors.left: parent.left
-                    //anchors.leftMargin: 5
+                    anchors.leftMargin: objDialogRoot.leftMargin
                     anchors.right: parent.right
-                    //anchors.rightMargin: 5
+                    anchors.rightMargin: objDialogRoot.rightMargin
                     anchors.top: objTopBar.bottom
-                    //anchors.topMargin: 5
+                    anchors.topMargin: objDialogRoot.topMargin
                     anchors.bottom: objStatusBar.top
-                    //anchors.bottomMargin: 5
+                    anchors.bottomMargin: objDialogRoot.bottomMargin
+
                     model: objDialogRoot.model
                     activeFocusOnTab: true
                     highlightFollowsCurrentItem: true
