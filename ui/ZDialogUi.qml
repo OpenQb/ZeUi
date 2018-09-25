@@ -262,6 +262,14 @@ Rectangle {
                         onClicked: {
                             objDialogRoot.buttonClicked();
                         }
+                        Rectangle{
+                            visible: objOKButton.activeFocus
+                            anchors.bottom: parent.bottom
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            height: QbCoreOne.scale(1)
+                            color: ZBTheme.accent
+                        }
                     }
                 }
 
