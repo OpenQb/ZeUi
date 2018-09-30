@@ -24,6 +24,7 @@ Rectangle {
     property int rightMargin: 0
     property int topMargin: 0
     property int bottomMargin: 0
+    property int spacing: 10
 
     property Item mainView: null
     property ObjectModel model:null

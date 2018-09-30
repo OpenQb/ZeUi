@@ -11,9 +11,10 @@
 //    }
 
 //}
-
+import Qb 1.0
 import "base/"
 import "ui/"
+import QtQuick 2.11
 import QtQuick.Window 2.11
 ZBAppUi{
     id: objMainAppUi
@@ -30,8 +31,18 @@ ZBAppUi{
     //        }
     //    }
 
-    onAppStarted: {
-        fd.folderDialog.open()
+    Rectangle{
+        anchors.fill: parent
+        color: "transparent"
+        ZMActionButton{
+            anchors.centerIn: parent
+            text: QbMF3.icon("mf-dashboard")
+            font.family: QbMF3.family
+        }
+        ZMActionButton{
+            anchors.bottom: parent.bottom
+            text: "2"
+        }
     }
 }
 

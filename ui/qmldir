@@ -31,6 +31,7 @@ ZHBar 1.0 ZHBar.qml
 ZVBar 1.0 ZVBar.qml
 ZFMDialog 1.0 ZFMDialog.qml
 ZFMUi 1.0 ZFMUi.qml
+ZMActionButton 1.0 ZMActionButton.qml
 
 ZFileManager 1.0 ZFileManager.qml
 
