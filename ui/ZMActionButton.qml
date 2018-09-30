@@ -12,6 +12,10 @@ Item{
     height: 50
     property alias text: objMButton.text
     property alias font: objMButton.font
+    signal clicked();
+    signal pressed();
+    signal pressAndHold();
+
     RectangularGlow {
         anchors.fill: objMButton
         anchors.centerIn: objMButton
@@ -32,5 +36,14 @@ Item{
         Material.theme: Material.Light
         anchors.fill: parent
         anchors.centerIn: parent
+        onClicked: {
+            objMButtonRoot.clicked();
+        }
+        onPressed: {
+            objMButtonRoot.pressed();
+        }
+        onPressAndHold: {
+            objMButtonRoot.pressAndHold();
+        }
     }
 }
