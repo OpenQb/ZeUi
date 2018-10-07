@@ -305,6 +305,7 @@ ZBItem {
                         preventStealing: false
                         hoverEnabled: true
                         onClicked: {
+                            objToolTip.visible = false;
                             objGridView.currentIndex = index;
                             var gco = objDockItemDelegate.mapToItem(objBaseSideDockRoot, 0, 0);
                             objBaseSideDockRoot.selectedByMouse();
