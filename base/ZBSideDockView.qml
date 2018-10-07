@@ -270,6 +270,12 @@ ZBItem {
                             rotation: model.icon_rotation?icon_rotation:0
                             fillMode: Image.PreserveAspectFit
                         }
+                        ToolTip{
+                            id: objToolTip
+                            text: title
+                            delay: 5000
+                            timeout: 5000
+                        }
                     }
 
                     Item{
@@ -295,6 +301,7 @@ ZBItem {
                     MouseArea{
                         anchors.fill: parent
                         preventStealing: false
+                        hoverEnabled: true
                         onClicked: {
                             objGridView.currentIndex = index;
                             var gco = objDockItemDelegate.mapToItem(objBaseSideDockRoot, 0, 0);
@@ -305,6 +312,12 @@ ZBItem {
                             //objBaseSideDockRoot.forceActiveFocus();
                             //console.log("X:",gco.x);
                             //console.log("Y:",gco.y);
+                        }
+                        onEntered: {
+                            objToolTip.visible = true;
+                        }
+                        onExited: {
+                            objToolTip.visible = false;
                         }
                         //                        onPressAndHold: {
                         //                            objGridView.currentIndex = index;
