@@ -275,7 +275,7 @@ ZBItem {
                             text: title
                             delay: 3000
                             timeout: 5000
-                            x: objIconPlaceHolder.x
+                            x: objIconPlaceHolder.x+objGridView.width
                             y: objIconPlaceHolder.y
                         }
                     }
