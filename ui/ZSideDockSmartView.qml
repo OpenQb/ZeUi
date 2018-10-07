@@ -24,6 +24,7 @@ ZBItem{
 
     signal selectedItem(string title,int index,int x,int y);
     signal selectedPageItem(string title,int index,int x,int y);
+    signal selectedByMouse();
 
     signal exitClicked();
     signal logoClicked();
@@ -209,6 +210,7 @@ ZBItem{
             objPagesList.closeMenu();
             objSideDockSmartViewRoot.forceActiveFocus();
             objSideDockSmartViewRoot.focus = true;
+            objSideDockSmartViewRoot.selectedByMouse();
         }
     }
 
@@ -271,6 +273,7 @@ ZBItem{
             objLogoView.clearSelection();
             objUserDataView.clearSelection();
             objPowerView.clearSelection();
+            objSideDockSmartViewRoot.selectedByMouse();
         }
     }
 
@@ -312,6 +315,7 @@ ZBItem{
             objPagesList.closeMenu();
             objSideDockSmartViewRoot.forceActiveFocus();
             objSideDockSmartViewRoot.focus = true;
+            objSideDockSmartViewRoot.selectedByMouse();
         }
     }
 
@@ -349,6 +353,7 @@ ZBItem{
             objLogoView.clearSelection();
             objUserDataView.clearSelection();
             objPagesList.closeMenu();
+            objSideDockSmartViewRoot.selectedByMouse();
         }
     }
 }

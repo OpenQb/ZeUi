@@ -179,6 +179,10 @@ ZBAppUi{
         onSelectedPageItem: {
             objPageView.setCurrentIndex(index);
         }
+        onSelectedByMouse: {
+            var cPage = objPageView.getPage(objPageView.currentIndex);
+            if(cPage) cPage.selectedByMouse();
+        }
         onSelectedItem: {
             var cPage = objPageView.getPage(objPageView.currentIndex);
             if(cPage) cPage.selectedContextDockItem(title,index,x+objDockView.width,y+objDockView.dockLogoHeight+objDockView.dockItemHeight);
