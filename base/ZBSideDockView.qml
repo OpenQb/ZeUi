@@ -273,9 +273,10 @@ ZBItem {
                         ToolTip{
                             id: objToolTip
                             text: title
-                            parent: parent
                             delay: 3000
                             timeout: 5000
+                            x: objIconPlaceHolder.x
+                            y: objIconPlaceHolder.y
                         }
                     }
 
