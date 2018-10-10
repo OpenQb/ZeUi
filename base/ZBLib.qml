@@ -10,6 +10,7 @@ QtObject {
     id: objBaseLib
     property Item appUi: null
 
+    signal dataSignal(string title, string data);
 
     function addPage(appUi,pageView,page,jsobject){
         try{
