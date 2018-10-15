@@ -310,8 +310,12 @@ ZBItem {
                             var gco = objDockItemDelegate.mapToItem(objBaseSideDockRoot, 0, 0);
                             objBaseSideDockRoot.selectedByMouse();
                             objBaseSideDockRoot.emitSelection(index,gco.x,gco.y);
-                            objGridView.selectedX = gco.x;
-                            objGridView.selectedY = gco.y;
+                            try{
+                                objGridView.selectedX = gco.x;
+                                objGridView.selectedY = gco.y;
+                            }
+                            catch(e){
+                            }
                             //objBaseSideDockRoot.forceActiveFocus();
                             //console.log("X:",gco.x);
                             //console.log("Y:",gco.y);
