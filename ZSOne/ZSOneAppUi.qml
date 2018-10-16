@@ -149,6 +149,14 @@ ZBAppUi{
         return objPageView.getPage(index);
     }
 
+    function changePage(index){
+        objPageView.setCurrentIndex(index);
+    }
+
+    function getCurrentPageIndex(){
+        return objPageView.currentIndex;
+    }
+
     ListModel{
         id: objPageListModel
     }
