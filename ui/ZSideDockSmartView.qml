@@ -356,4 +356,13 @@ ZBItem{
             objSideDockSmartViewRoot.selectedByMouse();
         }
     }
+
+    Rectangle{
+        color: ZBTheme.dockBackgroundColor
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        width: objSideDockSmartViewRoot.width
+        height: objSideDockSmartViewRoot.dockPowerHeight
+        visible: !objPowerView.visible
+    }
 }
