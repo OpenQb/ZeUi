@@ -325,10 +325,10 @@ ZBItem{
         anchors.left: parent.left
         width: objSideDockSmartViewRoot.width
         height: objSideDockSmartViewRoot.dockPowerHeight
-        visible: true
+        visible: Qt.platform.os === "android"||Qt.platform.os === "ios"||QbCoreOne.isBuiltForRaspberryPi()?true:false
         z: 10000001
-        focus: true
-        keyAccepted: true
+        focus: Qt.platform.os === "android"||Qt.platform.os === "ios"||QbCoreOne.isBuiltForRaspberryPi()?true:false
+        keyAccepted: Qt.platform.os === "android"||Qt.platform.os === "ios"||QbCoreOne.isBuiltForRaspberryPi()?true:false
         //isFocused: objSideDockSmartViewRoot.focus
         dockItemHeight: objSideDockSmartViewRoot.dockPowerHeight
         dockInteractive: false
