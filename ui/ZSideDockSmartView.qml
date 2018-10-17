@@ -324,7 +324,7 @@ ZBItem{
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         width: objSideDockSmartViewRoot.width
-        height: objSideDockSmartViewRoot.dockPowerHeight
+        height: visible?objSideDockSmartViewRoot.dockPowerHeight:0
         visible: Qt.platform.os === "android"||Qt.platform.os === "ios"||QbCoreOne.isBuiltForRaspberryPi()?true:false
         z: 10000001
         focus: Qt.platform.os === "android"||Qt.platform.os === "ios"||QbCoreOne.isBuiltForRaspberryPi()?true:false
@@ -357,12 +357,12 @@ ZBItem{
         }
     }
 
-    Rectangle{
-        color: ZBTheme.dockBackgroundColor
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        width: objSideDockSmartViewRoot.width
-        height: objSideDockSmartViewRoot.dockPowerHeight
-        visible: !objPowerView.visible
-    }
+//    Rectangle{
+//        color: ZBTheme.dockBackgroundColor
+//        anchors.bottom: parent.bottom
+//        anchors.left: parent.left
+//        width: objSideDockSmartViewRoot.width
+//        height: objSideDockSmartViewRoot.dockPowerHeight
+//        visible: !objPowerView.visible
+//    }
 }
