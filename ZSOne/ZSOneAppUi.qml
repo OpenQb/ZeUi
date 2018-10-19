@@ -132,6 +132,9 @@ ZBAppUi{
     function addPage(page,jsobject){
         ZBLib.addPage(objAppUi,objPageView,objAppUi.absoluteURL(page),jsobject);
     }
+    function addDPage(page,jsobject){
+        ZBLib.directAdd(objAppUi,objPageView,objAppUi.absoluteURL(page),jsobject);
+    }
 
     function addComponent(comp,jsobject){
         ZBLib.addComponent(objAppUi,objPageView,comp,jsobject);
