@@ -13,6 +13,8 @@ QbApp {
     signal pageRemovedIndex(int index);
     signal pageRemovedTitle(string title);
     signal pageAdded(string title);
+    signal pageAddedInfo(int index,string title);
+    signal pageRemovedInfo(int index, string title);
 
     property string gridState: "xs"
     property bool isAddingPage: false;

@@ -51,6 +51,7 @@ QtObject {
             if(nobj){
                 //console.log("Page created");
                 appUi.pageAdded(nobj.title);
+                appUi.pageAddedInfo(pageView.count,nobj.title);
                 pageView.insertPage(pageView.count,nobj);
             }
             else{
@@ -75,6 +76,7 @@ QtObject {
             if(nobj){
                 //console.log("Page created");
                 appUi.pageAdded(nobj.title);
+                appUi.pageAddedInfo(pageView.count,nobj.title);
                 pageView.insertPage(pageView.count,nobj);
             }
             else{
@@ -109,6 +111,7 @@ QtObject {
                         //setupPage(incubator.object);
                         appUi.isAddingPage = false;
                         appUi.pageAdded(incubator.object.title);
+                        appUi.pageAddedInfo(pageView.count,incubator.object.title);
                         pageView.insertPage(pageView.count,incubator.object);
                     }
                     else if(status === Component.Error){
@@ -121,6 +124,7 @@ QtObject {
             else {
                 appUi.isAddingPage = false;
                 appUi.pageAdded(incubator.object.title);
+                appUi.pageAddedInfo(pageView.count,incubator.object.title);
                 pageView.insertPage(pageView.count,incubator.object);
                 //setupPage(incubator.object);
                 //hideLoadingScreen();
