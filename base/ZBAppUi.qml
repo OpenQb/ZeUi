@@ -71,4 +71,23 @@ QbApp {
         return ZBTheme.metaTheme.changeTransparency(c,v);
     }
 
+    Rectangle{
+        id: objLoadingScreen
+        color: objBaseAppUiRoot.mCT("black",200)
+        anchors.fill: parent
+        visible: objBaseAppUiRoot.isAddingPage
+        z: 9999999999
+
+        FishSpinner{
+            width: QbCoreOne.scale(50)
+            height: QbCoreOne.scale(50)
+            anchors.centerIn: parent
+            useDouble: true
+        }
+
+        MouseArea{
+            anchors.fill: parent
+            preventStealing: true
+        }
+    }
 }
