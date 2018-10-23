@@ -18,8 +18,15 @@ ZBItem {
     Component.onCompleted: {
         objBasePage.pageCreated();
     }
-    Component.onDestruction: {
+    Component.onDestroyed: {
         objBasePage.pageClosed();
     }
+    Component.onDestruction: {
+        objBasePage.pageClosing();
+    }
 
+    MouseArea{
+        anchors.fill: parent
+        preventStealing: true
+    }
 }
