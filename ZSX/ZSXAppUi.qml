@@ -1,7 +1,11 @@
 import Qb 1.0
 import Qb.Core 1.0
-import QtQuick 2.10
 import Qb.Android 1.0
+
+import QtQuick 2.11
+import QtQuick.Controls 2.4
+import QtQuick.Controls.Material 2.4
+
 
 import "./../base"
 import "./../ui"
@@ -199,21 +203,48 @@ ZBAppUi{
             var cPage = objPageView.getPage(objPageView.currentIndex);
             if(cPage) cPage.selectedContextDockItem(title,index,x+objDockView.width,y+objDockView.dockLogoHeight+objDockView.dockItemHeight);
         }
-
-
-        //KeyNavigation.tab: objPageView
-        //KeyNavigation.priority: KeyNavigation.BeforeItem
     }
 
 
-    ZBPageView{
+    SwipeView{
         id: objPageView
+        interactive: false
         anchors.top: objTopBlock.bottom
         anchors.left: objDockView.right
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        //KeyNavigation.tab: objDockView
-        //KeyNavigation.priority: KeyNavigation.BeforeItem
+        function getPage(index){
+            return objPageView.itemAt(index);
+        }
+
+        function insertPage(index,item){
+            objPageView.insertItem(index,item);
+        }
+
+        function setCurrentPage(index){
+            objPageView.setCurrentIndex(index)
+        }
+
+        function takePage(index){
+            return objPageView.takeItem(index);
+        }
+
+        function removePage(index){
+            if(objPageView.count>0){
+                try{
+                    var item = objPageView.takePage(index);
+                    item.visible = false;
+                    item.focus = false;
+                    item.pageClosing();
+                    delete item;
+                    return true;
+                }
+                catch(e){
+                    return false;
+                }
+            }
+            return false;
+        }
 
         onFocusChanged: {
             if(objPageView.currentItem){
@@ -240,13 +271,6 @@ ZBAppUi{
                         objDockView.dockItemCurrentIndex = -1;
                     }
                 }
-            }
-        }
-        MouseArea{
-            anchors.fill: parent
-            preventStealing: true
-            onPressed: {
-                objDockView.closePageMenu();
             }
         }
     }
