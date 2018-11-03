@@ -8,7 +8,7 @@ ZBPage{
     signal selectedContextDockItem(string title,int index,int x,int y);
     signal selectedByMouse();
     title: "ZSX Page"
-    anchors.fill: parent
+    //anchors.fill: parent
     ListModel{
         id: objContextDock
     }

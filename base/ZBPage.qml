@@ -18,9 +18,6 @@ ZBItem {
     Component.onCompleted: {
         objBasePage.pageCreated();
     }
-    Component.onDestroyed: {
-        objBasePage.pageClosed();
-    }
     Component.onDestruction: {
         objBasePage.pageClosing();
     }

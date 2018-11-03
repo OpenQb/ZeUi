@@ -8,7 +8,6 @@ ZBPage{
     signal selectedContextDockItem(string title,int index,int x,int y);
     signal selectedByMouse();
     title: "Generic Page"
-    anchors.fill: parent
     ListModel{
         id: objContextDock
 //        ListElement{
@@ -17,9 +16,9 @@ ZBPage{
 //        }
     }
 
-    //    property color rColor: "black"
-    //    Rectangle{
-    //        anchors.fill: parent
-    //        color: objAppPage.rColor
-    //    }
+//        property color rColor: "black"
+//        Rectangle{
+//            anchors.fill: parent
+//            color: objAppPage.rColor
+//        }
 }
