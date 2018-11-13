@@ -31,6 +31,9 @@ Project {
         paths:"./ZSOne/qmldir"
     }
     Files{
+        paths:"./ZSS/qmldir"
+    }
+    Files{
         paths:"./ZSX/qmldir"
     }
 
