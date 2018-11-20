@@ -1,8 +1,9 @@
 import QtQuick 2.11
 
-ZBItem {
+Flickable {
     id: objBasePage
     clip: true
+    activeFocusOnTab: false
 
     property bool isClosable: true
     property bool isSingleInstance: false
@@ -18,6 +19,7 @@ ZBItem {
     Component.onCompleted: {
         objBasePage.pageCreated();
     }
+
     Component.onDestruction: {
         objBasePage.pageClosing();
     }

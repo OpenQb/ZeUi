@@ -1,7 +1,7 @@
 import Qb 1.0
 import QbEx 1.0
 import Qb.Core 1.0
-import QtQuick 2.10
+import QtQuick 2.11
 
 import "."
 

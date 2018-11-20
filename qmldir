@@ -10,6 +10,7 @@ ZBPageView2                 1.0    base/ZBPageView2.qml
 ZBSideDockView              1.0    base/ZBSideDockView.qml
 ZBItem                      1.0    base/ZBItem.qml
 ZBCoreDM                    1.0    base/ZBCoreDM.qml
+ZBFlickPage                 1.0    base/ZBFlickPage.qml
 
 
 ZAppUi                      1.0    ui/ZAppUi.qml
@@ -32,7 +33,7 @@ ZTopBar                     1.0    ui/ZTopBar.qml
 ZFMDialog                   1.0    ui/ZFMDialog.qml
 ZFMUi                       1.0    ui/ZFMUi.qml
 ZFileManager                1.0    ui/ZFileManager.qml
-
+ZFlickPage                  1.0    ui/ZFlickPage.qml
 
 ZMButton                    1.0    ui/ZMButton.qml
 ZMCheckBox                  1.0    ui/ZMCheckBox.qml
