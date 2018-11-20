@@ -2,8 +2,10 @@ import QtQuick 2.11
 
 Flickable {
     id: objBasePage
+
     clip: true
-    activeFocusOnTab: false
+    activeFocusOnTab: true
+    focus: true
 
     property bool isClosable: true
     property bool isSingleInstance: false
@@ -15,6 +17,7 @@ Flickable {
     signal pageClosing();
     signal pageCreated();
     signal pageClosed();
+    signal focusXY(int x,int y);
 
     Component.onCompleted: {
         objBasePage.pageCreated();
@@ -22,10 +25,5 @@ Flickable {
 
     Component.onDestruction: {
         objBasePage.pageClosing();
-    }
-
-    MouseArea{
-        anchors.fill: parent
-        preventStealing: true
     }
 }

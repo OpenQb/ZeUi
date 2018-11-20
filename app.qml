@@ -1,11 +1,9 @@
 import QtQuick 2.10
-import "ZSX/"
+import "ZSS/"
 
-ZSXAppUi{
+ZSSAppUi{
     id: objMainAppUi
-    dockLogo: "image://qbcore/Z"
     Component.onCompleted: {
-        //objMainAppUi.addPage("/ZSOne/ZSOneAppPage.qml",{"rColor":"blue"});
-        objMainAppUi.addPage("/ZSX/ZSXAppPage.qml",{"title":"G2"});
+        objMainAppUi.addPage("/ZSS/ZSSFlickPage.qml");
     }
 }

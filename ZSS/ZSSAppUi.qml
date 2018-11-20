@@ -13,8 +13,8 @@ import "./../ui"
 
 ZBAppUi{
     id: objAppUi
+    focus:false
     Keys.forwardTo: objPageView.currentItem
-
     property alias pageView: objPageView
     property alias pageListModel: objPageListModel
 
@@ -180,6 +180,8 @@ ZBAppUi{
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+        focus:false
+        activeFocusOnTab: false
         function getPage(index){
             return objPageView.itemAt(index);
         }
