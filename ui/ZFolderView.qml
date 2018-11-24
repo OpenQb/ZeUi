@@ -16,6 +16,18 @@ ZBItem {
     property string oldbrowsingSelectedPath: ""
     property string selectedRoot: ""
 
+    property color barColor: "black"
+    property color backgroundColor: "white"
+    property color buttonColor: "white"
+    property color buttonBackgroundColor: "red"
+
+    property color itemBackgroundColor: "lightgrey"
+    property color itemSelectedBackgroundColor: "black"
+    property color itemColor: "black"
+    property color itemSelectedColor: "red"
+
+
+
     signal selectedPath(string path);
     signal closeClicked();
 
