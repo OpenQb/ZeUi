@@ -167,10 +167,12 @@ ZBItem {
             }
         }
 
-        var mv = objDirObject.mountedVolumes();
-        for(var i=0;i<mv.length;++i){
-            if(objDirObject.isReadable(mv[i].rootPath)){
-                objHomeScreenModel.append({"name":mv[i].name,"path":mv[i].rootPath})
+        if(Qt.platform.os !== "android" && Qt.platform.os !== "ios"){
+            var mv = objDirObject.mountedVolumes();
+            for(var i=0;i<mv.length;++i){
+                if(objDirObject.isReadable(mv[i].rootPath)){
+                    objHomeScreenModel.append({"name":mv[i].name,"path":mv[i].rootPath})
+                }
             }
         }
 
