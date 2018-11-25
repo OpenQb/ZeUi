@@ -17,13 +17,16 @@ ZBItem {
     property string selectedRoot: ""
 
     property color barColor: "black"
-    property color backgroundColor: "white"
+    property color backgroundColor: "black"
     property color buttonColor: "white"
     property color buttonBackgroundColor: "red"
 
-    property color itemBackgroundColor: "lightgrey"
-    property color itemSelectedBackgroundColor: "black"
+    property color itemBackgroundColor: "lightblue"
+    property color alternateItemBackgroundColor: "lightyellow"
     property color itemColor: "black"
+    property color alternateItemColor: "black"
+
+    property color itemSelectedBackgroundColor: "black"
     property color itemSelectedColor: "red"
 
 
@@ -210,7 +213,7 @@ ZBItem {
 
     Rectangle{
         anchors.fill: parent
-        color: ZBTheme.background
+        color: objFolderView.backgroundColor
 
 
         Item{
