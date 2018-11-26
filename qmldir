@@ -43,6 +43,8 @@ ZMSwitch                    1.0    ui/ZMSwitch.qml
 ZMPane                      1.0    ui/ZMPane.qml
 ZMActionButton              1.0    ui/ZMActionButton.qml
 
+ZSpinner                    1.0    ui/ZSpinner.qml
+
 ZSOneAppPage                1.0    ZSOne/ZSOneAppPage.qml
 ZSOneAppUi                  1.0    ZSOne/ZSOneAppUi.qml
 
