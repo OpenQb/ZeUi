@@ -19,6 +19,7 @@ Rectangle {
 
     property int dialogWidth: parent.width*0.80
     property int dialogHeight: parent.height*0.80
+    property int availableHeight: enableStatusBar?dialogHeight - 50*2:dialogHeight - 50*1
 
     property int leftMargin: 0
     property int rightMargin: 0
@@ -31,10 +32,11 @@ Rectangle {
     property Item dialogView: null
     property int currentIndex:-1
 
-    property bool enableStatusBar: false
-    property string statusBarButtonText: "OK"
-    property string statusBarMessage: ""
-    property string statusBarMessageColor: "white"
+    property bool enableStatusBar: false;
+    property string statusBarButtonText: "OK";
+    property string statusBarMessage: "";
+    property string statusBarMessageColor: "white";
+    property bool interactive: true;
     signal buttonClicked();
 
     onStatusBarMessageChanged: {
@@ -183,7 +185,7 @@ Rectangle {
                     anchors.topMargin: objDialogRoot.topMargin
                     anchors.bottom: objStatusBar.top
                     anchors.bottomMargin: objDialogRoot.bottomMargin
-
+                    interactive: objDialogRoot.interactive
                     model: objDialogRoot.model
                     activeFocusOnTab: true
                     highlightFollowsCurrentItem: true
