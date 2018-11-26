@@ -127,7 +127,7 @@ ZBAppUi{
         if(index>-1&&index<objPageListModel.count){
             var title = objPageListModel.get(index).title;
             objPageListModel.remove(index);
-            objBaseAppUiRoot.pageRemovedInfo(index,title);
+            objAppUi.pageRemovedInfo(index,title);
         }
     }
 
