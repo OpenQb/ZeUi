@@ -109,7 +109,7 @@ Item {
                             else{
                                 objTextField.cursorPosition = startPosition;
                             }
-
+                            objTextField.focus = false;
                             objTextField.forceActiveFocus();
                             if (mouse.button === Qt.RightButton){
                                 objContextMenu.popup(mouse.x,mouse.y);
