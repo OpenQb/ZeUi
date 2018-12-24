@@ -190,7 +190,8 @@ Rectangle {
                     model: objDialogRoot.model
                     activeFocusOnTab: true
                     highlightFollowsCurrentItem: true
-                    onCurrentIndexChanged: objDialogRoot.currentIndex = objListView.currentIndex;
+                    currentIndex: 0
+                    //onCurrentIndexChanged: objDialogRoot.currentIndex = objListView.currentIndex;
                     ScrollBar.vertical: ScrollBar {
                         id: objScrollBar;
                         active: objScrollBar.focus || objListView.focus
