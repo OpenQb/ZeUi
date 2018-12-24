@@ -330,6 +330,8 @@ Rectangle {
     function open(){
         if(objDialogRoot.mainView === null && ZBLib.appUi){
             objDialogRoot.visible = true;
+            objDialogRoot.focus = true;
+            objDialogRoot.forceActiveFocus();
             objDialogRoot.mainView = compDialog.createObject(objDialogRoot,{})
         }
     }
