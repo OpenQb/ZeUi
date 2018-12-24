@@ -168,7 +168,9 @@ Item {
                     implicitHeight: objButtonControl.height
                 }
                 onClicked: {
-                    objFolderDialog.folderDialog.open();
+                    if(Qt.platform.os !=="android" && Qt.platform.os !== "ios" && !QbCoreOne.isBuiltForRaspberryPi()){
+                        objFolderDialog.folderDialog.open();
+                    }
                 }
             }
         }
