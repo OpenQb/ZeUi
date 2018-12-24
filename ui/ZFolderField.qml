@@ -159,11 +159,12 @@ Item {
 
             Button{
                 id: objButtonControl
-                width: 75
+                width: 70
                 height: parent.height
                 text: "BROWSE"
                 background: Rectangle{
                     color: objButtonControl.down?objField.textFieldBackgroundColor:objField.labelFieldBackgroundColor
+                    height: objButtonControl.height
                 }
                 onClicked: {
                     objFolderDialog.folderDialog.open();
