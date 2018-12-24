@@ -101,7 +101,13 @@ Item {
                         acceptedButtons: Qt.LeftButton | Qt.RightButton
                         onClicked: {
                             var startPosition = objTextField.positionAt(mouse.x, mouse.y);
-                            objTextField.cursorPosition = startPosition;
+                            if(objTextField.text.length === 0){
+                                objTextField.cursorPosition = 0;
+                            }
+                            else{
+                                objTextField.cursorPosition = startPosition;
+                            }
+
                             objTextField.forceActiveFocus();
                             if (mouse.button === Qt.RightButton){
                                 objContextMenu.popup(mouse.x,mouse.y);
