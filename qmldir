@@ -44,6 +44,7 @@ ZMPane                      1.0    ui/ZMPane.qml
 ZMActionButton              1.0    ui/ZMActionButton.qml
 
 ZSpinner                    1.0    ui/ZSpinner.qml
+ZTextField                  1.0    ui/ZTextField.qml
 
 ZSOneAppPage                1.0    ZSOne/ZSOneAppPage.qml
 ZSOneAppUi                  1.0    ZSOne/ZSOneAppUi.qml
@@ -55,3 +56,4 @@ ZSXAppPage                  1.0    ZSX/ZSXAppPage.qml
 ZSSAppUi                    1.0    ZSS/ZSSAppUi.qml
 ZSSAppPage                  1.0    ZSS/ZSSAppPage.qml
 ZSSFlickPage                1.0    ZSS/ZSSFlickPage.qml
+

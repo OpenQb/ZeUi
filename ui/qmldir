@@ -44,3 +44,4 @@ ZMSwitch 1.0 ZMSwitch.qml
 ZMPane 1.0 ZMPane.qml
 
 ZSpinner 1.0 ZSpinner.qml
+ZTextField 1.0 ZTextField.qml
