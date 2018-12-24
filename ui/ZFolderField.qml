@@ -46,7 +46,7 @@ Item {
             target: objFolderDialog.folderDialog
             onAccepted:{
                 //console.log(objFolderDialog.folderDialog.currentFolder)
-                var np = String(objFolderDialog.folderDialog.currentFolder);
+                var np = String(objFolderDialog.folderDialog.folder);
                 if(Qt.platform.os === "windows"){
                     np = np.substring(8);
                 }
@@ -169,6 +169,10 @@ Item {
                 }
                 onClicked: {
                     if(Qt.platform.os !=="android" && Qt.platform.os !== "ios" && !QbCoreOne.isBuiltForRaspberryPi()){
+                        var scheme ="file://";
+                        if(Qt.platform.os === "windows") scheme = scheme+"/";
+
+                        objFolderDialog.folderDialog.currentFolder = scheme+objTextField.text;
                         objFolderDialog.folderDialog.open();
                     }
                 }
