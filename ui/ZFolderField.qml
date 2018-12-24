@@ -162,11 +162,11 @@ Item {
                 width: 75
                 height: parent.height
                 text: "BROWSE"
-                Material.background: ZBTheme.accent
-//                background: Rectangle{
-//                    color: objButtonControl.down?objField.textFieldBackgroundColor:objField.labelFieldBackgroundColor
-//                    height: objButtonControl.height
-//                }
+                background: Rectangle{
+                    color: objButtonControl.down?objField.textFieldBackgroundColor:objField.labelFieldBackgroundColor
+                    height: objButtonControl.height
+                    implicitHeight: objButtonControl.height
+                }
                 onClicked: {
                     objFolderDialog.folderDialog.open();
                 }
