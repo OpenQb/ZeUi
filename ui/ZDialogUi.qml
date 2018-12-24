@@ -26,6 +26,7 @@ Rectangle {
     property int topMargin: 0
     property int bottomMargin: 0
     property int spacing: 10
+    property int topRadius: 5
 
     property Item mainView: null
     property ObjectModel model:null
@@ -93,7 +94,7 @@ Rectangle {
             Rectangle{
                 anchors.fill: parent
                 color: ZBLib.appUi.zBaseTheme.background
-                radius: 5
+                radius: objDialogRoot.topRadius
 
                 Rectangle{
                     id: objTopBar
@@ -101,7 +102,7 @@ Rectangle {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     height: 50
-                    radius: 5
+                    radius: objDialogRoot.topRadius
                     color: ZBLib.appUi.zBaseTheme.primary
                     Rectangle{
                         width: parent.width
