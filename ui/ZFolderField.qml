@@ -92,7 +92,7 @@ Item {
             }
 
             Rectangle{
-                width: parent.width - objLabelField.width - 75
+                width: parent.width - objLabelField.width - 80
                 height: parent.height
                 color: objField.textFieldBackgroundColor
                 border.width: objField.borderWidth
@@ -159,7 +159,7 @@ Item {
 
             Button{
                 id: objButtonControl
-                width: 70
+                width: 75
                 height: parent.height
                 text: "BROWSE"
                 background: Rectangle{
