@@ -46,3 +46,4 @@ ZMPane 1.0 ZMPane.qml
 ZSpinner 1.0 ZSpinner.qml
 ZTextField 1.0 ZTextField.qml
 ZFolderField 1.0 ZFolderField.qml
+ZComboBox    1.0 ZComboBox.qml
