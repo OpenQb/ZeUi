@@ -24,7 +24,7 @@ Item {
 
     property int radious: 0
     property int borderWidth: 0
-    property color borderColor: ZBTheme.accent
+    property color borderColor: ZBTheme.metaTheme.idarker(ZBTheme.accent,20)//ZBTheme.accent
     property color backgroundColor: ZBTheme.background
 
     property color labelFieldBackgroundColor: ZBTheme.background//useAlternateColor? ZBTheme.metaTheme.analagousColor(ZBTheme.accent)[0]:ZBTheme.accent
