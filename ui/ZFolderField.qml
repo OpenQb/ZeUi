@@ -1,8 +1,8 @@
 import Qb 1.0
 import Qb.Core 1.0
-import QtQuick 2.10
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
+import QtQuick 2.11
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.2
 
 import "./../base"
 
@@ -23,10 +23,10 @@ Item {
 
     property int radious: 0
     property int borderWidth: 0
-    property color borderColor: ZBTheme.metaTheme.idarker(ZBTheme.accent,20)//ZBTheme.accent
+    property color borderColor: ZBTheme.accent
     property color backgroundColor: ZBTheme.background
 
-    property color labelFieldBackgroundColor: ZBTheme.background//useAlternateColor?ZBTheme.metaTheme.analagousColor(ZBTheme.accent)[0]:ZBTheme.accent
+    property color labelFieldBackgroundColor: ZBTheme.background//useAlternateColor? ZBTheme.metaTheme.analagousColor(ZBTheme.accent)[0]:ZBTheme.accent
     property color labelFieldColor: ZBTheme.accent
     property color labelFieldTextColor: ZBTheme.metaTheme.textColor(labelFieldBackgroundColor)
 
@@ -37,6 +37,24 @@ Item {
     onActiveFocusChanged: {
         if(activeFocus){
             objTextField.forceActiveFocus();
+        }
+    }
+
+    ZNativeFolderDialog{
+        id: objFolderDialog
+        Connections{
+            target: objFolderDialog.folderDialog
+            onAccepted:{
+                //console.log(objFolderDialog.folderDialog.currentFolder)
+                var np = String(objFolderDialog.folderDialog.currentFolder);
+                if(Qt.platform.os === "windows"){
+                    np = np.substring(8);
+                }
+                else{
+                    np = np.substring(7);
+                }
+                objTextField.text  = np;
+            }
         }
     }
 
@@ -74,7 +92,7 @@ Item {
             }
 
             Rectangle{
-                width: parent.width - objLabelField.width
+                width: parent.width - objLabelField.width - 75
                 height: parent.height
                 color: objField.textFieldBackgroundColor
                 border.width: objField.borderWidth
@@ -136,6 +154,19 @@ Item {
                             }
                         }
                     }
+                }
+            }
+
+            Button{
+                id: objButtonControl
+                width: 75
+                height: parent.height
+                text: "BROWSE"
+                background: Rectangle{
+                    color: objButtonControl.down?objField.textFieldBackgroundColor:objField.labelFieldBackgroundColor
+                }
+                onClicked: {
+                    objFolderDialog.folderDialog.open();
                 }
             }
         }
