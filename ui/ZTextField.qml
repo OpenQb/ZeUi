@@ -101,8 +101,8 @@ Item {
                         acceptedButtons: Qt.LeftButton | Qt.RightButton
                         onClicked: {
                             var startPosition = objTextField.positionAt(mouse.x, mouse.y);
-                            console.log("Start pos:"+startPosition);
-                            console.log("Length:"+objTextField.text.length);
+                            //console.log("Start pos:"+startPosition);
+                            //console.log("Length:"+objTextField.text.length);
                             if(objTextField.text.length === 0){
                                 objTextField.cursorPosition = 0;
                             }
