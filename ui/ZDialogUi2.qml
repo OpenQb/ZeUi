@@ -325,16 +325,21 @@ Rectangle {
         if(objDialogRoot.mainView){
             try{objDialogRoot.mainView.destroy();}catch(e){}
         }
+        if(objDialogRoot.model){
+            try{objDialogRoot.model.destroy();}catch(e){}
+        }
+
         objDialogRoot.visible = false;
         objDialogRoot.focus = false;
         objDialogRoot.mainView = null;
     }
 
     function open(){
-        if(objDialogRoot.mainView === null && ZBLib.appUi){
+        if(objDialogRoot.mainView === null && ZBLib.appUi && objDialogRoot.model === null){
             objDialogRoot.visible = true;
             objDialogRoot.focus = true;
             objDialogRoot.forceActiveFocus();
+            objDialogRoot.model = objDialogRoot.modelComponent.createObject(objDialogRoot,{});
             objDialogRoot.mainView = compDialog.createObject(objDialogRoot,{})
         }
     }
