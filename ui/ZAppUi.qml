@@ -258,7 +258,7 @@ ZBAppUi{
             objPageView.insertItem(index,item);
             //objPageView.addItem(item);
             objPageView.nextIndex = index-1;
-            objPageView.currentIndex = -1;
+            objPageView.currentIndex = index-1;
         }
 
         function setCurrentPage(index){
