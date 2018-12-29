@@ -32,20 +32,22 @@ ZBAppUi{
 
     onIsAddingPageChanged: {
         if(isAddingPage) showLoadingScreen = true;
-        else{
-            objTimer.start();
+        else
+        {
+            objLoadingScreenTimer.start();
         }
     }
     property bool showLoadingScreen: false;
 
     Timer{
-        id: objTimer
-        interval: 1000
+        id: objLoadingScreenTimer
+        interval: 500
         repeat: false
         running: false
         onTriggered: {
-            console.log("Timer triggered.");
-            objTimer.stop();
+            //console.log("Timer triggered.");
+            objLoadingScreenTimer.stop();
+            objPageView.setCurrentPage(objPageView.nextIndex);
             objAppUi.showLoadingScreen = false;
         }
     }
