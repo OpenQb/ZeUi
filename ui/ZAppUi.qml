@@ -272,7 +272,7 @@ ZBAppUi{
             if(currentIndex !==-1){
                 var cPage = objPageView.getPage(objPageView.currentIndex);
                 if(cPage) {
-                    cPage.anchors.fill=objPageView;
+                    //cPage.anchors.fill=objPageView;
                     if(cPage.contextDock){
                         objDockView.dockItemModel = cPage.contextDock
                         objDockView.dockItemCurrentIndex = -1;
