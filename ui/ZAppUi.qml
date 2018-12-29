@@ -321,7 +321,7 @@ ZBAppUi{
             height: 25
             anchors.centerIn: parent
             text: QbFA.icon("fa-spinner")
-            color: ZeUi.ZBTheme.metaTheme.textColor(ZeUi.ZBTheme.metaTheme.primary)
+            color: ZBTheme.metaTheme.textColor(ZBTheme.metaTheme.primary)
             font.pixelSize: 18
             font.family: QbFA.family
             verticalAlignment: Text.AlignVCenter
