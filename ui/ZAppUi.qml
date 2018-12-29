@@ -228,6 +228,7 @@ ZBAppUi{
             id: objTimer
             interval: 500
             repeat: false
+            running: false
             onTriggered: {
                 console.log("Timer triggered.");
                 objTimer.stop();
