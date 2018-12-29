@@ -31,7 +31,23 @@ ZBAppUi{
     }
 
     onIsAddingPageChanged: {
+        if(isAddingPage) showLoadingScreen = true;
+        else{
+            objTimer.start();
+        }
+    }
+    property bool showLoadingScreen: false;
 
+    Timer{
+        id: objTimer
+        interval: 1000
+        repeat: false
+        running: false
+        onTriggered: {
+            console.log("Timer triggered.");
+            objTimer.stop();
+            objAppUi.showLoadingScreen = false;
+        }
     }
 
     Component.onCompleted: {
@@ -229,30 +245,16 @@ ZBAppUi{
         activeFocusOnTab: false
         property int nextIndex: -1;
 
-
-        Timer{
-            id: objTimer
-            interval: 1000
-            repeat: false
-            running: false
-            onTriggered: {
-                console.log("Timer triggered.");
-                objTimer.stop();
-                //objPageView.setCurrentPage(objPageView.nextIndex);
-            }
-        }
-
         function getPage(index){
             return objPageView.itemAt(index);
         }
 
         function insertPage(index,item){
             objPageView.currentIndex = -1;
-            //objPageView.insertItem(index,item);
-            objPageView.addItem(item);
+            objPageView.insertItem(index,item);
+            //objPageView.addItem(item);
             objPageView.nextIndex = index;
             objPageView.currentIndex = -1;
-            objTimer.start();
         }
 
         function setCurrentPage(index){
@@ -312,7 +314,7 @@ ZBAppUi{
 
 
     Rectangle{
-        visible: objAppUi.isAddingPage
+        visible: objAppUi.showLoadingScreen
         anchors.fill: parent
         color: objAppUi.mCT("black",150)
         Text{
@@ -326,7 +328,7 @@ ZBAppUi{
             font.family: QbFA.family
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
-            visible: objAppUi.isAddingPage
+            visible: objAppUi.showLoadingScreen
             RotationAnimation on rotation {
                 loops: Animation.Infinite
                 from: 0
