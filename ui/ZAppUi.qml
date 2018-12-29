@@ -335,5 +335,16 @@ ZBAppUi{
                 duration: 1000
             }
         }
+
+        MouseArea{
+            anchors.fill: parent
+            preventStealing: true
+            onClicked: {
+            }
+            onDoubleClicked: {
+            }
+            onPressed: {
+            }
+        }
     }
 }
