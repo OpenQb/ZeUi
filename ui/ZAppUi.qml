@@ -226,7 +226,7 @@ ZBAppUi{
 
         Timer{
             id: objTimer
-            interval: 500
+            interval: 1000
             repeat: false
             running: false
             onTriggered: {
