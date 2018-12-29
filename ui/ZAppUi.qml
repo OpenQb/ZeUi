@@ -49,6 +49,7 @@ ZBAppUi{
             objLoadingScreenTimer.stop();
             objPageView.setCurrentPage(objPageView.nextIndex);
             objAppUi.showLoadingScreen = false;
+            console.log("Changing page:"+objPageView.nextIndex);
         }
     }
 
