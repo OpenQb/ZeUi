@@ -224,6 +224,7 @@ ZBAppUi{
         activeFocusOnTab: false
         property int nextIndex: -1;
 
+
         Timer{
             id: objTimer
             interval: 1000
@@ -232,7 +233,7 @@ ZBAppUi{
             onTriggered: {
                 console.log("Timer triggered.");
                 objTimer.stop();
-                objPageView.setCurrentPage(objPageView.nextIndex);
+                //objPageView.setCurrentPage(objPageView.nextIndex);
             }
         }
 
@@ -242,7 +243,8 @@ ZBAppUi{
 
         function insertPage(index,item){
             objPageView.currentIndex = -1;
-            objPageView.insertItem(index,item);
+            //objPageView.insertItem(index,item);
+            objPageView.addItem(item);
             objPageView.nextIndex = index;
             objPageView.currentIndex = -1;
             objTimer.start();
