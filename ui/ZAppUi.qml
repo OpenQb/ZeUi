@@ -284,12 +284,5 @@ ZBAppUi{
                 }
             }
         }
-        MouseArea{
-            anchors.fill: parent
-            preventStealing: true
-            onPressed: {
-                objDockView.closePageMenu();
-            }
-        }
     }
 }
