@@ -1,4 +1,5 @@
 import Qb 1.0
+import QbEx 1.0
 import Qb.Core 1.0
 import Qb.Android 1.0
 
@@ -27,6 +28,10 @@ ZBAppUi{
     }
     Keys.onReleased: {
         //console.log("Released event");
+    }
+
+    onIsAddingPageChanged: {
+
     }
 
     Component.onCompleted: {
@@ -301,6 +306,33 @@ ZBAppUi{
                         objDockView.dockItemCurrentIndex = -1;
                     }
                 }
+            }
+        }
+    }
+
+
+    Rectangle{
+        visible: objAppUi.isAddingPage
+        anchors.fill: parent
+        color: objAppUi.mCT("black",150)
+        Text{
+            id: objBusyIndicator
+            width: 25
+            height: 25
+            anchors.centerIn: parent
+            text: QbFA.icon("fa-spinner")
+            color: ZeUi.ZBTheme.metaTheme.textColor(ZeUi.ZBTheme.metaTheme.primary)
+            font.pixelSize: 18
+            font.family: QbFA.family
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            visible: objAppUi.isAddingPage
+            RotationAnimation on rotation {
+                loops: Animation.Infinite
+                from: 0
+                to: 360
+                direction: RotationAnimation.Clockwise
+                duration: 1000
             }
         }
     }
