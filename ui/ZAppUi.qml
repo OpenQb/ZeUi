@@ -319,12 +319,12 @@ ZBAppUi{
         color: objAppUi.mCT("black",150)
         Text{
             id: objBusyIndicator
-            width: 25
-            height: 25
+            width: 30
+            height: 30
             anchors.centerIn: parent
             text: QbFA.icon("fa-spinner")
             color: ZBTheme.metaTheme.textColor(ZBTheme.metaTheme.primary)
-            font.pixelSize: 18
+            font.pixelSize: 20
             font.family: QbFA.family
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
