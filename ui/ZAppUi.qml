@@ -252,6 +252,7 @@ ZBAppUi{
         }
 
         function insertPage(index,item){
+            console.log("Inserting page");
             objPageView.currentIndex = -1;
             objPageView.insertItem(index,item);
             //objPageView.addItem(item);
