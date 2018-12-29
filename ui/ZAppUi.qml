@@ -222,14 +222,27 @@ ZBAppUi{
         interactive: false
         focus:false
         activeFocusOnTab: false
+        property int nextIndex: -1;
+
+        Timer{
+            id: objTimer
+            interval: 500
+            repeat: false
+            onTriggered: {
+                objTimer.stop();
+                objPageView.setCurrentPage(objPageView.nextIndex);
+            }
+        }
 
         function getPage(index){
             return objPageView.itemAt(index);
         }
 
         function insertPage(index,item){
+            objPageView.currentIndex = -1;
             objPageView.insertItem(index,item);
-            objPageView.setCurrentPage(index);
+            objPageView.nextIndex = index;
+            objTimer.start();
         }
 
         function setCurrentPage(index){
