@@ -229,6 +229,7 @@ ZBAppUi{
             interval: 500
             repeat: false
             onTriggered: {
+                console.log("Timer triggered.");
                 objTimer.stop();
                 objPageView.setCurrentPage(objPageView.nextIndex);
             }
