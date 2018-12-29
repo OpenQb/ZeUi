@@ -41,7 +41,7 @@ ZBAppUi{
 
     Timer{
         id: objLoadingScreenTimer
-        interval: 500
+        interval: 300
         repeat: false
         running: false
         onTriggered: {
@@ -49,7 +49,7 @@ ZBAppUi{
             objLoadingScreenTimer.stop();
             objPageView.setCurrentPage(objPageView.nextIndex);
             objAppUi.showLoadingScreen = false;
-            console.log("Changing page:"+objPageView.nextIndex);
+            //console.log("Changing page:"+objPageView.nextIndex);
         }
     }
 
@@ -253,7 +253,7 @@ ZBAppUi{
         }
 
         function insertPage(index,item){
-            console.log("Inserting page");
+            //console.log("Inserting page");
             objPageView.currentIndex = -1;
             objPageView.insertItem(index,item);
             //objPageView.addItem(item);
