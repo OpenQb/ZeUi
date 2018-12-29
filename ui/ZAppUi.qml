@@ -244,6 +244,7 @@ ZBAppUi{
             objPageView.currentIndex = -1;
             objPageView.insertItem(index,item);
             objPageView.nextIndex = index;
+            objPageView.currentIndex = -1;
             objTimer.start();
         }
 
