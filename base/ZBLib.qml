@@ -8,7 +8,7 @@ import QtQuick 2.11
 
 QtObject {
     id: objBaseLib
-    property Item appUi: null
+    property var appUi: null
 
     signal dataSignal(string title, string data);
 
