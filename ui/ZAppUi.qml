@@ -54,6 +54,7 @@ ZBAppUi{
     }
 
     Component.onCompleted: {
+        ZBLib.appUi = objAppUi;
         objDockView.open();
         if(objAppUi.androidFullScreen){
             enableAndroidFullScreen();
