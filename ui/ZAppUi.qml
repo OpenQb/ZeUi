@@ -231,7 +231,8 @@ ZBAppUi{
 
         //KeyNavigation.tab: objPageView
         //KeyNavigation.priority: KeyNavigation.BeforeItem
-    }
+
+    }//ZSideDockSmartView
 
 
     SwipeView{
@@ -314,7 +315,7 @@ ZBAppUi{
                 }
             }
         }
-    }
+    }//SwipeView
 
 
 
@@ -322,6 +323,7 @@ ZBAppUi{
         visible: objAppUi.showLoadingScreen
         anchors.fill: parent
         color: objAppUi.mCT("black",150)
+        z: 99999999999
         Text{
             id: objBusyIndicator
             width: 30
