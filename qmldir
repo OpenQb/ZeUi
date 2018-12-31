@@ -18,6 +18,7 @@ ZJSONView                   1.0    ui/ZJSONView.qml
 ZNativeFileDialog           1.0    ui/ZNativeFileDialog.qml
 ZNativeFolderDialog         1.0    ui/ZNativeFolderDialog.qml
 ZPage                       1.0    ui/ZPage.qml
+ZErrorPage                  1.0    ui/ZErrorPage.qml
 ZSideDockSmartView          1.0    ui/ZSideDockSmartView.qml
 ZSideDockView               1.0    ui/ZSideDockView.qml
 ZFolderDialog               1.0    ui/ZFolderDialog.qml
