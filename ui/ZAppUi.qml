@@ -30,28 +30,28 @@ ZBAppUi{
         //console.log("Released event");
     }
 
-    onIsAddingPageChanged: {
-        if(isAddingPage) showLoadingScreen = true;
-        else
-        {
-            objLoadingScreenTimer.start();
-        }
-    }
-    property bool showLoadingScreen: false;
+//    onIsAddingPageChanged: {
+//        if(isAddingPage) showLoadingScreen = true;
+//        else
+//        {
+//            objLoadingScreenTimer.start();
+//        }
+//    }
+//    property bool showLoadingScreen: false;
 
-    Timer{
-        id: objLoadingScreenTimer
-        interval: 300
-        repeat: false
-        running: false
-        onTriggered: {
-            //console.log("Timer triggered.");
-            objLoadingScreenTimer.stop();
-            objPageView.setCurrentPage(objPageView.nextIndex);
-            objAppUi.showLoadingScreen = false;
-            //console.log("Changing page:"+objPageView.nextIndex);
-        }
-    }
+//    Timer{
+//        id: objLoadingScreenTimer
+//        interval: 300
+//        repeat: false
+//        running: false
+//        onTriggered: {
+//            //console.log("Timer triggered.");
+//            objLoadingScreenTimer.stop();
+//            objPageView.setCurrentPage(objPageView.nextIndex);
+//            objAppUi.showLoadingScreen = false;
+//            //console.log("Changing page:"+objPageView.nextIndex);
+//        }
+//    }
 
     Component.onCompleted: {
         objDockView.open();
@@ -317,40 +317,43 @@ ZBAppUi{
     }
 
 
-    Rectangle{
-        visible: objAppUi.showLoadingScreen
-        anchors.fill: parent
-        color: objAppUi.mCT("black",150)
-        Text{
-            id: objBusyIndicator
-            width: 30
-            height: 30
-            anchors.centerIn: parent
-            text: QbFA.icon("fa-spinner")
-            color: ZBTheme.metaTheme.textColor(ZBTheme.metaTheme.primary)
-            font.pixelSize: 20
-            font.family: QbFA.family
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            visible: objAppUi.showLoadingScreen
-            RotationAnimation on rotation {
-                loops: Animation.Infinite
-                from: 0
-                to: 360
-                direction: RotationAnimation.Clockwise
-                duration: 1000
-            }
-        }
 
-        MouseArea{
-            anchors.fill: parent
-            preventStealing: true
-            onClicked: {
-            }
-            onDoubleClicked: {
-            }
-            onPressed: {
-            }
-        }
-    }
+//    Rectangle{
+//        visible: objAppUi.showLoadingScreen
+//        anchors.fill: parent
+//        color: objAppUi.mCT("black",150)
+//        Text{
+//            id: objBusyIndicator
+//            width: 30
+//            height: 30
+//            anchors.centerIn: parent
+//            text: QbFA.icon("fa-spinner")
+//            color: ZBTheme.metaTheme.textColor(ZBTheme.metaTheme.primary)
+//            font.pixelSize: 20
+//            font.family: QbFA.family
+//            verticalAlignment: Text.AlignVCenter
+//            horizontalAlignment: Text.AlignHCenter
+//            visible: objAppUi.showLoadingScreen
+//            RotationAnimation on rotation {
+//                loops: Animation.Infinite
+//                from: 0
+//                to: 360
+//                direction: RotationAnimation.Clockwise
+//                duration: 1000
+//            }
+//        }
+
+//        MouseArea{
+//            anchors.fill: parent
+//            preventStealing: true
+//            onClicked: {
+//            }
+//            onDoubleClicked: {
+//            }
+//            onPressed: {
+//            }
+//        }
+//    }
+
+
 }
