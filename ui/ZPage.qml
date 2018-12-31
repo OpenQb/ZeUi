@@ -7,4 +7,7 @@ ZBPage {
     property ListModel contextDock: null;
     signal selectedContextDockItem(string title,int index,int x,int y);
     signal selectedByMouse();
+
+    property var zBaseLib: ZBLib
+    property var zBaseTheme: ZBTheme
 }
