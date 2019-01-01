@@ -277,7 +277,18 @@ ZBAppUi{
                     item.visible = false;
                     item.focus = false;
                     item.pageClosing();
-                    delete item;
+                    try
+                    {
+                        item.destroy();
+                    }
+                    catch(e){
+                    }
+                    try{
+                        delete item;
+                    }
+                    catch(e){
+                    }
+
                     return true;
                 }
                 catch(e){
