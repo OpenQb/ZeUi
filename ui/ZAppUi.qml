@@ -241,6 +241,7 @@ ZBAppUi{
         anchors.left: objDockView.right
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+        clip: true
 
         //KeyNavigation.tab: objDockView
         //KeyNavigation.priority: KeyNavigation.BeforeItem
