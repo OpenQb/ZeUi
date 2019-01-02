@@ -14,6 +14,7 @@ Item {
     height: 40
 
     property alias fieldText: objTextField.text
+    property alias textInputItem: objTextField
 
     property string label: "Label"
     property int labelWidth: 20
