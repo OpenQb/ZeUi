@@ -177,6 +177,7 @@ ZBAppUi{
 
         property int nextIndex: -1;
         property int currentIndex: -1;
+        property int count: 0
 
         QbOneOneMap{
             id: objMap
@@ -203,19 +204,25 @@ ZBAppUi{
 
             objPageView.currentIndex = -1;
             objMap.insert(index,index,item);
+            objPageView.count = objMap.count();
             objPageView.nextIndex = index-1;
             objPageView.currentIndex = index-1;
         }
 
-        function setCurrentPage(index){
+        function setCurrentPage(index)
+        {
             objPageView.setCurrentIndex(index)
         }
 
-        function takePage(index){
-            return objMap.take(index);
+        function takePage(index)
+        {
+           var p = objMap.take(index);
+            objPageView.count = objMap.count();
+            return p;
         }
 
-        function removePage(index){
+        function removePage(index)
+        {
             if(objMap.count>0){
                 try{
                     var item = objPageView.takePage(index);
