@@ -12,7 +12,7 @@ ZBItem                      1.0    base/ZBItem.qml
 ZBCoreDM                    1.0    base/ZBCoreDM.qml
 ZBFlickPage                 1.0    base/ZBFlickPage.qml
 
-
+ZAppBaseUi                  1.0    ui/ZAppBaseUi.qml
 ZAppUi                      1.0    ui/ZAppUi.qml
 ZJSONView                   1.0    ui/ZJSONView.qml
 ZNativeFileDialog           1.0    ui/ZNativeFileDialog.qml

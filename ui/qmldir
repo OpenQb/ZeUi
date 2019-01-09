@@ -10,7 +10,7 @@ ZBSideDockView 1.0 ../base/ZBSideDockView.qml
 ZBItem 1.0 ../base/ZBItem.qml
 ZBCoreDM 1.0 ../base/ZBCoreDM.qml
 
-
+ZAppBaseUi 1.0 ZAppBaseUi.qml
 ZAppUi 1.0 ZAppUi.qml
 ZJSONView 1.0 ZJSONView.qml
 ZNativeFileDialog 1.0 ZNativeFileDialog.qml
