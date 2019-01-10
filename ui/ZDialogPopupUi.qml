@@ -161,7 +161,7 @@ Popup {
                                         objCloseButtonBG.isHovered = false;
                                     }
                                     onClicked: {
-                                        objPopup.close();
+                                        objPopup.closeDialog();
                                     }
                                 }
                             }
