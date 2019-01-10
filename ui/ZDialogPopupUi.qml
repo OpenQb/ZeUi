@@ -89,7 +89,7 @@ Popup {
 
                 Rectangle{
                     anchors.fill: parent
-                    color: ZBLib.appUi.zBaseTheme.background
+                    color: QbUtil.getAppObject(objPopup.appId,"ZBTheme").background
 
                     Rectangle{
                         id: objTopBar
@@ -97,11 +97,11 @@ Popup {
                         anchors.left: parent.left
                         anchors.right: parent.right
                         height: 50
-                        color: ZBLib.appUi.zBaseTheme.primary
+                        color: QbUtil.getAppObject(objPopup.appId,"ZBTheme").primary
                         Rectangle{
                             width: parent.width
                             height: 5
-                            color: ZBLib.appUi.zBaseTheme.primary
+                            color: QbUtil.getAppObject(objPopup.appId,"ZBTheme").primary
                             anchors.bottom: parent.bottom
                         }
                         Text{
@@ -113,9 +113,9 @@ Popup {
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                             text: objPopup.title
-                            font.family: ZBLib.appUi.zBaseTheme.defaultFontFamily
-                            font.pixelSize: ZBLib.appUi.zBaseTheme.defaultFontSize+3
-                            color: ZBLib.appUi.zBaseTheme.metaTheme.isDark(ZBLib.appUi.zBaseTheme.primary)?"white":"black"
+                            font.family: QbUtil.getAppObject(objPopup.appId,"ZBTheme").defaultFontFamily
+                            font.pixelSize: QbUtil.getAppObject(objPopup.appId,"ZBTheme").defaultFontSize+3
+                            color: QbUtil.getAppObject(objPopup.appId,"ZBTheme").metaTheme.isDark(QbUtil.getAppObject(objPopup.appId,"ZBTheme").primary)?"white":"black"
                         }
                         Item{
                             id: objCloseButton
@@ -131,7 +131,7 @@ Popup {
                                 radius: height/2.0
                                 activeFocusOnTab: true
                                 property bool isHovered: false
-                                color: isHovered?ZBLib.appUi.zBaseTheme.metaTheme.lighter(ZBLib.appUi.zBaseTheme.accent,180):focus?ZBLib.appUi.zBaseTheme.metaTheme.lighter(ZBLib.appUi.zBaseTheme.accent,180):ZBLib.appUi.zBaseTheme.accent
+                                color: isHovered?QbUtil.getAppObject(objPopup.appId,"ZBTheme").metaTheme.lighter(QbUtil.getAppObject(objPopup.appId,"ZBTheme").accent,180):focus?QbUtil.getAppObject(objPopup.appId,"ZBTheme").metaTheme.lighter(QbUtil.getAppObject(objPopup.appId,"ZBTheme").accent,180):QbUtil.getAppObject(objPopup.appId,"ZBTheme").accent
                                 Keys.onPressed: {
                                     if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Space){
                                         event.accepted = true;
@@ -149,7 +149,7 @@ Popup {
                                     font.family: QbMF3.family
                                     text: QbMF3.icon("mf-close")
                                     font.pixelSize: parent.height/2
-                                    color: ZBLib.appUi.zBaseTheme.metaTheme.isDark(ZBLib.appUi.zBaseTheme.accent)?"white":"black"
+                                    color: QbUtil.getAppObject(objPopup.appId,"ZBTheme").metaTheme.isDark(QbUtil.getAppObject(objPopup.appId,"ZBTheme").accent)?"white":"black"
                                 }
                                 MouseArea{
                                     anchors.fill: parent
@@ -193,10 +193,10 @@ Popup {
                             Keys.onUpPressed: objScrollBar.decrease()
                             Keys.onDownPressed: objScrollBar.increase()
                         }
-                        Material.accent: ZBLib.appUi.zBaseTheme.accent
-                        Material.primary: ZBLib.appUi.zBaseTheme.primary
-                        Material.foreground: ZBLib.appUi.zBaseTheme.foreground
-                        Material.background: ZBLib.appUi.zBaseTheme.background
+                        Material.accent: QbUtil.getAppObject(objPopup.appId,"ZBTheme").accent
+                        Material.primary: QbUtil.getAppObject(objPopup.appId,"ZBTheme").primary
+                        Material.foreground: QbUtil.getAppObject(objPopup.appId,"ZBTheme").foreground
+                        Material.background: QbUtil.getAppObject(objPopup.appId,"ZBTheme").background
                         Component.onCompleted: {
                             objPopup.dialogView = objListView;
                         }
