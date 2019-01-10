@@ -76,7 +76,8 @@ QbApp {
         }
     }
 
-    function mCT(c,v){
-        return ZBTheme.metaTheme.changeTransparency(c,v);
+    function mCT(c,v)
+    {
+        return QbUtil.getAppObject(objBaseAppUiRoot.appId,"ZBTheme").metaTheme.changeTransparency(c,v);
     }
 }
