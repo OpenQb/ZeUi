@@ -12,7 +12,7 @@ Popup {
 
     modal: true
     focus: true
-    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+    closePolicy: Popup.NoAutoClose
 
     topPadding: 0
     bottomPadding: 0
