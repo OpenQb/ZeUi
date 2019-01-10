@@ -93,9 +93,9 @@ Popup {
 
                     Rectangle{
                         id: objTopBar
-                        anchors.top: parent.top
-                        anchors.left: parent.left
-                        anchors.right: parent.right
+                        x: 0
+                        y: 0
+                        width: parent.width
                         height: 50
                         color: QbUtil.getAppObject(objPopup.appId,"ZBTheme").primary
                         Rectangle{
@@ -106,10 +106,7 @@ Popup {
                         }
                         Text{
                             id: objTitle
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.top: parent.top
-                            anchors.bottom: parent.bottom
+                            anchors.fill: parent
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                             text: objPopup.title
