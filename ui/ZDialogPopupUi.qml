@@ -19,6 +19,8 @@ Popup {
     leftPadding: 0
     rightPadding: 0
 
+    property string appId: ""
+
     property int dialogLeftMargin: 0
     property int dialogRightMargin: 0
     property int dialogTopMargin: 0
@@ -298,8 +300,7 @@ Popup {
     }
 
     function openDialog(){
-        console.log("ZBLIb",ZBLib.appUi);
-        if(objPopup.mainView === null && ZBLib.appUi && objPopup.model === null)
+        if(objPopup.mainView === null && QbUtil.getAppObject(objPopup.appId,"appUi") && objPopup.model === null)
         {
             console.log("Opening dialog.");
             objPopup.model = objPopup.modelComponent.createObject(objDialogRoot,{});

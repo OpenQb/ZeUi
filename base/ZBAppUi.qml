@@ -41,6 +41,13 @@ QbApp {
 
     Component.onCompleted: {
         ZBLib.appUi = objBaseAppUiRoot;
+        QbUtil.addAppObject(objBaseAppUiRoot.appId,"appUi",objBaseAppUiRoot);
+        QbUtil.addAppObject(objBaseAppUiRoot.appId,"ZBLib",ZBLib);
+        QbUtil.addAppObject(objBaseAppUiRoot.appId,"ZBTheme",ZBTheme);
+    }
+
+    Component.onDestruction: {
+        QbUtil.cleanAppObject(objBaseAppUiRoot.appId);
     }
 
     function appResized(){
