@@ -52,3 +52,5 @@ ZComboBox    1.0 ZComboBox.qml
 ZSlider      1.0 ZSlider.qml
 ZDialogPopupUi 1.0 ZDialogPopupUi.qml
 ZSpinBox 1.0 ZSpinBox.qml
+
+ZCheckBox 1.0 ZCheckBox.qml

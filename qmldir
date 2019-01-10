@@ -52,6 +52,7 @@ ZComboBox                   1.0    ui/ZComboBox.qml
 ZSlider                     1.0    ui/ZSlider.qml
 ZDialogPopupUi              1.0    ui/ZDialogPopupUi.qml
 ZSpinBox                    1.0    ui/ZSpinBox.qml
+ZCheckBox                   1.0    ui/ZCheckBox.qml
 
 ZSOneAppPage                1.0    ZSOne/ZSOneAppPage.qml
 ZSOneAppUi                  1.0    ZSOne/ZSOneAppUi.qml
