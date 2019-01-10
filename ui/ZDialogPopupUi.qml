@@ -309,8 +309,9 @@ Popup {
     function openDialog(){
         if(objPopup.mainView === null && QbUtil.getAppObject(objPopup.appId,"appUi") && objPopup.model === null)
         {
-            console.log("Opening dialog.");
-            objPopup.model = objPopup.modelComponent.createObject(objDialogRoot,{});
+            if(objPopup.modelComponent){
+                objPopup.model = objPopup.modelComponent.createObject(objDialogRoot,{});
+            }
             objPopup.mainView = compDialog.createObject(objDialogRoot,{});
             objPopup.open();
         }
