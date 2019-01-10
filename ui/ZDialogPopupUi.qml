@@ -83,9 +83,10 @@ Popup {
             id: compDialog
             Item{
                 id: objDialog
-                width: objDialogRoot.dialogWidth
-                height: objDialogRoot.dialogHeight
-                anchors.centerIn: parent
+                x: 0
+                y: 0
+                width: objPopup.dialogWidth
+                height: objPopup.dialogHeight
 
                 Rectangle{
                     anchors.fill: parent
