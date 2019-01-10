@@ -53,13 +53,14 @@ Popup {
 
     onStatusBarMessageChanged: {
         if(statusBarMessage !== ""){
-            if(objStatusBarClearTimer.running) objStatusBarClearTimer.stop();
-            objStatusBarClearTimer.start();
+            if(objDialogRoot.statusBarClearTimer.running) objDialogRoot.statusBarClearTimer.stop();
+            objDialogRoot.statusBarClearTimer.start();
         }
     }
 
     contentItem: Rectangle{
         id: objDialogRoot
+        property alias statusBarClearTimer: objStatusBarClearTimer
 
         onWidthChanged: {
             objPopup.dialogWidth = objDialogRoot.width;
