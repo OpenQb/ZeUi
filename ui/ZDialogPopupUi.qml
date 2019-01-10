@@ -11,6 +11,7 @@ Popup {
     modal: true
     focus: true
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+
     topPadding: 0
     bottomPadding: 0
     leftPadding: 0
@@ -34,30 +35,30 @@ Popup {
     property Item dialogView: null
     property int currentIndex:-1
 
-    onStatusBarMessageChanged: {
-        if(statusBarMessage !== ""){
-            if(objStatusBarClearTimer.running) objStatusBarClearTimer.stop();
-            objStatusBarClearTimer.start();
-        }
-    }
+//    onStatusBarMessageChanged: {
+//        if(statusBarMessage !== ""){
+//            if(objStatusBarClearTimer.running) objStatusBarClearTimer.stop();
+//            objStatusBarClearTimer.start();
+//        }
+//    }
 
     contentItem: Rectangle{
 
-        Connections{
-            target: ZBLib.appUi
-            onAppClosing:{
-                objPopup.close();
-            }
-        }
+//        Connections{
+//            target: ZBLib.appUi
+//            onAppClosing:{
+//                objPopup.close();
+//            }
+//        }
 
-        Timer{
-            id: objStatusBarClearTimer
-            interval: 5000
-            onTriggered: {
-                objDialogRoot.statusBarMessage = ""
-                objStatusBarClearTimer.stop();
-            }
-        }
+//        Timer{
+//            id: objStatusBarClearTimer
+//            interval: 5000
+//            onTriggered: {
+//                objDialogRoot.statusBarMessage = ""
+//                objStatusBarClearTimer.stop();
+//            }
+//        }
 
         Text{
             anchors.fill: parent
