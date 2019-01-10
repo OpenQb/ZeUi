@@ -50,6 +50,7 @@ ZTextField                  1.0    ui/ZTextField.qml
 ZFolderField                1.0    ui/ZFolderField.qml
 ZComboBox                   1.0    ui/ZComboBox.qml
 ZSlider                     1.0    ui/ZSlider.qml
+ZDialogPopupUi              1.0    ui/ZDialogPopupUi.qml
 
 ZSOneAppPage                1.0    ZSOne/ZSOneAppPage.qml
 ZSOneAppUi                  1.0    ZSOne/ZSOneAppUi.qml
