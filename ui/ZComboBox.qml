@@ -15,6 +15,7 @@ Item {
 
     property alias fieldText: objComboBox.currentText
     property alias comboBoxModel: objComboBox.model
+    property alias comboBox: objComboBox
 
     property string label: "Label"
     property int labelWidth: 20
