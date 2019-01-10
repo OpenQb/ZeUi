@@ -178,7 +178,7 @@ Popup {
                         anchors.topMargin: objPopup.dialogTopMargin
                         anchors.bottom: objStatusBar.top
                         anchors.bottomMargin: objPopup.dialogBottomMargin
-                        interactive: objPopup.interactive
+                        interactive: objPopup.dialogInteractive
                         model: objPopup.model
                         activeFocusOnTab: true
                         highlightFollowsCurrentItem: true
