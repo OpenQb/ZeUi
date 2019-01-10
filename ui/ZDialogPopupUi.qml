@@ -33,9 +33,9 @@ Popup {
     property string title: "Dialog"
 
     property bool enableStatusBar: false;
-    property int dialogWidth: parent.width
-    property int dialogHeight: parent.height
-    property int availableDialogHeight: enableStatusBar?dialogHeight - 50*2:dialogHeight - 50*1
+    property int dialogWidth;
+    property int dialogHeight;
+    property int availableDialogHeight;
 
 
     property string statusBarButtonText: "OK";
@@ -61,6 +61,14 @@ Popup {
     contentItem: Rectangle{
         id: objDialogRoot
 
+        onWidthChanged: {
+            objPopup.dialogWidth = objDialogRoot.width;
+        }
+        onHeightChanged: {
+            objPopup.dialogHeight = objDialogRoot.height;
+            objPopup.availableDialogHeight =  objPopup.enableStatusBar?objPopup.dialogHeight - 50*2:objPopup.dialogHeight - 50*1
+        }
+
         Connections{
             target: ZBLib.appUi
             onAppClosing:{
@@ -85,8 +93,8 @@ Popup {
                 id: objDialog
                 x: 0
                 y: 0
-                width: objPopup.dialogWidth
-                height: objPopup.dialogHeight
+                width: objDialogRoot.width
+                height: objDialogRoot.height
 
                 Rectangle{
                     anchors.fill: parent
