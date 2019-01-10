@@ -250,7 +250,7 @@ Popup {
                         visible: objPopup.enableStatusBar
                         width: parent.width
                         height: objPopup.enableStatusBar?QbCoreOne.scale(50):0
-                        color: ZBTheme.primary
+                        color: QbUtil.getAppObject(objPopup.appId,"ZBTheme").primary
                         Label{
                             anchors.left: parent.left
                             anchors.leftMargin: QbCoreOne.scale(5)
@@ -266,7 +266,7 @@ Popup {
                         }
                         Button{
                             id: objOKButton
-                            Material.background: ZBTheme.secondary
+                            Material.background: QbUtil.getAppObject(objPopup.appId,"ZBTheme").secondary
                             Material.theme: Material.Light
                             text: objPopup.statusBarButtonText
                             anchors.right: parent.right
@@ -280,7 +280,7 @@ Popup {
                                 anchors.left: parent.left
                                 anchors.right: parent.right
                                 height: QbCoreOne.scale(2)
-                                color: ZBTheme.accent
+                                color: QbUtil.getAppObject(objPopup.appId,"ZBTheme").accent
                             }
                         }
                     }
