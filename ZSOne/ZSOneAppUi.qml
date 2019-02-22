@@ -151,7 +151,7 @@ ZBAppUi{
         var index = objPageListModel.count - 1;
         while(index !=-1)
         {
-            ZBLib.removePage(objAppUi,objPageView,index);
+            closePage(index);
             --index;
         }
     }
