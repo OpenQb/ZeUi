@@ -146,6 +146,16 @@ ZBAppUi{
         ZBLib.removePage(objAppUi,objPageView,index);
     }
 
+    function closeAllPage()
+    {
+        var index = objPageListModel.count - 1;
+        while(index !=-1)
+        {
+            ZBLib.removePage(objAppUi,objPageView,index);
+            --index;
+        }
+    }
+
     function closeCurrentPage(){
         ZBLib.removePage(objAppUi,objPageView,objPageView.currentIndex);
     }
